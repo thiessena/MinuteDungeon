@@ -1,26 +1,24 @@
 
-/**
- * Beschreiben Sie hier die Klasse Spieler.
- * 
- * @author (Ihr Name) 
- * @version (eine Versionsnummer oder ein Datum)
- */
-public class Spieler
-{
-  
-    public Spieler()
-    {
-        
-    }
-
-   /**
-    *   public void KartenNachziehenNachziehstapel(){
-        Handkarten.add(Spieler.getNachziehstapel());
-        }
+public class Spieler{
+    private Kartenstapel nachziehstapel;
+    private Kartenstapel ablagestapel;
+    private int spielerID;
     
-         public void KartenNachziehenAblagestapel(){
-        Handkarten.add(Spieler.getAblagestapel());
-        }
-    */
-  
+    public Spieler(int pID, Kartenstapel pNachziehstapel, Kartenstapel pAblagestapel){
+        spielerID = pID;
+        nachziehstapel = pNachziehstapel;
+        ablagestapel = pAblagestapel;
+    }
+    
+    public Kartenstapel getNachziestapel(){
+        return nachziehstapel;
+    }
+    
+    public Kartenstapel getAblagestapel(){
+        return ablagestapel;
+    }
+    
+    public int getID(){
+        return spielerID;
+    }
 }

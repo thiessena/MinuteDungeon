@@ -2,7 +2,8 @@
 public class Ereigniskarte
 {
    
-    private String text;
+    private String Beschreiung;
+    private String Name;
     public String farbe;
     public int anzahl;
 
@@ -13,5 +14,6 @@ public class Ereigniskarte
     {
        
     }
+   
 
 }

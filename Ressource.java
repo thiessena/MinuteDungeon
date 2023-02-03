@@ -1,7 +1,7 @@
 public class Ressource
 {
-    public String Farbe;
-    public int Anzahl;
+    private String Farbe;
+    private int Anzahl;
     
     public Ressource()
     {

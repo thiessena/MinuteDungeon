@@ -2,19 +2,16 @@ public class GegnerEreigniskarte extends Ereigniskarte
 {
     private String gegnertyp;
 
-    public GegnerEreigniskarte(String farbe, String Name, String Beschreiung)
-    {
-
+    public GegnerEreigniskarte(String pName, String pBeschreiung){
+        super(pName, pBeschreiung);
     }
 
-    public void beseitigen(){
-
-        if(gegnertyp.equals(Gegnerkarte.getTyp())){
-            System.out.println("Gegner beseitigt!")
+    public void beseitigen(Gegnerkarte gK){
+        if(gegnertyp.equals(gK.getTyp())){
+            System.out.println("Gegner beseitigt!");
         }
         else{
-            System.put.println("Gegner kann mit der Ereigniskarte nicht beseitigt werden!")
-        }
+            System.out.println("Gegner kann mit der Ereigniskarte nicht beseitigt werden!");
         }
     }
 }

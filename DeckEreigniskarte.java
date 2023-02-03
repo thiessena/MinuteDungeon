@@ -1,15 +1,19 @@
 public class DeckEreigniskarte extends Ereigniskarte
 {
-    private String Name;
+    //Erklärung
+    //Hallo Philipp, die Karte Chaos ist eigentlich der Name. 
+    //D.h. du kannst eine neue Karte Chaos erstellen: 
+    public static final DeckEreigniskarte CHAOS = new DeckEreigniskarte("Chaos", "JEDER gibt seine Handkarten einem Mitspieler.");
 
-    public DeckEreigniskarte()
+    //toDo
+    //Ergänze für alle Deckkarten solche Karten wie für Chaos.
+
+    public DeckEreigniskarte(String pName, String pBeschreibung)
     {
-
+        super(pName, pBeschreibung);
     }
 
-    public void Chaos()
-    {
-    }
+
     
     public void einWehWeh()
     {

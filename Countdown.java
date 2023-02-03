@@ -43,6 +43,10 @@ public class Countdown
     
     public void umrechnen()
     {
+        //toDo:
+        //Hallo Nancy, du kannst die While-Schleife hier entfernen. 
+        //Stattdessen kannst du die Methode zu public String umrechnen() ändern. 
+        // Dann kannst du return minutes + ":" + seconds; am Ende hinzufügen.
         while(startzeit + laenge + pause > System.currentTimeMillis())
         {
             restlicheZeit = (startzeit + laenge + pause)-System.currentTimeMillis();

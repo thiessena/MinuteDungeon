@@ -2,17 +2,20 @@
 public class Ereigniskarte
 {
    
-    private String Beschreiung;
-    private String Name;
-    public String farbe;
-    public int anzahl;
+    protected String beschreibung;
+    protected String name;
+    protected String farbe;
+    protected int anzahl;
 
     /**
      * Konstruktor für Objekte der Klasse Ereigniskarte
      */
-    public Ereigniskarte()
+    public Ereigniskarte(String pName, String pBeschreibung)
     {
-       
+       name = pName; 
+       beschreibung = pBeschreibung;
+       farbe = "";
+       anzahl = 0;
     }
    
 

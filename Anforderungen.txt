@@ -1,0 +1,56 @@
+5 min Dungeon
+
+Anforderungen:
+
+-	Ressourcen 
+-	Gegner
+-	Helden, Fähigkeiten
+-	Dungeon
+-	Karten Mischen, legen, ziehen 
+-	Held Auswahl 
+-	Mini Chat
+-	Fehlerrückgabe
+
+
+Tätigkeiten: 
+-	Timer starten
+-	Timer pausieren
+-	Timer auf ablauf prüfen -> Spiel beenden
+-	Timer Startzeit festlegen
+-	Timer reset
+-	
+-	Held auswählen
+-	Kartenstapel mischen
+-	Karte vom Nachziehstapel ziehen
+-	Karte von der Hand ausspielen
+-	3 Karten ablegen -> Fähigkeit ausführen
+-	Gegnerkarte aufdecken
+-	Prüfen, ob der Gegner besiegt ist. 
+-	Gegnerkarte + Karten wegschieben
+-	Ereigniskarten ausführen
+o	Handkarten tauschen (zufällig)
+o	Karten vom Ablagestapel auf den Nachziehstapel legen
+
+
+Nice to Have	
+
+-	Musik + Geräusche
+-	Schwierigkeit<-
+
+
+
+Klassen: 
+-	Timer (Nancy)
+-	Kartenstapel (Noah)
+-	Handkarten (Luca Wolf)
+-	Held (André)
+-	Karte (Noah Boschmann + Ade Noah)
+-	->Ressource (Simon)
+-	->Gegnerkarte (Pascal)
+-	Ereigniskarten (Jean-Luca, Philipp)
+o	Heldenkarten 
+o	Ereignis
+-	Dungeon (hat) Gegnerkarten, (Dungenboss) (Viola, Nancy)
+-	Spiel
+    
+

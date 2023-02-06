@@ -41,20 +41,16 @@ public class Countdown
         laenge = 0;
     }
     
-    public void umrechnen()
+    public String umrechnen()
     {
-        //toDo:
-        //Hallo Nancy, du kannst die While-Schleife hier entfernen. 
-        //Stattdessen kannst du die Methode zu public String umrechnen() ändern. 
-        // Dann kannst du return minutes + ":" + seconds; am Ende hinzufügen.
-        while(startzeit + laenge + pause > System.currentTimeMillis())
-        {
             restlicheZeit = (startzeit + laenge + pause)-System.currentTimeMillis();
             long seconds = TimeUnit.MILLISECONDS.toSeconds(restlicheZeit);
             System.out.println(restlicheZeit + " Milliseconds = " + seconds + " Seconds");
             long minutes = TimeUnit.MILLISECONDS.toMinutes(restlicheZeit);
             System.out.println(restlicheZeit + " Milliseconds = " + minutes + " Minutes");
-        }
+            seconds = seconds - 60*minutes;
+            return minutes + ":" + seconds;
+        
     }
     
     public void ausgabe(){

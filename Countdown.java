@@ -48,8 +48,14 @@ public class Countdown
             System.out.println(restlicheZeit + " Milliseconds = " + seconds + " Seconds");
             long minutes = TimeUnit.MILLISECONDS.toMinutes(restlicheZeit);
             System.out.println(restlicheZeit + " Milliseconds = " + minutes + " Minutes");
-            seconds = seconds - 60*minutes;
+            if (seconds < 0)
+            {
+                return "00:00";
+            }
+        else
+        {seconds = seconds - 60*minutes;
             return minutes + ":" + seconds;
+        }
         
     }
     

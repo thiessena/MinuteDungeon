@@ -1,0 +1,36 @@
+/**
+ * Beschreiben Sie hier die Klasse Dungeon.
+ * 
+ * @author (Ihr Name) 
+ * V1
+ */
+public class Dungeon
+{
+    
+    private Kartenstapel gegenerkartenstappel;
+    
+    /**
+     * Konstruktor für Objekte der Klasse Dungeon
+     */
+    public Dungeon(Kartenstapel pGegenerkartenstappel)
+    {
+        gegenerkartenstappel = pGegenerkartenstappel;
+        
+    }
+    
+    public void nächsteKarte(){
+        //prüfenObNochKartenDaSind wenn ja dan Karte von oben aus dem Gegenerkartestappel aufdecken 
+    }
+    
+    public void prüfenObDieGegenerKarteBesiegtWurde(){
+        //ich suche noch nach einem besserren Namen wenn ja dan nächstKarte
+    }
+    
+    public void kartenWeglegen(){
+        //besiegte Karte wegglegen und die da zugehörigen Reurcen und dann nächsteKarte
+    }
+    
+    public void prüfenObNochKartenDaSind(){
+        //wenn nicht dann haben die Spieler gewonnen wenn sie noch im 5Minuten timer sind
+    }
+}

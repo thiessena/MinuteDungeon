@@ -2,7 +2,7 @@
 public class Spieler{
     private Kartenstapel nachziehstapel;
     private Kartenstapel ablagestapel;
-    private Kartenstapel handkarten;
+    private Handkarten handkarten;
     private int spielerID;
     
     public Spieler(int pID, Kartenstapel pNachziehstapel, Kartenstapel pAblagestapel){
@@ -19,11 +19,11 @@ public class Spieler{
         return ablagestapel;
     }
 
-    public Kartenstapel getHandkarten(){
+    public Handkarten getHandkarten(){
         return handkarten;
     }
 
-    public void setHandkarten(Kartenstapel pHandkarten){
+    public void setHandkarten(Handkarten pHandkarten){
         handkarten = pHandkarten;
     }
     

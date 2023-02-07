@@ -22,7 +22,7 @@ public class DeckEreigniskarte extends Ereigniskarte
                  
                 List<Spieler> sListe = Spiel.getInstance().getSpieler();
                 sListe.toFirst();
-                Kartenstapel temp = sListe.getContent().getHandkarten();
+                Handkarten temp = sListe.getContent().getHandkarten();
                 sListe.toFirst();
                 Spieler bekommt = sListe.getContent();
                 sListe.next();

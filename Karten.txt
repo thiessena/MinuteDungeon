@@ -1,0 +1,108 @@
+Karten
+In dieser Datei werden alle Daten der Karten gespeichert.
+
+Helden-Karten
+Lila
+Normale Ressourcen: Schild, Schwert, Sprung, Schriftrolle, Pfeil
+5,7,7,6,3
+Doppel Ressourcen: Doppelsprung 3
+Besondere Karten:
+Stehlen 2 Klau die Handkarten eines Mitspielers und nimm sie zusätzlich auf deine Hand
+Spende 1 gib deine Handkarten einem Mitspieler auf die Hand 
+Rücklings 3 besiege eine Person
+Sprint 3 überwinde ein Hindernis
+Blau
+Normale Ressourcen: Schild, Schwert, Sprung, Schriftrolle, Pfeil
+5,3,6,9,7
+Doppel Ressourcen: 2x Doppelschriftrolle, 
+Besondere Karten:
+4x Feuerball (Besiege ein Monster)
+1x Verhinderung (Alle Ignorieren ein Hindernis)
+3x Magische Bombe (Zählt wie 1- Mal alle Ressourcen)
+Rot
+Normale Ressourcen: Schild, Schwert, Sprung, Schriftrolle, Pfeil
+7,5,6,3,5
+Doppel Ressourcen:
+2x Doppelschwert, 2x Schwert/Schild, 2x Schwert/Pfeil, 2x Schwert/Sprung, 2x Schwert/Schriftrolle
+Besondere Karten:
+2x Riesensprung (Überwinde ein Hindernis)
+2x Wut (Bestimme 2 Spieler(1 kannst du sein), die jeweils 3 Karten vom Nachziehstapel ziehen)
+Grün
+Normale Ressourcen: Schild, Schwert, Sprung, Schriftrolle, Pfeil
+3,4,7,4,9
+Doppel Ressourcen: 2 x Doppelpfeil 1 Treffer
+Besondere Karten:
+8 x Joker
+2 x Heilkräuter (1 Spieler + 4 Karten)
+1 x Treffer (Person besiegen)
+Gelb
+Normale Ressourcen: Schild, Schwert, Sprung, Schriftrolle, Pfeil
+9,6,3,8,6
+Doppel Ressourcen: 2 x Doppelschild 
+Besondere Karten:
+1 x Heile(1 Spieler darf den Nachziehstapel verdeckt den Ablegestapel legen)
+2 x Göttliche Schild (stoppt die Zeit bis jemand eine Karte spiet)
+1 x Haudrauf (besiegt en Monster)
+1 x Heilige Handgranate (besiege eine beliebige Karte)
+1 x Heiltrank (Jeder zeigt 3 Karten)
+ 
+Quest-Karte
+Mini-Bosse:
+Name: Schild, Schwert, Sprung, Schriftrolle, Pfeil
+Der Rattenkönig:  0,3,3,0,0
+Der Sammler: 1,1,1,1,1
+Feinselige Riesenkrabbe:  3,0,0,0,3
+Ein Zauberer mit schlechtem Ruf: 0,0,2,4,0
+Ein Bonsai-T-Rex: 2,2,0,0,2
+Ereignisse:
+Name:  Text
+Chaos: JEDER gibt seine Handkarten einem Mitspieler.
+Ein Wehweh: JEDER legt 1 Karte auf den eigenen Ablagestapel. 
+Plötzlich Krankheit!: JEDER legt alle Handkarten auf den eigenen Ablagestapel.
+Hinterhalt!: Deckt 2 Karten aus dem Dungeon auf. Ihr müsst beide besiegen, bevor es weiter geht.
+Falltür: JEDER legt 3 Karten auf den eigenen Ablagestapel.
+
+
+ 
+Gegner:
+Name: Art: Schild, Schwert, Sprung, Schriftrolle, Pfeil
+Zombies ohne Ende:Monster:0,3,0,0,0
+Ein überteuerter Händler, 2 Schriftrolle, 1 Sprung, Person 
+Bodenloser Abgrund, 2 Sprung, Hindernis
+Ein „Geist“ ja klar!, 2 Schwert, 1 Pfeil, Person 
+Ein Haufen schreiender Kinder, 1 Schwert, 1 Schild, 1 Pfeil, Person 
+Ein Timberwolf, 2 Schwert, Monster
+Lebendiges Grünzeug, 3 Schriftrolle, Hindernis
+Eine sicher Sprengfallenfreie Truhe, 1 Sprung, 3 Schild, Hindernis
+Reizender Schleim, 1 Sprung, 1 Pfeil, Monster
+Sir Fuzzy, 1 Sprung, 2 Pfeil, Monster 
+Ein langsam ladender Bildschirm, 1 Schwert, 1 Sprung, 1 Pfeil, Hindernis
+Eine Kriegerprinzessin, 1 Schild, 1 Pfeil, Person 
+Ööööhhaa, 2 Schild, 1 Schriftrolle, Monster
+Ein Aufrechter Geist, 1 Schriftrolle, 1 Schild, Monster
+Genau 26 Ninjas, 1 Schriftrolle, 2 Sprung, Person 
+Der Karpaltunnel, 1 Schriftrolle, 2 Pfeil, Hindernis
+Eine lächerlich hohe Eiswand, 3 Sprung, Hindernis
+Ein paar Stufen, 1 Schriftrolle, 1 Sprung, Hindernis
+Zwei Mann ein Bogen, 2 Pfeil, 1 Schild, Person 
+Hai mit sexy Beinen, 1 Schwert, 2 Pfeil, Monster
+Knappe Nedward, 2 Schild, 1 Pfeil, Person 
+Barb-irrer, 2 Schwert, 1 Schild, Person 
+Typ mit massiven Schulterpanzer, 2 Schwert, 1 Schriftrolle, Person 
+Ein Ad-hoc-Völkerballturnier, 2 Sprung, 1 Pfeil, Hindernis
+Zombietusse, 1 Schwert, 1 Pfeil, Monster 
+Ein Kaktus der dich umarmen will, 3 Schild, Monster
+Treibsand, 2 Sprung, 1 Schild, Hindernis 
+7 Null-bock-Zwerge, 1 Schwert, 1 Schriftrolle, 1 Schild, Person 
+Knuffiger Goblin, 1 Schwert, 1 Sprung, Monster
+Ein etwas unbequemer Stuhl, 1 Schwert, 1 Sprung, 1 Schild, Hindernis 
+Eingestürzte Decke, 1 Schwert, 2 Schriftrolle, Hindernis
+Steve, 1 Schriftrolle, 1 Sprung, 1 Pfeil, Person 
+Ein Armhändler, 1 Schriftrolle, 1 Pfeil, Person 
+Ein Rosetta-Stein-Golem, 1 Sprung, 1 Schild, Monster 
+Eine “Abkürzung”, 1 Schwert, 2 Schild, Hindernis 
+Gespickte Wand, 2 Schriftrolle, 1 Schild, Hindernis 
+Buchstäblich ein Strohmann, 1 Schwert, 1 Schriftrolle, 1 Sprung, Hindernis
+William Duck I., 1 Schriftrolle, 1 Sprung, 1 Schild, Monster
+Unsichtbare Wand, 2 Schriftrolle, Hindernis
+Grozznak der Grosse , 1 Sprung, 1 Schild, 1 Pfeil, Person

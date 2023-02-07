@@ -58,4 +58,8 @@ public class Spiel {
     public void siegesBildschirm(){
 
     }
+
+    public List<Spieler> getSpieler(){
+        return spieler;
+    }
 }

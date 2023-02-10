@@ -10,8 +10,9 @@ public class Handkarten{
     private int anzahlKarten;
     private int anzahlSpieler;
     private Karte karte;
-    private List<Karte> Handkarten;
+    private List<Karte> handkarten;
     private Kartenstapel KS;
+    private List<Karte> ausgewaehlt;
 
     /** Methoden der Liste
     add(element)
@@ -26,18 +27,28 @@ public class Handkarten{
         anzahlSpieler = pAnzahlSpieler;
     }
 
-    public void karteRauslegen(){
-        Handkarten.remove(karte);
+    public void karteRauslegen(Karte pKarte){
+        handkarten.remove(pKarte);
+    }
+
+    public void karteHinzufuegen(){
+        handkarten.add(KS.getObersteKarte());
+    }
+
+    public Karte aktuelleKarte(){
+        handkarten.toFirst();
+        return handkarten.getContent();
     }
 
     public Karte handkartenAusgeben(){
-        for(int i=0; i < Handkarten.size();i++){
-            return Handkarten.get(i);
+        for(int i=0; i < handkarten.size();i++){
+            return handkarten.get(i);
         }
         return null;
     }
 
-    public void HandkartenAuswaehlen(){
-        
+    public void handkartenAuswaehlen(int auswaehlen){
+        ausgewaehlt.add(handkarten.get(auswaehlen));
+        handkarten.remove(auswaehlen);
     }
 }

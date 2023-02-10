@@ -22,15 +22,17 @@ public class Dungeon
         //prüfenObNochKartenDaSind wenn ja dann Karte von oben aus dem Gegenerkartestappel aufdecken 
     }
     
-    public void prüfenObDieGegenerKarteBesiegtWurde(){
-        //ich suche noch nach einem besserren Namen wenn ja dan nächstKarte
+    public void kämpfen(){
+        //Recurcen vom gegener zeigen und die die schon im Array sind 
+        //get Recurcen welche der Gegener braucht um besiet werden muss und array machen wo der Spieler seine recucen rein machen kann
+        //Nur Recurcen rein lassen die überein stimmen wenn alle da sind dann Karte weglegen
     }
     
     public void kartenWeglegen(){
-        //besiegte Karte wegglegen und die da zugehörigen Reurcen und dann nächsteKarte
+        //besiegte Karte wegglegen und die da zugehörigen Reurcen u. Array und dann prüfen ob noch karten da sind 
     }
     
     public void prüfenObNochKartenDaSind(){
-        //wenn nicht dann haben die Spieler gewonnen wenn sie noch im 5Minuten timer sind muss nach jeder besiegten Karte gemachtwerden
+        //wenn nicht dann haben die Spieler gewonnen sonst nächste Karte
     }
 }

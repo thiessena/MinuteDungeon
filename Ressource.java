@@ -1,11 +1,12 @@
 public class Ressource
 {
-    private String Farbe;
-    private int Anzahl;
+    private String farbe;
+    private int anzahl;
     
-    public Ressource()
+    public Ressource(int pFarbe, String pAnzahl)
     {
-            
+            farbe = pFarbe;
+            anzahl = pAnzahl;
     }
     
     public int getAnzahl(int pAnzahl)
@@ -15,8 +16,8 @@ public class Ressource
     
     public int setAnzahl(int pAnzahl)
     {
-        Anzahl = pAnzahl;
-        return Anzahl;
+        anzahl = pAnzahl;
+        return anzahl;
     }
     
     public String getFarbe(String pFarbe)
@@ -26,7 +27,7 @@ public class Ressource
     
     public String setFarbe(String pFarbe)
     {
-        Farbe = pFarbe;
-        return Farbe;
+        farbe = pFarbe;
+        return farbe;
     }
 }

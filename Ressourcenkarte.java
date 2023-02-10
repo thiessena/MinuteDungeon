@@ -20,9 +20,4 @@ public class Ressourcenkarte extends Karte;
   {
     return ressource;
   }
-  
-  public void toArray()
-  {
-  
-  }
 }

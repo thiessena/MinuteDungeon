@@ -16,9 +16,9 @@ public class Ressourcenkarte extends Karte;
     ressource[4] = pPfeil; 
   }
   
-  public void getArray()
+  public int[] getArray()
   {
-  
+    return new int[4];
   }
   
   public void toArray()

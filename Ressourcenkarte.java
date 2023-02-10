@@ -18,7 +18,7 @@ public class Ressourcenkarte extends Karte;
   
   public int[] getArray()
   {
-    return new int[4];
+    return ressource;
   }
   
   public void toArray()

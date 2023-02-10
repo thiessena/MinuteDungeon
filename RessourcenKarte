@@ -1,1 +1,7 @@
-
+public class RessourcenKarte
+{
+  public RessourcenKarte()
+  {
+  
+  }
+}

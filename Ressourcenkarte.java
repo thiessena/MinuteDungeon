@@ -1,6 +1,6 @@
 public class Ressourcenkarte extends Karte;
 {
-  private int[]ressource = new int[5];
+  private int[]ressource = new int[4];
   private int schild;
   private int schwert;
   private int sprung;

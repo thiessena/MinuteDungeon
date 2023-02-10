@@ -10,10 +10,16 @@ public class Kartenstapel{
     }
     
     public void mischen(){
-        karten.toFirst();
-        int anzahl = 0;
-        while(!karten.isEmpty()){
+        int p = 0;
+        while(p < 1000){
             karten.toFirst();
+            Karte temp = karten.getContent()
+            int random = (int)(Math.random()*(karten.size() + 1))
+            for(int i = 0; i < random; i++){
+                karten.next();
+            }
+            insert(temp);
+            p++;
         }
     }
     
@@ -33,7 +39,16 @@ public class Kartenstapel{
      * @return
      */
     public List<Karte> gibObersteKarten(int n){
-        return null; //toDo muss noch geschrieben werden.
+        List<Karte> temp = new List<Karte>();
+        int p = 0;
+        karten.toFirst();
+        while(p < n){
+            Karte neu = karten.getObject();
+            temp.append(neu);
+            karten.next();
+            p++;
+        }
+        return temp;
     }
 
     /**
@@ -41,7 +56,7 @@ public class Kartenstapel{
      * @param pKarte
      */
     public void legeUntenDrunter(Karte pKarte){
-
+        karten.append(pKarte);
     }
 
     /**
@@ -49,7 +64,8 @@ public class Kartenstapel{
      * @param pKarte
      */
     public void legeObenDrauf(Karte pKarte){
-
+        karten.toFirst();
+        karten.insert(pKarte);
     }
 
 

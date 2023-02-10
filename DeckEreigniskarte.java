@@ -35,10 +35,51 @@ public class DeckEreigniskarte extends Ereigniskarte
                 bekommt.setHandkarten(temp);
             break;
             case "Ein Wehweh":
+                
+                List<Spieler> sListe = Spiel.getInstance().getSpieler();
+                sListe.toFirst();
+                Handkarten temp = sListe.getContent().getHandkarten();
+               while(sListe.hasAccess()){
+                    Spieler akt = sListe.getContent();
+                    Handkarten hk = akt.getHandkarten();
+                    hk.karteRauslegen(random.nextInt(hk) = hz);         // sorry ich hab keine Ahnung wie ich das machen soll
+                    Spieler.ablagestapel = Spieler.ablagestapel + hz
+                    sListe.next();
+                
+                }
+            break;
+            case "Plötzlich Krankheit!"
+            
+                List<Spieler> sListe = Spiel.getInstance().getSpieler();
+                sListe.toFirst();
+                Handkarten temp = sListe.getContent().getHandkarten();
+               while(sListe.hasAccess()){
+                    Spieler akt = sListe.getContent();
+                    Handkarten hk = akt.getHandkarten();
+                    hk.karteRauslegen(all);
+                    Spieler.ablagestapel = Spieler.ablagestapel + hk
+                    sListe.next();
+                 }
             //toDo: Hallo Luca, ich habe die obere Karte zu Ende gemacht. 
             //      Meine Idee: Du kannst den Quelltext oben verstehen und dann 
             //      auf die anderen DeckEreigniskarten anwenden. 
             break;
+            case "Hinterhalt"
+            break;
+            case "Falltür"
+            
+                List<Spieler> sListe = Spiel.getInstance().getSpieler();
+                sListe.toFirst();
+                Handkarten temp = sListe.getContent().getHandkarten();
+                sListe.toFirst();
+                Spieler bekommt = sListe.getContent();
+                sListe.next();
+                while(sListe.hasAccess()){
+                    Spieler akt = sListe.getContent();
+                   Handkarten hk = akt.getHandkarten();
+                    hk.karteRauslegen(3);
+                    Spieler.ablagestapel = Spieler.ablagestapel + hk
+                    sListe.next();
         }
     }
 }

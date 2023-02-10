@@ -19,7 +19,7 @@ public class Dungeon
     }
     
     public void nächsteKarte(){
-        //prüfenObNochKartenDaSind wenn ja dan Karte von oben aus dem Gegenerkartestappel aufdecken 
+        //prüfenObNochKartenDaSind wenn ja dann Karte von oben aus dem Gegenerkartestappel aufdecken 
     }
     
     public void prüfenObDieGegenerKarteBesiegtWurde(){
@@ -31,6 +31,6 @@ public class Dungeon
     }
     
     public void prüfenObNochKartenDaSind(){
-        //wenn nicht dann haben die Spieler gewonnen wenn sie noch im 5Minuten timer sind
+        //wenn nicht dann haben die Spieler gewonnen wenn sie noch im 5Minuten timer sind muss nach jeder besiegten Karte gemachtwerden
     }
 }

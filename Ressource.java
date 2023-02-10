@@ -3,7 +3,7 @@ public class Ressource
     private String farbe;
     private int anzahl;
     
-    public Ressource(int pFarbe, String pAnzahl)
+    public Ressource(String pFarbe, int pAnzahl)
     {
             farbe = pFarbe;
             anzahl = pAnzahl;

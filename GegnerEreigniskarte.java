@@ -4,7 +4,7 @@ public class GegnerEreigniskarte extends Ereigniskarte
     private GegenerKarte gegnerkarte;
     private Ressource ressource;
 
-    public static final GegnerEreigniskarte Ruecklings = new GegnerEreigniskarte ("RÃ¼cklings", "Besiege eine Person");
+    public static final GegnerEreigniskarte Ruecklings = new GegnerEreigniskarte ("Ruecklings", "Besiege eine Person");
     public static final GegnerEreigniskarte Feuerball = new GegnerEreigniskarte ("Feuerball", "Besiege 1 Monster");
     public static final GegnerEreigniskarte Treffer = new GegnerEreigniskarte ("Treffer", "Besiege 1 Person");
     public static final GegnerEreigniskarte Haudrauf = new GegnerEreigniskarte ("Haudrauf", "Besiege 1 Monster");

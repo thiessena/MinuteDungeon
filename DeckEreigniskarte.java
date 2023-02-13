@@ -38,26 +38,23 @@ public class DeckEreigniskarte extends Ereigniskarte
                 
                 List<Spieler> sListe = Spiel.getInstance().getSpieler();
                 sListe.toFirst();
-                Handkarten temp = sListe.getContent().getHandkarten();
                while(sListe.hasAccess()){
                     Spieler akt = sListe.getContent();
                     Handkarten hk = akt.getHandkarten();
-                    hk.karteRauslegen(random.nextInt(hk) = hz);         // sorry ich hab keine Ahnung wie ich das machen soll
-                    Spieler.ablagestapel = Spieler.ablagestapel + hz
+                    Karte k = hk.handkartenAuswaehlen((int)(Math.random() * hk.getAnzahl()));         // sorry ich hab keine Ahnung wie ich das machen soll
+                    Spieler.getAblagestapel().legeObenDrauf(k);
                     sListe.next();
-                
                 }
             break;
             case "Plötzlich Krankheit!"
             
                 List<Spieler> sListe = Spiel.getInstance().getSpieler();
                 sListe.toFirst();
-                Handkarten temp = sListe.getContent().getHandkarten();
                while(sListe.hasAccess()){
                     Spieler akt = sListe.getContent();
                     Handkarten hk = akt.getHandkarten();
-                    hk.karteRauslegen(all);
-                    Spieler.ablagestapel = Spieler.ablagestapel + hk
+                    List<Karte> alleKarten = hk.gibAlleHandkarten();
+                    Spieler.getAblagestapel().legeObenDrauf(alleKarten);
                     sListe.next();
                  }
             //toDo: Hallo Luca, ich habe die obere Karte zu Ende gemacht. 

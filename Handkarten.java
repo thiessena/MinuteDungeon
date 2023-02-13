@@ -14,14 +14,6 @@ public class Handkarten{
     private Kartenstapel KS;
     private List<Karte> ausgewaehlt;
 
-    /** Methoden der Liste
-    add(element)
-    remove(index)
-    get(index)
-    indexOf(element)
-    contains(element)
-    size() */
-
     public Handkarten(int pAnzahlKarten, int pAnzahlSpieler){
         anzahlKarten = pAnzahlKarten;
         anzahlSpieler = pAnzahlSpieler;
@@ -41,10 +33,21 @@ public class Handkarten{
     }
 
     public Karte handkartenAusgeben(){
-        for(int i=0; i < handkarten.size();i++){
-            return handkarten.get(i);
+        for(int i=0; i < handkarten.();i++){
+            handkarten.toFirst();
+            
+            return handkarten.(i);
         }
         return null;
+    }
+    
+    public void gibHandkarte(int Stelle){
+        for(int i = 0; i <  ; i++){
+         if(Stelle == i){
+          return handkarten.getContent();   
+         }
+            handkarten.next();
+        }
     }
 
     public void handkartenAuswaehlen(int auswaehlen){

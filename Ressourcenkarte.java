@@ -12,7 +12,7 @@ public class Ressourcenkarte extends Karte
     schwert = new Ressource("rot", pSchwert);
     sprung = new Ressource("lila", pSprung);
     schriftrolle = new Ressource("blau", pSchriftrolle);
-    pfeil = new Ressource("grün", pPfeil);
+    pfeil = new Ressource("gruen", pPfeil);
   }
   
   public int[] getArray()

@@ -48,7 +48,7 @@ public class Countdown
     {
             if(inPause == true)
             {
-                restlicheZeit = (startZeit + laenge + System.currentTimeMillis() - pausenStart)-System.currentTimeMillis();
+                restlicheZeit = (startzeit + laenge + System.currentTimeMillis() - pausenStart)-System.currentTimeMillis();
             }
             else
            {

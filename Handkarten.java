@@ -24,7 +24,7 @@ public class Handkarten{
     }
 
     public void karteHinzufuegen(){
-        handkarten.add(KS.getObersteKarte());
+        handkarten.append(KS.getObersteKarte());
     }
 
     public Karte aktuelleKarte(){
@@ -33,25 +33,35 @@ public class Handkarten{
     }
 
     public Karte handkartenAusgeben(){
-        for(int i=0; i < handkarten.();i++){
+        for(int i=0; i < zaehlen() ;i++){
             handkarten.toFirst();
-            
-            return handkarten.(i);
+            return handkarten.getContent();
+            handkarten.next();
         }
         return null;
     }
-    
-    public void gibHandkarte(int Stelle){
-        for(int i = 0; i <  ; i++){
-         if(Stelle == i){
-          return handkarten.getContent();   
-         }
+
+    public Karte gibHandkarte(int Stelle){
+        for(int i = 0; i < zaehlen(); i++){
+            if(Stelle == i){
+                return handkarten.getContent();   
+            }
             handkarten.next();
         }
     }
 
     public void handkartenAuswaehlen(int auswaehlen){
-        ausgewaehlt.append(handkarten.get(auswaehlen));
+        ausgewaehlt.append(handkarten(auswaehlen));
         handkarten.remove(auswaehlen);
+    }
+
+    public int zaehlen(){
+        int anzahl =0;
+        handkarten.toFirst();
+        while(handkarten.hasAccess()){
+            anzahl++;
+            handkarten.next();
+        }
+        return anzahl;
     }
 }

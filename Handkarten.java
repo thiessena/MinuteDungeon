@@ -51,7 +51,7 @@ public class Handkarten{
     }
 
     public void handkartenAuswaehlen(int auswaehlen){
-        ausgewaehlt.add(handkarten.get(auswaehlen));
+        ausgewaehlt.append(handkarten.get(auswaehlen));
         handkarten.remove(auswaehlen);
     }
 }

@@ -5,11 +5,12 @@ public class Countdown
     long startzeit;
     long pause;
     long pausenStart;
+    boolean inPause;
     long laenge;
     long restlicheZeit;
     
     public Countdown(){
-        
+        inPause = false;
     }
 
     public void start(long pLaenge){
@@ -28,10 +29,12 @@ public class Countdown
     
     public void stopp(){
         pausenStart = System.currentTimeMillis();
+        inPause = true;
     }
     
     public void weiter(){
         pause = pause + (System.currentTimeMillis() - pausenStart);
+        inPause = false;
     }
     
     public void reset(){
@@ -43,7 +46,14 @@ public class Countdown
     
     public String umrechnen()
     {
-            restlicheZeit = (startzeit + laenge + pause)-System.currentTimeMillis();
+            if(inPause == true)
+            {
+                restlicheZeit = (startZeit + laenge + System.currentTimeMillis() - pausenStart)-System.currentTimeMillis();
+            }
+            else
+           {
+                restlicheZeit = (startzeit + laenge + pause)-System.currentTimeMillis();
+            }
             long seconds = TimeUnit.MILLISECONDS.toSeconds(restlicheZeit);
             System.out.println(restlicheZeit + " Milliseconds = " + seconds + " Seconds");
             long minutes = TimeUnit.MILLISECONDS.toMinutes(restlicheZeit);

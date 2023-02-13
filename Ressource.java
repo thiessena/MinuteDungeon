@@ -9,25 +9,23 @@ public class Ressource
             anzahl = pAnzahl;
     }
     
-    public int getAnzahl(int pAnzahl)
+    public int getAnzahl()
     {
-        return pAnzahl;
-    }
-    
-    public int setAnzahl(int pAnzahl)
-    {
-        anzahl = pAnzahl;
         return anzahl;
     }
     
-    public String getFarbe(String pFarbe)
+    public void setAnzahl(int pAnzahl)
     {
-        return pFarbe;
+        anzahl = pAnzahl;
     }
     
-    public String setFarbe(String pFarbe)
+    public String getFarbe()
+    {
+        return farbe;
+    }
+    
+    public void setFarbe(String pFarbe)
     {
         farbe = pFarbe;
-        return farbe;
     }
 }

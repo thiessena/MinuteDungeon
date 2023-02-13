@@ -50,6 +50,14 @@ public class Handkarten{
         }
     }
 
+    public Karte gibAlleHandkarte(int Stelle){
+        handkarten.toFirst();
+        while(handkarten.hasAccess()){
+            return handkarten.getContent();   
+            handkarten.next();
+        }
+    }
+
     public void handkartenAuswaehlen(int auswaehlen){
         ausgewaehlt.append(handkarten(auswaehlen));
         handkarten.remove(auswaehlen);

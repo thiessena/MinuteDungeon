@@ -1,4 +1,4 @@
-import java.util.List;
+
 /**
  * Beschreiben Sie hier die Klasse Handkarten.
  * 

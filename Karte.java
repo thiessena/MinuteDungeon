@@ -7,5 +7,22 @@ public class Karte{
         verdeckt = false;
         farbe = "";
     }
+    public boolean getVerdeckt(){
+        return verdeckt;
+    }
+    
+    public void setVerdeckt(boolean pVerdeckt){
+       verdeckt = pVerdeckt; 
+    }
+    
+    public String getFarbe(){
+        return farbe;
+    }
+    
+    public void setVerdeckt(String pFarbe){
+       farbe = pFarbe; 
+    }
+    
+    
 
 }

@@ -44,7 +44,7 @@ public class DeckEreigniskarte extends Ereigniskarte
                     sListe.next();
                 }
             break;
-            case "Plötzlich Krankheit!"
+            case "Ploetzlich Krankheit!":
             
                 List<Spieler> sListe = Spiel.getInstance().getSpieler();
                 sListe.toFirst();
@@ -59,27 +59,28 @@ public class DeckEreigniskarte extends Ereigniskarte
             //      Meine Idee: Du kannst den Quelltext oben verstehen und dann 
             //      auf die anderen DeckEreigniskarten anwenden. 
             break;
-            case "Hinterhalt"
-                for int (i= 0; i < 2; i++){
-                Dungeon.nächsteKarte();
+            case "Hinterhalt":
+                for (int i= 0; i < 2; i++){
+                    Dungeon.naechsteKarte();
                 }
             break;
-            case "Falltür"
-            
+            case "Falltuer":
                 List<Spieler> sListe = Spiel.getInstance().getSpieler();
                 sListe.toFirst();
                 Handkarten temp = sListe.getContent().getHandkarten();
                 sListe.toFirst();
                 Spieler bekommt = sListe.getContent();
                 sListe.next();
-                while(sListe.hasAccess()){
+               while(sListe.hasAccess()){
                     Spieler akt = sListe.getContent();
-                   Handkarten hk = akt.getHandkarten();
-                   for int(i = 0; i < 3; i++){
-                    Karte k = hk.handkartenAuswaehlen((int)(Math.random() * hk.getAnzahl()));
-                    Spieler.getAblagestapel().legeObenDrauf(k);
+                    Handkarten hk = akt.getHandkarten();
+                    for (int i = 0; i < 3; i++){
+                        Karte k = hk.handkartenAuswaehlen((int)(Math.random() * hk.getAnzahl()));
+                        Spieler.getAblagestapel().legeObenDrauf(k);
                     }
                     sListe.next();
+                }
+            break;
         }
     }
 }

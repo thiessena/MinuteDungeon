@@ -1,7 +1,7 @@
 /**
  * V1
  */
-public class GegenerKarte
+public class GegnerKarte
 {
     private String gegnerName;
     private Ressourcenkarte benötigteRessourcen;

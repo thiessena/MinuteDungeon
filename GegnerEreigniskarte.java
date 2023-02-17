@@ -1,7 +1,7 @@
 public class GegnerEreigniskarte extends Ereigniskarte
 {
     private String gegnertyp;
-    private GegenerKarte gegnerkarte;
+    private Gegenerkarte gegnerkarte;
     private Ressource ressource;
 
     public static final GegnerEreigniskarte Ruecklings = new GegnerEreigniskarte ("Ruecklings", "Besiege eine Person");
@@ -15,7 +15,7 @@ public class GegnerEreigniskarte extends Ereigniskarte
           super(pName, pBeschreibung);
     }
 
-    public void anwenden(GegenerKarte gegnerkarte){
+    public void anwenden(Gegenerkarte gegnerkarte){
         //wenn Typ der Gegnerkarte übereinstimmt, beseitigen
         if(gegnertyp.equals(gegnerkarte.getTyp())){
             System.out.println("Gegner beseitigt!");

@@ -53,6 +53,8 @@ public class Kartenstapel{
         return temp;
     }
 
+    
+
     /**
      * Legt eine Karte unter den Kartenstapel
      * @param pKarte
@@ -68,6 +70,19 @@ public class Kartenstapel{
     public void legeObenDrauf(Karte pKarte){
         karten.toFirst();
         karten.insert(pKarte);
+    }
+
+    /**
+     * Legt eine Liste von Karten auf den Kartenstapel. 
+     * Die übergebene Liste bleibt unverändert.
+     * @param pKarte
+     */
+    public void legeObenDrauf(List<Karte> pKartenListe){
+        karten.toFirst();
+        while(pKartenListe.hasAccess()){
+            karten.insert(pKartenListe.getContent());
+            pKartenListe.next();
+        }
     }
 
     public void zaehlen(){

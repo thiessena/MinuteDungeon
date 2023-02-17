@@ -81,6 +81,13 @@ public class Handkarten{
     }
 
     /**
+     * Entfernt alle Handkarten.
+     */
+    public void entferneAlle(){
+        handkarten = new List<Karte>();
+    }
+
+    /**
      * Wählt die Handkarte an der Position positionVonLinks aus. 
      * @param auswaehlen
      */

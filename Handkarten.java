@@ -1,30 +1,52 @@
 
 /**
- * Beschreiben Sie hier die Klasse Handkarten.
+ * Eine Klasse für die Verwaltung von Handkarten.
+ * Es können Handkarten ausgewählt werden.
  * 
- * @author (L) 
+ * @author (L, Thiessen) 
  * @version (eine Versionsnummer oder ein Datum)
  */
 public class Handkarten{
-
-    private int anzahlKarten;
-    private int anzahlSpieler;
-    private Karte karte;
     private List<Karte> handkarten;
-    private Kartenstapel KS;
     private List<Karte> ausgewaehlt;
 
-    public Handkarten(int pAnzahlKarten, int pAnzahlSpieler){
-        anzahlKarten = pAnzahlKarten;
-        anzahlSpieler = pAnzahlSpieler;
+    public Handkarten(){
+        handkarten = new List<Karte>();
+        ausgewaehlt = new List<Karte>();
     }
 
+    /**
+     * Entfernt die Karte pKarte aus den Handkarten.
+     * Falls die Karte nicht vorhanden ist, passiert nichts.
+     * @param pKarte
+     */
     public void karteRauslegen(Karte pKarte){
-        handkarten.remove(pKarte);
+        handkarten.toFirst();
+        boolean gefunden = false;
+        while(handkarten.hasAccess() && !gefunden){
+            if(handkarten.getContent().equals(pKarte)){
+                handkarten.remove();
+                gefunden = true;
+            }
+            handkarten.next();
+        }
     }
 
-    public void karteHinzufuegen(){
-        handkarten.append(KS.getObersteKarte());
+    /**
+     * Eine Karte wird an der Stelle positionVonLinks eingefügt, sonst hinten angehängt.
+     * @param pKarte
+     * @param positionVonLinks
+     */
+    public void karteHinzufuegen(Karte pKarte, int positionVonLinks){
+        handkarten.toFirst();
+        for(int i = 0; handkarten.hasAccess() && i < positionVonLinks; i++){
+            handkarten.next();
+        }
+        if(handkarten.hasAccess()){
+            handkarten.insert(pKarte);
+        }else{
+            handkarten.append(pKarte);
+        }
     }
 
     public Karte aktuelleKarte(){
@@ -32,39 +54,53 @@ public class Handkarten{
         return handkarten.getContent();
     }
 
-    public Karte handkartenAusgeben(){
-        for(int i=0; i < zaehlen() ;i++){
-            handkarten.toFirst();
-            return handkarten.getContent();
-            handkarten.next();
-        }
-        return null;
-    }
-
-    public Karte gibHandkarte(int Stelle){
-        for(int i = 0; i < zaehlen(); i++){
-            if(Stelle == i){
-                return handkarten.getContent();   
-            }
-            handkarten.next();
-        }
-    }
-
-    public Karte gibAlleHandkarte(int Stelle){
+    /**
+     * Gibt die Handkarte an der Position positionVonLinks zurück.
+     * Falls es diese Position nicht gibt, wird null zurückgegeben.
+     * @param positionVonLinks
+     * @return Karte
+     */
+    public Karte gibHandkarte(int positionVonLinks){
         handkarten.toFirst();
-        while(handkarten.hasAccess()){
-            return handkarten.getContent();   
+        for(int i = 0; handkarten.hasAccess() && i < positionVonLinks; i++){
             handkarten.next();
+        }
+        if(handkarten.hasAccess()){
+            return handkarten.getContent();   
+        }else{
+            return null;
         }
     }
 
-    public void handkartenAuswaehlen(int auswaehlen){
-        ausgewaehlt.append(handkarten(auswaehlen));
-        handkarten.remove(auswaehlen);
+    /**
+     * Gibt die Liste mit den Handkarten 
+     * @return eine Liste der gesamten Handkarten.
+     */
+    public List<Karte> gibAlleHandkarte(){
+        return handkarten;
     }
 
-    public int zaehlen(){
-        int anzahl =0;
+    /**
+     * Wählt die Handkarte an der Position positionVonLinks aus. 
+     * @param auswaehlen
+     */
+    public void handkarteAuswaehlen(int positionVonLinks){
+        handkarten.toFirst();
+        for(int i = 0; handkarten.hasAccess() && i < positionVonLinks; i++ ){
+            handkarten.next();
+        }
+        if(handkarten.hasAccess()){
+            ausgewaehlt.append(handkarten.getContent()); 
+        }
+        
+    }
+
+    /**
+     * Gibt die Anzahl der Handkarten zurück.
+     * @return Anzahl der Handkarten.
+     */
+    public int getAnzahl(){
+        int anzahl = 0;
         handkarten.toFirst();
         while(handkarten.hasAccess()){
             anzahl++;

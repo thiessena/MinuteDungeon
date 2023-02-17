@@ -4,13 +4,13 @@
 public class GegnerKarte
 {
     private String gegnerName;
-    private Ressourcenkarte benötigteRessourcen;
+    private Ressourcenkarte benoetigteRessourcen;
     private Ressourcenkarte gegebeneRessourcen;
     private String gegnerTyp;
     private boolean besiegt;
     public GegnerKarte(String pName,Ressourcenkarte pBR,Ressourcenkarte pGB,String pTyp)
     {
-        benötigteRessourcen = pBR;
+        benoetigteRessourcen = pBR;
         gegebeneRessourcen = pGB;
         besiegt = false;
     }

@@ -60,7 +60,7 @@ public class DeckEreigniskarte extends Ereigniskarte
             //      auf die anderen DeckEreigniskarten anwenden. 
             break;
             case "Hinterhalt"
-                for int (i= 0; i <= 2; i++){
+                for int (i= 0; i < 2; i++){
                 Dungeon.nächsteKarte();
                 }
             break;
@@ -75,10 +75,9 @@ public class DeckEreigniskarte extends Ereigniskarte
                 while(sListe.hasAccess()){
                     Spieler akt = sListe.getContent();
                    Handkarten hk = akt.getHandkarten();
-                   for int(i = 0; i <= 3; i++){
+                   for int(i = 0; i < 3; i++){
                     Karte k = hk.handkartenAuswaehlen((int)(Math.random() * hk.getAnzahl()));
                     Spieler.getAblagestapel().legeObenDrauf(k);
-                    hk.anzahlKarten = hk.anzahlKarten-1;
                     }
                     sListe.next();
         }

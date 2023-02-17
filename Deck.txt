@@ -1,0 +1,12 @@
+Die verschiedenen Helden und ihre Fähigkeiten:
+Zu Auswahl stehen euch:
+
+    Zauberin & Magier : 3x Karten ablegen und überwinde ein Hindernis
+    
+    Nanja & Dieb :3x karten ablegenen und dafür besiege ein Hindernis
+    
+    Barbar & Gladiator : 3x Karten aablegen und besiege eine Person
+    
+    Jägerin & Waldläufer :3x Karten ablegen und besiege eine person.
+    
+    Paladin & Walküre : 3x Karten ablegen und dafür können alle anderenzwei karten ziehen

@@ -11,7 +11,7 @@ public class GegnerKarte
     /**
      * Konstruktor für Objekte der Klasse GegenerKarte
      */
-    public GegenerKarte(String pName,Ressourcenkarte pBR,Ressourcenkarte pGB,String pTyp)
+    public GegnerKarte(String pName,Ressourcenkarte pBR,Ressourcenkarte pGB,String pTyp)
     {
         gegnerName = pName;
         benötigteRessourcen = pBR;

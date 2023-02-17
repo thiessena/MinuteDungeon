@@ -1,8 +1,6 @@
 public class DeckEreigniskarte extends Ereigniskarte
 {
-    //Erklärung
-    //Hallo Philipp, die Karte Chaos ist eigentlich der Name. 
-    //D.h. du kannst eine neue Karte Chaos erstellen: 
+    
     public static final DeckEreigniskarte CHAOS = new DeckEreigniskarte("Chaos", "JEDER gibt seine Handkarten einem Mitspieler.");
     public static final DeckEreigniskarte EINWEHWEH = new DeckEreigniskarte("Ein Wehweh", "JEDER legt 1 Karte auf den eigenen Ablagestapel");
     public static final DeckEreigniskarte PLOETZLICHKRANKHEIT = new DeckEreigniskarte("Plötzlich Krankheit!", "JEDER legt alle Handkarten auf den eigenen Ablagestapel");
@@ -41,7 +39,7 @@ public class DeckEreigniskarte extends Ereigniskarte
                while(sListe.hasAccess()){
                     Spieler akt = sListe.getContent();
                     Handkarten hk = akt.getHandkarten();
-                    Karte k = hk.handkartenAuswaehlen((int)(Math.random() * hk.getAnzahl()));         // sorry ich hab keine Ahnung wie ich das machen soll
+                    Karte k = hk.handkartenAuswaehlen((int)(Math.random() * hk.getAnzahl()));         
                     Spieler.getAblagestapel().legeObenDrauf(k);
                     sListe.next();
                 }

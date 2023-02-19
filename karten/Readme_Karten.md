@@ -3,3 +3,5 @@ D.h.
 Karte
 Kartenstapel, 
 Handkarten, 
+Diese Klassen können für ein beliebiges Kartenspiel verwendet werden.
+

@@ -76,7 +76,7 @@ public class Handkarten{
      * Gibt die Liste mit den Handkarten 
      * @return eine Liste der gesamten Handkarten.
      */
-    public List<Karte> gibAlleHandkarte(){
+    public List<Karte> gibAlleHandkarten(){
         return handkarten;
     }
 

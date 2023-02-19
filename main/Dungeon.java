@@ -7,6 +7,17 @@ public class Dungeon
     private Kartenstapel gegenerkartenstappel;
     private int level; 
     private int schwierigkeitsgrad;
+
+    /**
+     * Konstruktor für Objekte der Klasse Dungeon
+     */
+    public Dungeon()
+    {
+        level = 1; 
+        schwierigkeitsgrad = 1;
+        init_Gegnerkarten();
+        
+    }
     
     /**
      * Konstruktor für Objekte der Klasse Dungeon
@@ -36,5 +47,13 @@ public class Dungeon
     
     public void prüfenObNochKartenDaSind(){
         //wenn nicht dann haben die Spieler gewonnen sonst nächste Karte
+    }
+
+    public void setSchwierigkeitsgrad(int pSchwierigkeitsgrad) {
+        schwierigkeitsgrad = pSchwierigkeitsgrad;
+    }
+
+    public void setLevel(int pLevel) {
+        level = pLevel;
     }
 }

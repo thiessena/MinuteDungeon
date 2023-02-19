@@ -1,5 +1,6 @@
 package main;
-import karten.List;
+import karten.*;
+import helden.*;
 
 /**
  * Die Klasse Spiel verwaltet das gesamte Spiel. 
@@ -11,29 +12,48 @@ public class Spiel {
     List<Spieler> spieler; 
     Dungeon dungeon;
     Countdown countdown;
-    
+
+    View spielAusgabe;
+
     /**
-     * Hier fehlen noch all die Attribute, die für das Spiel benötigt werden.
+     * Phasen des Spiels
      */
+    public static final int SCHWIERIGKEITS_AUSWAHL = 1; 
+    public static final int CHARACTER_AUSWAHL = 2;
 
     private Spiel(){
-
+        countdown = new Countdown();
+        dungeon = new Dungeon();
+        spieler = new List<Spieler>();
     }
 
     public static Spiel getInstance(){
         return instance;
     }
 
+    public void setView(View pView){
+        spielAusgabe = pView;
+    }
+
     /**
      * Zeigt einen Bildschirm zur Auswahl des Charakters. 
      */
-    public void charakterAuswahl(){
-        spieler = new List<Spieler>();
+    public void setHeld(Spieler pSpieler, Held pHeld){
+        boolean fertig = false;
+        spieler.toFirst();
+        while(spieler.hasAccess() && !fertig){
+
+        }
     }
 
-    public void schwierigkeitAuswahl(){
-    
-        dungeon = new Dungeon(1,1);// Level, Schwierigkeitsgrad
+    /**
+     * Setzt die schwierigkeit und das Level des Dungeons und ermöglicht das Spielen.
+     * @param pLevel
+     * @param pSchwierigkeitsgrad
+     */
+    public void setDungeonEigenschaft(int pLevel, int pSchwierigkeitsgrad){
+        dungeon.setLevel(pLevel);
+        dungeon.setSchwierigkeitsgrad(pSchwierigkeitsgrad);
     }
     
     /**
@@ -48,8 +68,11 @@ public class Spiel {
         //Timer starten
     }
     
-    public void ablauf(){
-        while(!dungeon.getGewonnen() && countdown.ende()){
+    /**
+     * Führt die aktuelle Situation
+     */
+    public void rundenAblauf(){
+        if(!dungeon.getGewonnen() && countdown.ende()){
             //dungeon anzeigen
             //countdown anzeigen
             //spieler anzeigen

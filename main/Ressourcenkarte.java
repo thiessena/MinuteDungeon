@@ -1,3 +1,6 @@
+package main;
+import karten.Karte;
+
 public class Ressourcenkarte extends Karte
 {
   private Ressource schild;

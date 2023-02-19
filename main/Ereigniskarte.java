@@ -1,10 +1,11 @@
+package main;
+import karten.Karte;
 
-public class Ereigniskarte
+public class Ereigniskarte extends Karte
 {
    
     protected String beschreibung;
     protected String name;
-    protected String farbe;
     protected int anzahl;
 
     /**
@@ -12,10 +13,10 @@ public class Ereigniskarte
      */
     public Ereigniskarte(String pName, String pBeschreibung)
     {
-       name = pName; 
-       beschreibung = pBeschreibung;
-       farbe = "";
-       anzahl = 0;
+        super();
+        name = pName; 
+        beschreibung = pBeschreibung;
+        anzahl = 0;
     }
    
 

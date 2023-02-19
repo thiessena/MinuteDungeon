@@ -1,3 +1,6 @@
+package main;
+import karten.Handkarten;
+import karten.Kartenstapel;
 
 public class Spieler{
     private Kartenstapel nachziehstapel;

@@ -1,3 +1,4 @@
+package main;
 public class Ressource
 {
     private String farbe;

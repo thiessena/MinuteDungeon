@@ -1,3 +1,4 @@
+package helden;
 public class Held
 {
     // Instanzvariablen - ersetzen Sie das folgende Beispiel mit Ihren Variablen

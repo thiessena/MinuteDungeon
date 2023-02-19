@@ -1,15 +1,26 @@
+package main;
+import karten.*;
+
 public class Dungeon
 {
     
     private Kartenstapel gegenerkartenstappel;
+    private int level; 
+    private int schwierigkeitsgrad;
     
     /**
      * Konstruktor für Objekte der Klasse Dungeon
      */
-    public Dungeon(Kartenstapel pGegenerkartenstappel)
+    public Dungeon(int pLevel, int pSchwierigkeitsgrad)
     {
-        gegenerkartenstappel = pGegenerkartenstappel;
+        level = pLevel; 
+        schwierigkeitsgrad = pSchwierigkeitsgrad;
+        init_Gegnerkarten();
         
+    }
+
+    private void init_Gegnerkarten(){
+        gegenerkartenstappel = new Kartenstapel();
     }
     
     public void nächsteKarte(){

@@ -1,3 +1,6 @@
+package main;
+import karten.*;
+
 public class DeckEreigniskarte extends Ereigniskarte
 {
     
@@ -15,10 +18,9 @@ public class DeckEreigniskarte extends Ereigniskarte
     
 
     public void aktion(DeckEreigniskarte pDE){
+        List<Spieler> sListe = Spiel.getInstance().getSpieler();
         switch (pDE.name){
             case "Chaos": //toDo -> Veränderung des Spiels
-                 
-                List<Spieler> sListe = Spiel.getInstance().getSpieler();
                 sListe.toFirst();
                 Handkarten temp = sListe.getContent().getHandkarten();
                 sListe.toFirst();
@@ -33,31 +35,24 @@ public class DeckEreigniskarte extends Ereigniskarte
                 bekommt.setHandkarten(temp);
             break;
             case "Ein Wehweh":
-                
-                List<Spieler> sListe = Spiel.getInstance().getSpieler();
                 sListe.toFirst();
                while(sListe.hasAccess()){
                     Spieler akt = sListe.getContent();
                     Handkarten hk = akt.getHandkarten();
-                    Karte k = hk.handkartenAuswaehlen((int)(Math.random() * hk.getAnzahl()));         
-                    Spieler.getAblagestapel().legeObenDrauf(k);
+                    Karte k = hk.gibHandkarte((int)(Math.random() * hk.getAnzahl()));         
+                    akt.getAblagestapel().legeObenDrauf(k);
                     sListe.next();
                 }
             break;
             case "Ploetzlich Krankheit!":
-            
-                List<Spieler> sListe = Spiel.getInstance().getSpieler();
                 sListe.toFirst();
                while(sListe.hasAccess()){
                     Spieler akt = sListe.getContent();
                     Handkarten hk = akt.getHandkarten();
                     List<Karte> alleKarten = hk.gibAlleHandkarten();
-                    Spieler.getAblagestapel().legeObenDrauf(alleKarten);
+                    akt.getAblagestapel().legeObenDrauf(alleKarten);
                     sListe.next();
                  }
-            //toDo: Hallo Luca, ich habe die obere Karte zu Ende gemacht. 
-            //      Meine Idee: Du kannst den Quelltext oben verstehen und dann 
-            //      auf die anderen DeckEreigniskarten anwenden. 
             break;
             case "Hinterhalt":
                 for (int i= 0; i < 2; i++){
@@ -65,18 +60,13 @@ public class DeckEreigniskarte extends Ereigniskarte
                 }
             break;
             case "Falltuer":
-                List<Spieler> sListe = Spiel.getInstance().getSpieler();
                 sListe.toFirst();
-                Handkarten temp = sListe.getContent().getHandkarten();
-                sListe.toFirst();
-                Spieler bekommt = sListe.getContent();
-                sListe.next();
                while(sListe.hasAccess()){
                     Spieler akt = sListe.getContent();
                     Handkarten hk = akt.getHandkarten();
                     for (int i = 0; i < 3; i++){
-                        Karte k = hk.handkartenAuswaehlen((int)(Math.random() * hk.getAnzahl()));
-                        Spieler.getAblagestapel().legeObenDrauf(k);
+                        Karte k = hk.gibHandkarte((int)(Math.random() * hk.getAnzahl()));
+                        akt.getAblagestapel().legeObenDrauf(k);
                     }
                     sListe.next();
                 }

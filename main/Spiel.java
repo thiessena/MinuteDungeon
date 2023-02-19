@@ -1,3 +1,6 @@
+package main;
+import karten.List;
+
 /**
  * Die Klasse Spiel verwaltet das gesamte Spiel. 
  * Hier werden Spieler, Decks, Charaktere, Gegner
@@ -25,12 +28,12 @@ public class Spiel {
      * Zeigt einen Bildschirm zur Auswahl des Charakters. 
      */
     public void charakterAuswahl(){
-        spieler = new List<spieler>();
+        spieler = new List<Spieler>();
     }
 
     public void schwierigkeitAuswahl(){
     
-        dungeon = new dungeon(1,1);// Level, Schwierigkeitsgrad
+        dungeon = new Dungeon(1,1);// Level, Schwierigkeitsgrad
     }
     
     /**

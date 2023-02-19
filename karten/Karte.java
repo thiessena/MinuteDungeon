@@ -1,3 +1,4 @@
+package karten;
 public class Karte{
 
     private boolean verdeckt;
@@ -7,6 +8,12 @@ public class Karte{
         verdeckt = false;
         farbe = "";
     }
+
+    public Karte(String pFarbe){
+        farbe = pFarbe; 
+        verdeckt = false;
+    }
+
     public boolean getVerdeckt(){
         return verdeckt;
     }

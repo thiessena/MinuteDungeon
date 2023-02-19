@@ -1,14 +1,16 @@
+package karten;
+
 public class Kartenstapel{
     private List<Karte> karten;
-    private String typ;
-    private int spielerID;
     private int anzahl;
+    
+    
+    public Kartenstapel(){
+        karten = new List<Karte>();
+    }
     
     public Kartenstapel(List<Karte> pKarten, String pTyp, int pID){
         karten = pKarten;
-        typ = pTyp;
-        spielerID = pID;
-        zaehlen();
     }
     
     public void mischen(){

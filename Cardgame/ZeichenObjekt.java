@@ -1,3 +1,4 @@
+package Cardgame;
 /**
  * Die Klasse ZeichenObjekt dient als Basis für alle Objekte, die gezeichnet werden.
  * Sie verwaltet die Attribute: 

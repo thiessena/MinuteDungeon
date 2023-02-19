@@ -1,3 +1,4 @@
+package karten;
 
 /**
  * Eine Klasse für die Verwaltung von Handkarten.

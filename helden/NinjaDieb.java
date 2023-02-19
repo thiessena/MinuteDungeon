@@ -1,3 +1,4 @@
+package helden;
 /**
  * Beschreiben Sie hier die Klasse NinjaDieb.
  * 

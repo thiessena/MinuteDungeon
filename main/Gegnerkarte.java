@@ -1,4 +1,6 @@
 package main;
+import java.lang.ProcessBuilder.Redirect.Type;
+
 import karten.Karte;
 /**
  * V1
@@ -9,7 +11,7 @@ public class Gegnerkarte extends Karte
     private String name;
     private Ressourcenkarte benoetigteRessourcen;
     private Ressourcenkarte gegebeneRessourcen;
-    private String gegnerTyp;
+    private String typ;
     private boolean besiegt;
 
     public Gegnerkarte(String pName,Ressourcenkarte pBenoetigteRessourcen,String pTyp)
@@ -17,9 +19,14 @@ public class Gegnerkarte extends Karte
         benoetigteRessourcen = pBenoetigteRessourcen;
         gegebeneRessourcen = new Ressourcenkarte(0, 0, 0, 0, 0);
         besiegt = false;
+        typ = pTyp;
     }
     public void setTyp(String pTyp){
-        gegnerTyp = pTyp;
+        typ = pTyp;
+    }
+
+    public String getTyp(){
+        return typ;
     }
 
     public void setName(String pName){

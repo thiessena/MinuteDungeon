@@ -3,7 +3,6 @@ package main;
 public class GegnerEreigniskarte extends Ereigniskarte
 {
     private String gegnertyp;
-    private Gegnerkarte gegnerkarte;
     private Ressource ressource;
 
     public static final GegnerEreigniskarte Ruecklings = new GegnerEreigniskarte ("Ruecklings", "Besiege eine Person");

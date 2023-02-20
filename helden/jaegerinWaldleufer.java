@@ -10,12 +10,14 @@ public class JaegerinWaldlaeufer
 {
    
     /**
-     * Konstruktor für Objekte der Klasse JaegerinWaldlaeufer
+     * Konstruktor fÃ¼r Objekte der Klasse JaegerinWaldlaeufer
      * 3x Karten ablegen und besiege eine person.
      */
     public JaegerinWaldlaeufer()
     {
-
+        /**
+         * [3x public void karteRauslegen(Karte pKarte)] + set  gegnerTyp, person = 0;
+         */
     }
 
     

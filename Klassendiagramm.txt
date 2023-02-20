@@ -1,0 +1,89 @@
+@startuml
+class Countdown{
+  long startzeit
+  long pause
+  long pausenStart
+  boolean inPause
+  long laenge
+  long restlicheZeit
+    
+  void start(long pLaenge)
+  boolean ende()
+  void stopp()
+  void weiter()
+  void reset()
+  String umrechnen()
+  void ausgabe()
+}
+
+class DeckEreigniskarte{
+  void aktion(DeckEreigniskarte pDE)
+}
+
+class Dungeon{
+  Kartenstapel gegnerkartenstappel
+  int level
+  int schwierigkeitsgrad
+
+  Dungeon(int pLevel, int pSchwierigkeitsgrad)
+  void init_Gegnerkarten()
+  void naechsteKarte()
+  boolean pruefenObNochKartenDaSind()
+  void kartenWeglegen()
+  void RessourcenKarteVergleichen()
+  void setSchwierigkeitsgrad(int pSchwierigkeitsgrad)
+  void setLevel(int pLevel)
+
+class Ereigniskarte{
+  String beschreibung
+  String name
+  int anzahl
+
+  Ereigniskarte(String pName, String pBeschreibung)
+}
+
+class GegnerEreigniskarte{
+  String gegnertyp
+  Gegnerkarte gegnerkarte
+   Ressource ressource
+
+  GegnerEreigniskarte(String pName, String pBeschreibung)
+  void anwenden(Gegnerkarte gegnerkarte)
+}
+
+class Gegnerkarte{
+  private String gegnerName
+  Ressourcenkarte benoetigteRessourcen
+  Ressourcenkarte gegebeneRessourcen
+  String gegnerTyp
+  boolean besiegt
+
+  Gegnerkarte(String pName,Ressourcenkarte pBR,Ressourcenkarte pGB,String pTyp)
+  void setTyp(String pTyp)
+  void setName(String pName)
+  void arrayGegner(Ressourcenkarte pBR)
+}
+
+class Ressource{
+  String farbe
+  int anzahl
+
+  Ressource(String pFarbe, int pAnzahl)
+  int getAnzahl()
+  void setAnzahl(int pAnzahl)
+  String getFarbe()
+  void setFarbe(String pFarbe)
+}
+
+class Ressourcenkarte{
+  Ressource schild
+  Ressource schwert
+  Ressource sprung
+  Ressource schriftrolle
+  Ressource pfeil
+
+  Ressourcenkarte(int pSchild, int pSchwert, int pSprung, int pSchriftrolle, int pPfeil)
+  int[] getArray()
+}
+}
+@enduml

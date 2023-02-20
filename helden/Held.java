@@ -2,7 +2,7 @@ package helden;
 public class Held
 {
     // Instanzvariablen - ersetzen Sie das folgende Beispiel mit Ihren Variablen
-    private String heldenname
+    private String heldenname;
     private String faehigkeitname;
     
 

@@ -86,4 +86,52 @@ class Ressourcenkarte{
   int[] getArray()
 }
 }
+class ZeichenObjekt {
+  int x; 
+  int y;
+  boolean vivsible
+
+  void draw()
+  void setPosition(int pX, int pY)
+  void setX(int pX)
+  void setY(int pY)
+  int getX()
+  int getY()
+}
+
+class BabarGladiator {
+ 
+  BabarGladiator()
+}
+
+class Held{
+  String heldenname
+  String faehigkeitname
+  
+  void faehigkeit()
+}
+
+class NinjaDieb{
+  NinjaDieb()
+}
+
+class PaladinWalkuere{
+  PaladinWalkuere()
+}
+
+class ZauberinMagier{
+  ZauberinMagier()
+}
+
+class JaegerinWaldlaeufer{
+  JaegerinWaldlaeufer()
+}
+
+class Handkarten{
+  List<Karte> handkarten
+  List<Karte> ausgewaehlt
+
+  Handkarten()
+  karteRauslegen(Karte pKarte)
+}
 @enduml

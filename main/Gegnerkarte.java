@@ -6,16 +6,16 @@ import karten.Karte;
  */
 public class Gegnerkarte extends Karte
 {
-    private String gegnerName;
+    private String name;
     private Ressourcenkarte benoetigteRessourcen;
     private Ressourcenkarte gegebeneRessourcen;
     private String gegnerTyp;
     private boolean besiegt;
 
-    public Gegnerkarte(String pName,Ressourcenkarte pBR,Ressourcenkarte pGB,String pTyp)
+    public Gegnerkarte(String pName,Ressourcenkarte pBenoetigteRessourcen,String pTyp)
     {
-        benoetigteRessourcen = pBR;
-        gegebeneRessourcen = pGB;
+        benoetigteRessourcen = pBenoetigteRessourcen;
+        gegebeneRessourcen = new Ressourcenkarte(0, 0, 0, 0, 0);
         besiegt = false;
     }
     public void setTyp(String pTyp){
@@ -23,7 +23,7 @@ public class Gegnerkarte extends Karte
     }
 
     public void setName(String pName){
-        gegnerName = pName;
+        name = pName;
     }
     public void arrayGegner(Ressourcenkarte pBR){
         pBR.getArray();

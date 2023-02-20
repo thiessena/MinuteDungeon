@@ -9,12 +9,14 @@ public class BabarGladiator
 {
 
     /**
-     * Konstruktor für Objekte der Klasse BabarGladiator
-     * Faehigkeit: 3x Karten aablegen und besiege eine Person
+     * Konstruktor fÃ¼r Objekte der Klasse BabarGladiator
+     * Faehigkeit: 3x Karten ablegen und besiege eine Person
      */
     public BabarGladiator()
     {
-        
+        /**
+         * [3x public void karteRauslegen(Karte pKarte)] + set  gegnerTyp, person = 0;
+         */
     }
 
     

@@ -9,13 +9,17 @@ public class PaladinWalkuere
 {
  
     /**
-     * Konstruktor für Objekte der Klasse PaladinWalkuere
-     * Faehigkeiten: 3x Karten ablegen und dafür können alle anderenzwei karten ziehen
+     * Konstruktor fuer Objekte der Klasse PaladinWalkuere
+     * Faehigkeiten: 3x Karten ablegen und dafuer koennen alle anderenzwei karten ziehen
      */
     public PaladinWalkuere()
     {
+        /**
+         * [3x public void karteRauslegen(Karte pKarte)] + 2x public void karteHinzufuegen
+         */
         
     }
 
     
 }
+

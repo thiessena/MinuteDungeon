@@ -9,12 +9,14 @@ public class NinjaDieb
 {
    
     /**
-     * Konstruktor für Objekte der Klasse NinjaDieb
-     * Faehigkeit: 3x karten ablegenen und dafür besiege ein Hindernis
+     * Konstruktor fÃ¼r Objekte der Klasse NinjaDieb
+     * Faehigkeit: 3x karten ablegenen und dafÃ¼r besiege ein Hindernis
      */
     public NinjaDieb()
     {
-        // Instanzvariable initialisieren
+        /**
+         * 3x public void karteHinzufuegen + set  gegnerTyp hindernis = 0;
+         */
       
     }
 

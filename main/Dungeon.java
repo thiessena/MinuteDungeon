@@ -3,50 +3,58 @@ import karten.*;
 
 public class Dungeon
 {
-    
-    private Kartenstapel gegenerkartenstappel;
+
+    private Kartenstapel gegnerkartenstappel;
     private int level; 
     private int schwierigkeitsgrad;
 
     /**
-     * Konstruktor für Objekte der Klasse Dungeon
+     * Konstruktor fÃ¼r Objekte der Klasse Dungeon
      */
     public Dungeon()
     {
         level = 1; 
         schwierigkeitsgrad = 1;
         init_Gegnerkarten();
-        
+
     }
-    
+
     /**
-     * Konstruktor für Objekte der Klasse Dungeon
+     * Konstruktor fÃ¼r Objekte der Klasse Dungeon
      */
     public Dungeon(int pLevel, int pSchwierigkeitsgrad)
     {
         level = pLevel; 
         schwierigkeitsgrad = pSchwierigkeitsgrad;
         init_Gegnerkarten();
-        
+
     }
 
     private void init_Gegnerkarten(){
-        gegenerkartenstappel = new Kartenstapel();
+        gegnerkartenstappel = new Kartenstapel();
     }
-    
-    public void nächsteKarte(){
-        //prüfenObNochKartenDaSind wenn ja dann Karte von oben aus dem Gegenerkartestappel aufdecken 
+    public void naechsteKarte(){
+        
     }
-    
-   public void RessourcenKarteVergleichen(){
-        GegnerKarte.arrayGegner();
-    
+    public boolean pruefenObNochKartenDaSind(){
+        while hasacces und so 
+    }
     public void kartenWeglegen(){
-        //besiegte Karte wegglegen und die da zugehörigen Reurcen u. Array und dann prüfen ob noch karten da sind 
+        
     }
     
-    public void prüfenObNochKartenDaSind(){
-        //wenn nicht dann haben die Spieler gewonnen sonst nächste Karte
+
+    public void RessourcenKarteVergleichen(){
+        Gegnerkarte.arrayGegner();
+        //hier die beiden arrays vergleichen
+        kartenWeglegen();
+
+        if(pruefenObNochKartenDaSind() = false){
+              System.out.println("Wow du hast gewonnen wow wowowowowow");
+              //Spiel beenden
+        }else{
+            naechsteKarte();
+        }
     }
 
     public void setSchwierigkeitsgrad(int pSchwierigkeitsgrad) {

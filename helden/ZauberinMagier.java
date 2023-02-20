@@ -9,13 +9,15 @@ public class ZauberinMagier
    
 
     /**
-     * Konstruktor für Objekte der Klasse ZauberinMagier
-     *  Faehigekeit: 3x Karten ablegen und überwinde ein Hindernis
+     * Konstruktor fÃ¼r Objekte der Klasse ZauberinMagier
+     *  Faehigekeit: 3x Karten ablegen und Ã¼berwinde ein Hindernis
      */
     
     public ZauberinMagier()
     {
-       
+       /**
+        * 3x public void karteHinzufuegen + set  gegnerTyp hindernis = 0;
+        */
     }
 
     

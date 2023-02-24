@@ -1,0 +1,19 @@
+@startuml
+interface Controller{
+  +setHeld(Spieler pSpieler, Held pHeld);
+  +setSchwierigkeitsgrad(int pSchwierigkeitsgrad);
+  +setLevel(int pLevel);
+  +karteSpielen(Karte pKarte)
+  -zeitStoppen()
+}
+
+interface View{
+  +zeigeHeldenAuswahl(); 
+  +zeigeLevelAuswahl();
+  +zeigeDungeon(Dungeon pDungen); 
+  +zeigeTimer(Countdown pCountdown);
+  +zeigeSpieler(Spieler pSpieler);
+  +zeigeSpiel(Spiel pSpiel);
+  +zeigeEreigniskarte(Ereigniskarte pEreigniskarte);
+}
+@enduml

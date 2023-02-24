@@ -1,0 +1,11 @@
+@startuml
+Controller -> View : zeigeHeldenAuswahl()
+Controller <- View : setHeld(Spieler pSpieler, Held pHeld)
+Controller -> View : zeigeLevelAuswahl()
+Controller <- View : setLevel(int )
+Controller -> View : zeigeDungeon(Dungeon pDungen)
+
+Controller -> View : zeigeSpiel(Spiel pSpiel)
+View -> View : zeigeSpieler(Spieler sp)
+View -> View : zeigeCountdown()
+@enduml

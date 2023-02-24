@@ -17,6 +17,26 @@ public class Ressourcenkarte extends Karte
     schriftrolle = new Ressource("blau", pSchriftrolle);
     pfeil = new Ressource("gruen", pPfeil);
   }
+
+  public String toString(){
+    return "(R>🛡️"+schild+" 🗡️:"+schwert+" 🤾‍♀️:"+sprung+" 📝:"+schriftrolle+" 🏹:"+pfeil+")";
+  }
+
+  /**
+   * Addiert die Werte der Ressourcenkarte pRessourcenkarte zur Ressourcenkarte.
+   * @param pRessourcenkarte
+   */
+  public void addiere ( Ressourcenkarte pRessourcenkarte){
+    //toDo Sadduzaer1
+  }
+
+  /**
+   * Subtrahiert die Werte der Ressourcenkarte pRessourcenkarte zur Ressourcenkarte.
+   * @param pRessourcenkarte
+   */
+  public void subtrahiere ( Ressourcenkarte pRessourcenkarte){
+    //toDo Sadduzaer1
+  }
   
   public int[] getArray()
   {

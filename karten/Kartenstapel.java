@@ -1,20 +1,38 @@
 package karten;
 
+/**
+ * Ein Kartenstapel, der Karten verwaltet und auf und zugedeckt werden kann.
+ * 
+ */
 public class Kartenstapel{
     private List<Karte> karten;
-    private int anzahl;
+    private boolean aufgedeckt;
     
     
     public Kartenstapel(){
         karten = new List<Karte>();
+        aufgedeckt = true;
     }
     
     public Kartenstapel(List<Karte> pKarten, String pTyp, int pID){
         karten = pKarten;
+        aufgedeckt = true;
+    }
+
+    /**
+     * Gibt eine String-Repraesentation des Kartenstapels zurück.
+     */
+    public String toString(){
+        String obersteKarte = aufgedeckt && getObersteKarte()!=null ? getObersteKarte().toString() : "x";
+        return "[" + obersteKarte + "(" + getAnzahl() + ")]";
     }
     
+    /**
+     * Mischt den Kartenstapel
+     */
     public void mischen(){
         int p = 0;
+        int anzahl = getAnzahl();
         while(p < 1000){
             karten.toFirst();
             Karte temp = karten.getContent();
@@ -26,6 +44,23 @@ public class Kartenstapel{
             p++;
         }
     }
+
+
+    /**
+     * Deckt den Kartenstapel auf oder zu.
+     * @param pAufgedeckt
+     */
+    public void setAufgedeckt(boolean pAufgedeckt){
+        aufgedeckt = pAufgedeckt;
+    }
+
+    /**
+     * Gibt zurück, ob der Kartenstapel aufgedeckt ist.
+     * @return aufgedeckt
+     */
+    public boolean getAufgedeckt(){
+        return aufgedeckt;
+    }
     
     /**
      * Gibt die oberste Karte des Kartenstapels zurÃ¼ck. 
@@ -34,7 +69,7 @@ public class Kartenstapel{
      */
     public Karte getObersteKarte(){
         karten.toFirst();
-        return karten.getContent();
+        return karten.hasAccess() ? karten.getContent(): null;
     }
 
     /**
@@ -46,7 +81,7 @@ public class Kartenstapel{
         List<Karte> temp = new List<Karte>();
         int p = 0;
         karten.toFirst();
-        while(p < n){
+        while(karten.hasAccess() && p < n){
             Karte neu = karten.getContent();
             temp.append(neu);
             karten.next();
@@ -87,11 +122,40 @@ public class Kartenstapel{
         }
     }
 
-    public void zaehlen(){
+
+    /**
+     * Gibt die Anzahl der Karten in diesem Kartenstapel zurück.
+     * @return anzahl
+     */
+    public int getAnzahl(){
         karten.toFirst();
+        int anzahl = 0; 
         while(karten.hasAccess()){
             anzahl++;
             karten.next();
         }
+        return anzahl;
     }
+
+    public static Kartenstapel fromNetString(String pNetString){
+        String[] karten = pNetString.split("-");
+        Kartenstapel kStapel = new Kartenstapel();
+        kStapel.aufgedeckt = Boolean.parseBoolean(karten[0]);
+        kStapel.karten = new List<Karte>();
+        for(int i = 1; i < karten.length;i++){
+            karten.append(Karte.fromNetString(karten[i]));
+        }
+    }
+
+    public String toNetString(){
+        String netString = "" + aufgedeckt + "-"; 
+        karten.toFirst();
+        while(karten.hasAccess()){
+            netString += karten.getContent().toNetString() + "-";
+            karten.next();
+        }
+        netString.substring(0, netString.length()-1);
+        return netString;
+    }
+
 }

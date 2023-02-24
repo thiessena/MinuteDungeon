@@ -6,18 +6,15 @@ import java.util.Scanner;
 
 public class Textgame implements View{
     Spiel spiel = Spiel.getInstance();
-    Scanner input; 
+    Spieler spieler;
+    Scanner eingabeZeile; 
+    Controller controller;
 
-    public Textgame(){
-        input = new Scanner(System.in);
-    }
-
-    public void loop(){
-        boolean ende = false;
-        while(!ende){
-            String eingabe = input.nextLine();
-
-        }
+    public Textgame(Spieler pSpieler){
+        spiel.setView(this);
+        controller = spiel;
+        eingabeZeile = new Scanner(System.in);
+        spieler = pSpieler;
     }
 
 
@@ -30,9 +27,12 @@ public class Textgame implements View{
      */
     @Override
     public void zeigeHeldenAuswahl() {
-        System.out.println("Wähle einen Helden aus:")
-        
+        System.out.println("Wähle einen Helden aus: 1)Paladin 2)Walkuere 3)Ninja 4)Dieb 5)Waldlaeufer 6)Jaegerin 7)Magier 8)Zauberin");
+        int heldenNummer = eingabeZeile.nextInt();
+        Held.getHeld(heldenNummer);
+        controller.setHeld(spieler, null);
     }
+
 
     @Override
     public void zeigeLevelAuswahl() {
@@ -56,5 +56,18 @@ public class Textgame implements View{
     public void zeigeSpieler(Spieler pSpieler) {
         // TODO Auto-generated method stub
         
+    }
+
+    @Override
+    public void zeigeSpiel(Spiel pSpiel) {
+        System.out.println("===============================[Minute - Dungen]==============================");
+        zeigeDungeon(pSpiel.getDungeon());
+        List<Spieler> spieler = pSpiel.getSpieler();
+        spieler.toFirst();
+        while(spieler.hasAccess()){
+            zeigeSpieler(spieler.getContent());
+            spieler.next();
+        }
+        System.out.println("==================================================================================");
     }
 }

@@ -1,12 +1,24 @@
 package main;
+import karten.List;
+
+/**
+ * Die GegnerFactory erstellt alle Gegnerkarten. 
+ * Und stellt die Gegnerkarten in passender Anzahl zur Verfügung.
+ * @author Philipp Kühl
+ */
 public class GegnerFactory{
   List<Gegnerkarte> gegner;
   
   public GegnerFactory(){
-    gegner = new List<Gegnerkarter>();
+    gegner = new List<Gegnerkarte>();
     erstelleKarten();
   }
   
+  /**
+   * Gibt die Gegnerkarte mit dem Namen pNamen zurück.
+   * @param pName
+   * @return Gegnerkarte
+   */
   public Gegnerkarte gibGegnerkarte(String pName){
     Gegnerkarte erg;
     //Durch die Liste laufen und immer vergleichen, ob der Name zu pName passt.
@@ -18,17 +30,17 @@ public class GegnerFactory{
   public void erstelleKarten(){
     //Gegnerkarte(String pName,Ressourcenkarte pBR,Ressourcenkarte pGB,String pTyp)
     //          new Ressourcenkarte(int pSchild, int pSchwert, int pSprung, int pSchriftrolle, int pPfeil));
-    gegner.append(new Gegnerkarte("Zombies ohne Ende", new Ressourcenkarte( 0,3,0,0,0 ), "Monster");
-    gegner.append(new Gegnerkarte("Ein überteuerter Händler", new Ressourcenkarte(0,0,1,2,1),"Person");
-    gegner.append(new Gegnerkarte("Bodenloser Abgrund", new Ressourcenkarte(0,0,2,0,0),"Hindernis");
-    gegner.append(new Gegnerkarte("Ein „Geist“ ja klar!", new Ressourcenkarte(0,2,0,0,1),"Person");
-    gegner.append(new Gegnerkarte("Ein Haufen schreiender Kinder", new Ressourcenkarte(1,1,0,0,1),"Person"); 
-    gegner.append(new Gegnerkarte("Ein Timberwolf", new Ressourcenkarte(0,2,0,0,0),"Monster"); 
-    gegner.append(new Gegnerkarte("Lebendiges Grünzeug", new Ressourcenkarte(0,0,0,3,0),"Hindernis");          
-    gegner.append(new Gegnerkarte("Eine sicher Sprengfallenfreie Truhe", new Ressourcenkarte(3,0,1,0,0),"Hindernis");
-    gegner.append(new Gegnerkarte("Reizender Schleim", new Ressourcenkarte(0,0,1,0,1),"Monster");
-    gegner.append(new Gegnerkarte("Sir Fuzzy", new Ressourcenkarte(0,0,1,0,2),"Monster");
-    gegner.append(new Gegnerkarte("Ein langsam ladender Bildschirm", new Ressourcenkarte(0,1,1,0,1),"Hindernis");               
+    gegner.append(new Gegnerkarte("Zombies ohne Ende", new Ressourcenkarte( 0,3,0,0,0 ), "Monster"));
+    gegner.append(new Gegnerkarte("Ein überteuerter Händler", new Ressourcenkarte(0,0,1,2,1),"Person"));
+    gegner.append(new Gegnerkarte("Bodenloser Abgrund", new Ressourcenkarte(0,0,2,0,0),"Hindernis"));
+    gegner.append(new Gegnerkarte("Ein „Geist“ ja klar!", new Ressourcenkarte(0,2,0,0,1),"Person"));
+    gegner.append(new Gegnerkarte("Ein Haufen schreiender Kinder", new Ressourcenkarte(1,1,0,0,1),"Person")); 
+    gegner.append(new Gegnerkarte("Ein Timberwolf", new Ressourcenkarte(0,2,0,0,0),"Monster")); 
+    gegner.append(new Gegnerkarte("Lebendiges Grünzeug", new Ressourcenkarte(0,0,0,3,0),"Hindernis"));          
+    gegner.append(new Gegnerkarte("Eine sicher Sprengfallenfreie Truhe", new Ressourcenkarte(3,0,1,0,0),"Hindernis"));
+    gegner.append(new Gegnerkarte("Reizender Schleim", new Ressourcenkarte(0,0,1,0,1),"Monster"));
+    gegner.append(new Gegnerkarte("Sir Fuzzy", new Ressourcenkarte(0,0,1,0,2),"Monster"));
+    gegner.append(new Gegnerkarte("Ein langsam ladender Bildschirm", new Ressourcenkarte(0,1,1,0,1),"Hindernis"));               
                   
   }
   /**

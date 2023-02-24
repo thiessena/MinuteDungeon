@@ -1,9 +1,11 @@
 package main;
 import karten.*;
 
+/**
+ * Verwaltet alle Aktionen der DeckEreigniskarten.
+ */
 public class DeckEreigniskarte extends Ereigniskarte
 {
-    
     public static final DeckEreigniskarte CHAOS = new DeckEreigniskarte("Chaos", "JEDER gibt seine Handkarten einem Mitspieler.");
     public static final DeckEreigniskarte EINWEHWEH = new DeckEreigniskarte("Ein Wehweh", "JEDER legt 1 Karte auf den eigenen Ablagestapel");
     public static final DeckEreigniskarte PLOETZLICHKRANKHEIT = new DeckEreigniskarte("Plötzlich Krankheit!", "JEDER legt alle Handkarten auf den eigenen Ablagestapel");
@@ -55,8 +57,8 @@ public class DeckEreigniskarte extends Ereigniskarte
                  }
             break;
             case "Hinterhalt":
-                for (int i= 0; i < 2; i++){
-                    Dungeon.naechsteKarte();
+                for (int i = 0; i < 2; i++){
+                    Spiel.getInstance().getDungeon().naechsteGegnerKarte();
                 }
             break;
             case "Falltuer":

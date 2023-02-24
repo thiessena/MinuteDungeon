@@ -16,6 +16,22 @@ public class Handkarten{
         ausgewaehlt = new List<Karte>();
     }
 
+    public String toString(){
+        String ausgabe = "[[KartenStapel: "; 
+        handkarten.toFirst();
+        while(handkarten.hasAccess()){
+            ausgabe += handkarten.getContent().toString(); 
+            handkarten.next();
+        }
+        ausgabe += " | ";
+        ausgewaehlt.toFirst();
+        while(ausgewaehlt.hasAccess()){
+            ausgabe += ausgewaehlt.getContent().toString();
+            ausgewaehlt.next();
+        }
+        return ausgabe;
+    }
+
     /**
      * Entfernt die Karte pKarte aus den Handkarten.
      * Falls die Karte nicht vorhanden ist, passiert nichts.

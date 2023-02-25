@@ -4,6 +4,8 @@ import main.*;
 
 import java.util.Scanner;
 
+import helden.HeldenFactory;
+
 public class Textgame implements View{
     Spiel spiel = Spiel.getInstance();
     Spieler spieler;
@@ -16,12 +18,7 @@ public class Textgame implements View{
         eingabeZeile = new Scanner(System.in);
         spieler = pSpieler;
     }
-
-
-    public static void main(String[] args){
-        Textgame t = new Textgame(); 
-        
-    }
+    
     /**
      * 
      */
@@ -29,7 +26,7 @@ public class Textgame implements View{
     public void zeigeHeldenAuswahl() {
         System.out.println("Wähle einen Helden aus: 1)Paladin 2)Walkuere 3)Ninja 4)Dieb 5)Waldlaeufer 6)Jaegerin 7)Magier 8)Zauberin");
         int heldenNummer = eingabeZeile.nextInt();
-        Held.getHeld(heldenNummer);
+        HeldenFactory.gibHeld(heldenNummer);
         controller.setHeld(spieler, null);
     }
 
@@ -69,5 +66,10 @@ public class Textgame implements View{
             spieler.next();
         }
         System.out.println("==================================================================================");
+    }
+
+    @Override
+    public void zeigeWarteBildschirm() {
+        System.out.println("Bitte warte bis das Spiel startet.");
     }
 }

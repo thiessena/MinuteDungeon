@@ -1,5 +1,8 @@
 package helden;
-public class Held
+
+import netzwerk.NetObject;
+
+public class Held implements NetObject
 {
     // Instanzvariablen - ersetzen Sie das folgende Beispiel mit Ihren Variablen
     private String heldenname;
@@ -19,8 +22,24 @@ public class Held
      
     public void faehigkeit()
     {
-        //Ehm also diese methode soll den Spieler weiterleiten, damit wir uns einfach über die
+        //Eiese Methode soll den Spieler weiterleiten, damit wir uns einfach über die
         //haufen verschiedener Helden zugriff
         
+    }
+
+
+
+    @Override
+    public void fromNetString(String pNetString) {
+        // TODO Auto-generated method stub
+        
+    }
+
+
+
+    @Override
+    public String toNetString() {
+        // TODO Auto-generated method stub
+        return null;
     }
 }

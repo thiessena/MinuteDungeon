@@ -18,6 +18,10 @@ public class Ressourcenkarte extends Karte
     pfeil = new Ressource("gruen", pPfeil);
   }
 
+  public Ressourcenkarte copy(){
+    return new Ressourcenkarte(schild.getAnzahl(), schwert.getAnzahl(), sprung.getAnzahl(), schriftrolle.getAnzahl(), pfeil.getAnzahl());
+  }
+
   public String toString(){
     return "(R>🛡️"+schild+" 🗡️:"+schwert+" 🤾‍♀️:"+sprung+" 📝:"+schriftrolle+" 🏹:"+pfeil+")";
   }

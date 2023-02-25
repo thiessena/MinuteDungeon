@@ -1,20 +1,32 @@
 package main;
 import karten.Handkarten;
 import karten.Kartenstapel;
+import netzwerk.NetObject;
+import netzwerk.NetTrennzeichen;
 import helden.*;
 
-public class Spieler{
+/**
+ * Ein Spieler hat drei Stapel und verwaltet einen Helden.
+ */
+public class Spieler implements NetObject{
+    private int userId;
+    private Held held;
     private Kartenstapel nachziehstapel;
     private Kartenstapel ablagestapel;
     private Handkarten handkarten;
-    private Held held;
-    private int spielerID;
+
     
-    public Spieler(int pID){
-        spielerID = pID;
+    
+    public Spieler(){
+        nachziehstapel = new Kartenstapel();
+        ablagestapel = new Kartenstapel();
+        handkarten = new Handkarten();
+        held = null;
+        
     }
-    public Spieler(int pID, Kartenstapel pNachziehstapel, Kartenstapel pAblagestapel){
-        spielerID = pID;
+
+    public Spieler(int pUserId, Kartenstapel pNachziehstapel, Kartenstapel pAblagestapel){
+        userId = pUserId;
         nachziehstapel = pNachziehstapel;
         ablagestapel = pAblagestapel;
     }
@@ -43,18 +55,33 @@ public class Spieler{
         handkarten = pHandkarten;
     }
     
-    public int getID(){
-        return spielerID;
+    public int getUserId(){
+        return userId;
     }
 
+    public void setUserId(int pUserId){
+        userId = pUserId;
+    }
+
+    /**
+     * 
+     * @return
+     * 
+     */
     public String toNetString(){
-        
+        return null;
     }
 
-    public static Spieler fromNetString(String pNetString){
-        String[] daten = pNetString.split("/");
-
-        Spieler s = new Spieler();
-
+    public void fromNetString(String pNetString){
+        String[] daten = pNetString.split(NetTrennzeichen.SPIELER_TRENNZEICHEN);
+        userId = Integer.parseInt(daten[0]);
+        held = new Held();
+        held.fromNetString(daten[1]);
+        nachziehstapel = new Kartenstapel(); 
+        nachziehstapel.fromNetString(daten[2]);
+        ablagestapel = new Kartenstapel(); 
+        ablagestapel.fromNetString(daten[3]);
+        handkarten = new Handkarten(); 
+        handkarten.fromNetString(daten[4]);
     }
 }

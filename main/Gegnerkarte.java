@@ -1,6 +1,7 @@
 package main;
 
 import karten.Karte;
+import karten.List;
 /**
  * V1
  * @author 
@@ -8,15 +9,17 @@ import karten.Karte;
 public class Gegnerkarte extends Karte
 {
     private String name;
-    private Ressourcenkarte benoetigteRessourcen;
-    private Ressourcenkarte gegebeneRessourcen;
+    private Ressourcenkarte benoetigteRessourcen; //Die benötigte Anzahl an Ressourcen
+    private Ressourcenkarte aktuelleRessourcen; //Aktuelle im Spiel übrige Ressourcen
+    private List<Ressourcenkarte> gegebeneRessourcenkarten; //alle gespielten REssourcenkarten
     private String typ;
     private boolean besiegt;
 
     public Gegnerkarte(String pName,Ressourcenkarte pBenoetigteRessourcen,String pTyp)
     {
         benoetigteRessourcen = pBenoetigteRessourcen;
-        gegebeneRessourcen = new Ressourcenkarte(0, 0, 0, 0, 0);
+        aktuelleRessourcen = benoetigteRessourcen.copy();
+        gegebeneRessourcenkarten = new List<Ressourcenkarte>();
         besiegt = false;
         typ = pTyp;
     }
@@ -31,7 +34,7 @@ public class Gegnerkarte extends Karte
     public void setName(String pName){
         name = pName;
     }
-    public void arrayGegner(Ressourcenkarte pBR){
-        pBR.getArray();
+    public Ressourcenkarte getAktuelleRessourcen(){
+        return aktuelleRessourcen;
     }
 }

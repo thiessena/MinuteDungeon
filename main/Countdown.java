@@ -1,7 +1,9 @@
 package main;
 import java.util.concurrent.TimeUnit;
 
-public class Countdown
+import netzwerk.NetObject;
+
+public class Countdown implements NetObject
 {
     long startzeit;
     long pause;
@@ -72,5 +74,17 @@ public class Countdown
     
     public void ausgabe(){
         System.out.println();
+    }
+
+    @Override
+    public void fromNetString(String pNetString) {
+        // TODO Auto-generated method stub
+        
+    }
+
+    @Override
+    public String toNetString() {
+        // TODO Auto-generated method stub
+        return null;
     }
 }

@@ -1,7 +1,13 @@
 package main;
 import karten.*;
+import netzwerk.NetObject;
 
-public class Dungeon
+/**
+ * Verwaltet alle Gegnerkarten, und stellt die passende Größe für den Level und Schwierigkeitsgrad zur Verfügung.
+ * 
+ * @author Viola, @StinckyMe
+ */
+public class Dungeon implements NetObject
 {
 
     private Kartenstapel gegnerkartenstappel;
@@ -33,13 +39,29 @@ public class Dungeon
     private void init_Gegnerkarten(){
         gegnerkartenstappel = new Kartenstapel();
     }
-    public void naechsteKarte(){
+
+    /**
+     * Deckt die nächste Gegnerkarte auf.
+     */
+    public void naechsteGegnerKarte(){
         
     }
-    public boolean pruefenObNochKartenDaSind(){
-        while hasacces und so 
+    public boolean nochKartenVorhanden(){
+        //while hasacces und so 
+        return false;
     }
+
     public void kartenWeglegen(){
+        
+    }
+
+    /**
+     * Gibt die Möglichkeit eine Karte zum Dungeon zu legen.
+     * Die Karte wird auf den Gegner angewendet. Bzw. von seinen REssourcen abgezogen.
+     * @param pKarte
+     */
+    public void karteSpielen(Karte pKarte) {
+        
         
     }
     
@@ -49,11 +71,11 @@ public class Dungeon
         //hier die beiden arrays vergleichen
         kartenWeglegen();
 
-        if(pruefenObNochKartenDaSind() = false){
+        if(nochKartenVorhanden() == false){
               System.out.println("Wow du hast gewonnen wow wowowowowow");
               //Spiel beenden
         }else{
-            naechsteKarte();
+            naechsteGegnerKarte();
         }
     }
 
@@ -63,5 +85,17 @@ public class Dungeon
 
     public void setLevel(int pLevel) {
         level = pLevel;
+    }
+
+    @Override
+    public void fromNetString(String pNetString) {
+        // TODO Auto-generated method stub
+        
+    }
+
+    @Override
+    public String toNetString() {
+        // TODO Auto-generated method stub
+        return null;
     }
 }

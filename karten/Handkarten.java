@@ -1,5 +1,7 @@
 package karten;
 
+import netzwerk.NetObject;
+
 /**
  * Eine Klasse für die Verwaltung von Handkarten.
  * Es können Handkarten ausgewählt werden.
@@ -7,7 +9,7 @@ package karten;
  * @author (L, Thiessen) 
  * @version (eine Versionsnummer oder ein Datum)
  */
-public class Handkarten{
+public class Handkarten implements NetObject{
     private List<Karte> handkarten;
     private List<Karte> ausgewaehlt;
 
@@ -116,7 +118,6 @@ public class Handkarten{
         if(handkarten.hasAccess()){
             ausgewaehlt.append(handkarten.getContent()); 
         }
-        
     }
 
     /**
@@ -132,4 +133,18 @@ public class Handkarten{
         }
         return anzahl;
     }
+
+    @Override
+    public void fromNetString(String pNetString) {
+        // TODO Auto-generated method stub
+        
+    }
+
+    @Override
+    public String toNetString() {
+        // TODO Auto-generated method stub
+        return null;
+    }
+
+
 }

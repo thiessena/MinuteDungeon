@@ -1,5 +1,7 @@
 package karten;
 
+import netzwerk.NetTrennzeichen;
+
 /**
  * Ein Kartenstapel, der Karten verwaltet und auf und zugedeckt werden kann.
  * 
@@ -137,21 +139,31 @@ public class Kartenstapel{
         return anzahl;
     }
 
-    public static Kartenstapel fromNetString(String pNetString){
-        String[] karten = pNetString.split("-");
-        Kartenstapel kStapel = new Kartenstapel();
-        kStapel.aufgedeckt = Boolean.parseBoolean(karten[0]);
-        kStapel.karten = new List<Karte>();
-        for(int i = 1; i < karten.length;i++){
-            karten.append(Karte.fromNetString(karten[i]));
+    /**
+     * Füllt diesen Kartenstapel mit den Daten des Netzwerk-Strings.
+     * @param pNetString
+     * @return Kartenstapel
+     */
+    public void fromNetString(String pNetString){
+        String[] kartenDaten = pNetString.split(NetTrennzeichen.KARTENSTAPEL_TRENNZEICHEN);
+        aufgedeckt = Boolean.parseBoolean(kartenDaten[0]);
+        karten = new List<Karte>();
+        for(int i = 1; i < kartenDaten.length;i++){
+            Karte k = new Karte();
+            k.fromNetString(kartenDaten[i]);
+            karten.append(k);
         }
     }
 
+    /**
+     * Gibt einen Netzwerk-String dieses Kartenstapels zurück.
+     * @return
+     */
     public String toNetString(){
-        String netString = "" + aufgedeckt + "-"; 
+        String netString = "" + aufgedeckt + NetTrennzeichen.KARTENSTAPEL_TRENNZEICHEN; 
         karten.toFirst();
         while(karten.hasAccess()){
-            netString += karten.getContent().toNetString() + "-";
+            netString += karten.getContent().toNetString() + NetTrennzeichen.KARTENSTAPEL_TRENNZEICHEN;
             karten.next();
         }
         netString.substring(0, netString.length()-1);

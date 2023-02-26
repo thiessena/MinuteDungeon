@@ -10,6 +10,15 @@ public class User {
 
     private String name;
 
+    /**
+     * Hier können noch weitere Boni-Attribute hinzugefügt werden. 
+     * So kann ein User durch mehr Spiele auch mehr 
+     * - Karten
+     * - Ereigniskarten 
+     * - "Gold"
+     * erhalten.
+     */
+
         
     /**
      * Erstellt einen User, der einen Spieler besitzt. 

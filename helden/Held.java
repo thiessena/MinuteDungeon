@@ -28,6 +28,10 @@ public class Held implements NetObject
     }
 
 
+    public String getHeldenname() {
+        return heldenname;
+    }
+
 
     @Override
     public void fromNetString(String pNetString) {

@@ -3,6 +3,7 @@ import helden.Held;
 import karten.Karte;
 
 public interface Controller {
+    public void setView(View pView);
     public void setHeld(Spieler pSpieler, Held pHeld);
     public void setSchwierigkeitsgrad(int pSchwierigkeitsgrad);
     public void setLevel(int pLevel);

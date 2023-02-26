@@ -83,8 +83,20 @@ public class Dungeon implements NetObject
         schwierigkeitsgrad = pSchwierigkeitsgrad;
     }
 
+    public int getSchwierigkeitsgrad() {
+        return schwierigkeitsgrad;
+    }
+
     public void setLevel(int pLevel) {
-        level = pLevel;
+        if(pLevel > 0 && pLevel < 4){
+            level = pLevel;
+        }else{
+            level = 1;
+        }
+    }
+
+    public int getLevel() {
+        return level;
     }
 
     @Override

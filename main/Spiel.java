@@ -12,6 +12,8 @@ import helden.*;
 public class Spiel implements Controller, NetObject{
     private static final Spiel instance = new Spiel();
     List<Spieler> spieler; 
+    int maxSpielerAnzahl = 6;
+    int spielerAnzahl = 0;
     Dungeon dungeon;
     Countdown countdown;
 
@@ -21,6 +23,7 @@ public class Spiel implements Controller, NetObject{
         countdown = new Countdown();
         dungeon = new Dungeon();
         spieler = new List<Spieler>();
+
     }
 
     public static Spiel getInstance(){
@@ -31,8 +34,13 @@ public class Spiel implements Controller, NetObject{
         spielAusgabe = pView;
     }
 
-    public void addSpieler(String pName){
-        
+    public boolean addSpieler(Spieler pSpieler){
+        if(spielerAnzahl < maxSpielerAnzahl){
+            spieler.append(pSpieler);
+            spielerAnzahl++;
+            return true;
+        }
+        return false;
     }
 
     /**

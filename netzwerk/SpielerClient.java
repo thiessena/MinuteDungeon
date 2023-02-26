@@ -1,14 +1,18 @@
 package netzwerk;
 import java.util.Scanner;
 
+import helden.Held;
+import karten.Karte;
+import main.Controller;
+
 import main.Spiel;
 import main.Spieler;
+import main.View;
 import textgame.Textgame;
 
-public class SpielerClient extends Client{
+public class SpielerClient extends Client implements Controller{
     Scanner eingabe = new Scanner(System.in);
-    Spiel spiel = Spiel.getInstance();
-    Textgame textgame;
+    View view;
 
     public SpielerClient(){
         super("localhost",1337);
@@ -23,20 +27,19 @@ public class SpielerClient extends Client{
         String befehl = datenArray[0];
         switch(befehl){
             case "VERBINDUNG_ERFOLGREICH": 
-                System.out.print("Gib deine UserId ein: ");
-                String name = eingabe.nextLine();
-                send("LOGIN:"+name);
+                System.out.print("Gib deine UserId ein (Enter, falls keine vorhanden ist): ");
+                String id = eingabe.nextLine();
+                send("LOGIN:" + id);
             break;
             case "LOGIN_ERFOLGREICH":
-                Spieler mySpieler = new Spieler(); 
-                mySpieler.fromNetString(datenArray[1]);
-                textgame = new Textgame(mySpieler);
-                textgame.zeigeLevelAuswahl();
+                int userId = Integer.parseInt(datenArray[1]);
+                Spieler mySpieler = new Spieler(userId, null, null); 
+                view = new Textgame(mySpieler, this);
+                send("LEVEL:");
             break;
-            case "LEVEL_EINGELOGGT": textgame.zeigeHeldenAuswahl(); break;
-            case "HELD_EINGELOGGT": textgame.zeigeWarteBildschirm(); break; 
-
-
+            case "LEVEL_FEHLT": view.zeigeLevelAuswahl(); break;
+            case "LEVEL_EINGELOGGT": view.zeigeHeldenAuswahl(); break;
+            case "HELD_EINGELOGGT": view.zeigeWarteBildschirm(); break; 
         }
     }
 
@@ -44,5 +47,35 @@ public class SpielerClient extends Client{
         SpielerClient sClient = new SpielerClient("localhost", 1337);
         System.out.println("Bitte gib deine SpielerId an");
     }
+
+    @Override
+    public void setView(View pView) {
+        view = pView;
+    }
+
+    @Override
+    public void setHeld(Spieler pSpieler, Held pHeld) {
+        // TODO Auto-generated method stub
+        
+    }
+
+    @Override
+    public void setSchwierigkeitsgrad(int pSchwierigkeitsgrad) {
+        // TODO Auto-generated method stub
+        
+    }
+
+    @Override
+    public void setLevel(int pLevel) {
+        send("LEVEL_AUSWAHL:"+pLevel);
+    }
+
+    @Override
+    public void karteSpielen(Karte pKarte) {
+        // TODO Auto-generated method stub
+        
+    }
+
+
     
 }

@@ -84,6 +84,46 @@ class Ressourcenkarte{
 
   Ressourcenkarte(int pSchild, int pSchwert, int pSprung, int pSchriftrolle, int pPfeil)
   int[] getArray()
+  Ressourcenkarte copy()
+  String toString()
+  void addiere ( Ressourcenkarte pRessourcenkarte)
+  void subtrahiere ( Ressourcenkarte pRessourcenkarte)
+}
+class Spiel{
+
+  static Spiel getInstance()
+  void setView(View pView)
+  boolean addSpieler(Spieler pSpieler)
+  void setHeld(Spieler pSpieler, Held pHeld)
+  void init()
+  void rundenAblauf()
+  void siegesBildschirm()
+  List<Spieler> getSpieler()
+  Dungeon getDungeon()
+  Countdown getCountdown()
+  void setSchwierigkeitsgrad(int pSchwierigkeitsgrad)
+  void setLevel(int pLevel)
+  void karteSpielen(Karte pKarte)
+  void fromNetString(String pNetString)
+  String toNetString()
+}
+class Spieler{
+  int userId
+  Held held
+  Kartenstapel nachziehstapel
+  Kartenstapel ablagestapel
+  Handkarten handkarten
+
+  Spieler(int pUserId, Kartenstapel pNachziehstapel, Kartenstapel pAblagestapel)
+  void setHeld(Held pHeld)
+  Held getHeld()
+  Kartenstapel getNachziestapel()
+  Kartenstapel getAblagestapel()
+  Handkarten getHandkarten()
+  int getUserId()
+  void setUserId(int pUserId)
+  String toNetString()
+  void fromNetString(String pNetString)
 }
 }
 class ZeichenObjekt {

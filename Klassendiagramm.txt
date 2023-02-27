@@ -125,7 +125,6 @@ class Spieler{
   String toNetString()
   void fromNetString(String pNetString)
 }
-}
 class ZeichenObjekt {
   int x; 
   int y;

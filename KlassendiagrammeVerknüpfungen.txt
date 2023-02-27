@@ -1,0 +1,10 @@
+@startuml
+
+Spiel *-- Dungeon
+Spiel *-- Countdown
+
+Gegnerkarte -|> Karte
+Ressourcenkarte -|> Karte
+
+
+@enduml

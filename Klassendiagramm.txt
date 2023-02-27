@@ -84,7 +84,46 @@ class Ressourcenkarte{
 
   Ressourcenkarte(int pSchild, int pSchwert, int pSprung, int pSchriftrolle, int pPfeil)
   int[] getArray()
+  Ressourcenkarte copy()
+  String toString()
+  void addiere ( Ressourcenkarte pRessourcenkarte)
+  void subtrahiere ( Ressourcenkarte pRessourcenkarte)
 }
+class Spiel{
+
+  static Spiel getInstance()
+  void setView(View pView)
+  boolean addSpieler(Spieler pSpieler)
+  void setHeld(Spieler pSpieler, Held pHeld)
+  void init()
+  void rundenAblauf()
+  void siegesBildschirm()
+  List<Spieler> getSpieler()
+  Dungeon getDungeon()
+  Countdown getCountdown()
+  void setSchwierigkeitsgrad(int pSchwierigkeitsgrad)
+  void setLevel(int pLevel)
+  void karteSpielen(Karte pKarte)
+  void fromNetString(String pNetString)
+  String toNetString()
+}
+class Spieler{
+  int userId
+  Held held
+  Kartenstapel nachziehstapel
+  Kartenstapel ablagestapel
+  Handkarten handkarten
+
+  Spieler(int pUserId, Kartenstapel pNachziehstapel, Kartenstapel pAblagestapel)
+  void setHeld(Held pHeld)
+  Held getHeld()
+  Kartenstapel getNachziestapel()
+  Kartenstapel getAblagestapel()
+  Handkarten getHandkarten()
+  int getUserId()
+  void setUserId(int pUserId)
+  String toNetString()
+  void fromNetString(String pNetString)
 }
 class ZeichenObjekt {
   int x; 
@@ -133,5 +172,60 @@ class Handkarten{
 
   Handkarten()
   karteRauslegen(Karte pKarte)
+}
+class Karte{
+  boolean verdeckt
+  String farbe
+Karte()
+Karte(String pFarbe)
+Karte(String pFarbe, boolean pVerdeckt)
+  String toString()
+  boolean getVerdeckt()
+  void setVerdeckt(boolean pVerdeckt)
+  String getFarbe()
+  voidsetVerdeckt(String pFarbe)
+  String toNetString()
+  void fromNetString(String pNetString)
+}
+class Kartenstapel{
+  List<Karte> karten
+  boolean aufgedeckt
+  Kartenstapel()
+  Kartenstapel(List<Karte> pKarten, String pTyp, int pID)
+  String toString()
+  void mischen()
+  void setAufgedeckt(boolean pAufgedeckt)
+  boolean getAufgedeckt()
+  Karte getObersteKarte()
+  List<Karte> gibObersteKarten(int n)
+  void legeUntenDrunter(Karte pKarte)
+  void legeObenDrauf(Karte pKarte)
+  void legeObenDrauf(List<Karte> pKartenListe)
+  int getAnzahl()
+  void fromNetString(String pNetString)
+  String toNetString()
+}
+class List<ContentType>{
+  ContentType contentObject
+  ListNode next
+  ListNode(ContentType pContent)
+  ContentType getContentObject()
+  setContentObject(ContentType pContent)
+  ListNode getNextNode()
+  void setNextNode(ListNode pNext)
+  List()
+  boolean isEmpty()
+  boolean hasAccess()
+  void next()
+  void toFirst()
+  void toLast()
+  ContentType getContent()
+  void setContent(ContentType pContent)
+  void insert(ContentType pContent)
+  void append(ContentType pContent)
+  void concat(List<ContentType> pList)
+  void remove()
+  ListNode getPrevious(ListNode pNode)
+  String toString ()
 }
 @enduml

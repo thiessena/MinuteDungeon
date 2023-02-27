@@ -42,15 +42,15 @@ public class Karte implements NetObject{
     }
     
     /**
-     * Gibt eine String-Representation der Karte zurück für den Versand übers Netzwerk
+     * Gibt eine String-Representation der Karte zurÃ¼ck fÃ¼r den Versand Ã¼bers Netzwerk
      * @return String verdeckt%farbe
      */
     public String toNetString(){
         return verdeckt + NetTrennzeichen.KARTEN_TRENNZEICHEN + farbe; 
     }
-
+    
     /**
-     * Gibt eine Karte zurück, die die Eigenschaften des NetStrings beeinhaltet.
+     * Gibt eine Karte zurÃ¼ck, die die Eigenschaften des NetStrings beeinhaltet.
      * @param pNetString
      * @return Karte
      */

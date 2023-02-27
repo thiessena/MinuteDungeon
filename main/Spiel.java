@@ -156,4 +156,24 @@ public class Spiel implements Controller, NetObject{
         }
         return netString;
     }
+
+    @Override
+    public void karteAuswaehlen(Spieler pSpieler, Karte pKarte) {
+        // TODO Auto-generated method stub
+        
+    }
+
+    @Override
+    public void kartenAuswahlen(Spieler pSpieler, List<Karte> pKarten) {
+        // TODO Auto-generated method stub
+        
+    }
+
+    @Override
+    public void spezialFaehigkeitNutzen(Spieler pSpieler) {
+        // TODO Auto-generated method stub
+        
+    }
+
+
 }

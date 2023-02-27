@@ -3,7 +3,6 @@ import karten.*;
 import main.*;
 
 import java.util.Scanner;
-
 import helden.HeldenFactory;
 
 public class Textgame implements View{
@@ -74,5 +73,11 @@ public class Textgame implements View{
     @Override
     public void zeigeWarteBildschirm() {
         System.out.println("Bitte warte bis das Spiel startet.");
+    }
+
+    @Override
+    public void zeigeAusgewaehlteKarten(List<Karte> pKarten) {
+        // TODO Auto-generated method stub
+        
     }
 }

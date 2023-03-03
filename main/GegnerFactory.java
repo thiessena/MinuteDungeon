@@ -22,8 +22,10 @@ public class GegnerFactory{
   public Gegnerkarte gibGegnerkarte(String pName){
     Gegnerkarte erg;
      List<Gegnerkarte>gegner{
-      if (name = pName){
+       for(int i=0;i<list.length && list[i]!=null;i++){
+       if (name = pName){
         return Gegnerkarte erg;
+        }
        }
      }
     //Durch die Liste laufen und immer vergleichen, ob der Name zu pName passt.

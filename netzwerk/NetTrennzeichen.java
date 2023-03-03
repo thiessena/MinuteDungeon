@@ -12,5 +12,5 @@ public class NetTrennzeichen {
     public static final String KARTEN_TRENNZEICHEN = "%";
     public static final String SPIEL_TRENNZEICHEN = "#";
     public static final String SPIELER_TRENNZEICHEN = "/";
-    public static final String SPIELER_TRENNZEICHEN = "§";
+    public static final String TIMER_TRENNZEICHEN = "§";
 }

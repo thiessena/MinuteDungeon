@@ -10,7 +10,7 @@ import netzwerk.NetObject;
 public class Dungeon implements NetObject
 {
 
-    private Kartenstapel gegnerkartenstappel;
+    private Kartenstapel<Gegnerkarte> gegnerkartenstappel;
     private int level; 
     private int schwierigkeitsgrad;
 
@@ -37,7 +37,7 @@ public class Dungeon implements NetObject
     }
 
     private void init_Gegnerkarten(){
-        gegnerkartenstappel = new Kartenstapel();
+        gegnerkartenstappel = new Kartenstapel<Gegnerkarte>();
     }
 
     /**
@@ -67,7 +67,7 @@ public class Dungeon implements NetObject
     
 
     public void RessourcenKarteVergleichen(){
-        Gegnerkarte.arrayGegner();
+        Gegnerkarte.getAktuelleRessourcen();
         //hier die beiden arrays vergleichen
         kartenWeglegen();
 

@@ -24,10 +24,7 @@ public class GegnerFactory{
      List<Gegnerkarte>gegner{
       if (name = pName){
         return Gegnerkarte erg;
-      }
-      else  {
-        return null;
-    }
+       }
      }
     //Durch die Liste laufen und immer vergleichen, ob der Name zu pName passt.
     //Dann das Element zurückgeben.

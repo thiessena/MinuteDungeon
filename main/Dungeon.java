@@ -3,7 +3,7 @@ import karten.*;
 import netzwerk.NetObject;
 
 /**
- * Verwaltet alle Gegnerkarten, und stellt die passende Größe für den Level und Schwierigkeitsgrad zur Verfügung.
+ * Verwaltet alle Gegnerkarten, und stellt die passende GrÃ¶ÃŸe fÃ¼r den Level und Schwierigkeitsgrad zur VerfÃ¼gung.
  * 
  * @author Viola, @StinckyMe
  */
@@ -15,7 +15,7 @@ public class Dungeon implements NetObject
     private int schwierigkeitsgrad;
 
     /**
-     * Konstruktor fÃ¼r Objekte der Klasse Dungeon
+     * Konstruktor fÃƒÂ¼r Objekte der Klasse Dungeon
      */
     public Dungeon()
     {
@@ -26,7 +26,7 @@ public class Dungeon implements NetObject
     }
 
     /**
-     * Konstruktor fÃ¼r Objekte der Klasse Dungeon
+     * Konstruktor fÃƒÂ¼r Objekte der Klasse Dungeon
      */
     public Dungeon(int pLevel, int pSchwierigkeitsgrad)
     {
@@ -39,44 +39,46 @@ public class Dungeon implements NetObject
     private void init_Gegnerkarten(){
         gegnerkartenstappel = new Kartenstapel<Gegnerkarte>();
     }
-
     /**
-     * Deckt die nächste Gegnerkarte auf.
+     * Deckt die nÃ¤chste Gegnerkarte auf.
      */
     public void naechsteGegnerKarte(){
-        
+        gegnerkartenstappel.getObersteKarte();  
     }
+    
     public boolean nochKartenVorhanden(){
-        //while hasacces und so 
-        return false;
-    }
-
-    public void kartenWeglegen(){
-        
+        while(gegnerkartenstappel.hasAccess()){
+            return false;
+        }
     }
 
     /**
-     * Gibt die Möglichkeit eine Karte zum Dungeon zu legen.
+     * Gibt die MÃ¶glichkeit eine Karte zum Dungeon zu legen.
      * Die Karte wird auf den Gegner angewendet. Bzw. von seinen REssourcen abgezogen.
      * @param pKarte
      */
     public void karteSpielen(Karte pKarte) {
-        
-        
+        if( pKarte instanceof Ressourcenkarte ){
+           ressourcenKarteSpielen((Ressourcenkarte) pKarte); 
+        }
+        if( pKarte instanceof DeckEreigniskarte){
+            
+        }
+            
+
     }
     
 
-    public void RessourcenKarteVergleichen(){
-        Gegnerkarte.getAktuelleRessourcen();
-        //hier die beiden arrays vergleichen
-        kartenWeglegen();
-
+    public void ressourcenKarteSpielen(Ressourcenkarte pRessourcenkarte){
+        gegnerkartenstappel
+        .getObersteKarte()
+        .getAktuelleRessourcen()
+        .subtrahiere(pRessourcenkarte);
+        naechsteGegnerKarte();
         if(nochKartenVorhanden() == false){
               System.out.println("Wow du hast gewonnen wow wowowowowow");
               //Spiel beenden
-        }else{
-            naechsteGegnerKarte();
-        }
+           }
     }
 
     public void setSchwierigkeitsgrad(int pSchwierigkeitsgrad) {

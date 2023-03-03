@@ -11,11 +11,11 @@ public class Ressourcenkarte extends Karte
   
   public Ressourcenkarte(int pSchild, int pSchwert, int pSprung, int pSchriftrolle, int pPfeil)
   {
-    schild = new Ressource("gelb", pSchild);
-    schwert = new Ressource("rot", pSchwert);
-    sprung = new Ressource("lila", pSprung);
-    schriftrolle = new Ressource("blau", pSchriftrolle);
-    pfeil = new Ressource("gruen", pPfeil);
+    schild = new Ressource("🛡️", pSchild);
+    schwert = new Ressource("🗡️", pSchwert);
+    sprung = new Ressource("🤾‍", pSprung);
+    schriftrolle = new Ressource("📝, pSchriftrolle);
+    pfeil = new Ressource("🏹", pPfeil);
   }
 
   public Ressourcenkarte copy(){

@@ -21,6 +21,14 @@ public class GegnerFactory{
    */
   public Gegnerkarte gibGegnerkarte(String pName){
     Gegnerkarte erg;
+     List<Gegnerkarte>gegner{
+      if (name = pName){
+        return Gegnerkarte erg;
+      }
+      else  {
+        return null;
+    }
+     }
     //Durch die Liste laufen und immer vergleichen, ob der Name zu pName passt.
     //Dann das Element zurückgeben.
       
@@ -72,51 +80,6 @@ public class GegnerFactory{
     gegner.append(new Gegnerkarte("Grozznak der Grosse", new Ressourcenkarte(1,0,1,0,1),"Person"));
 
   }
-  /**
-Gegner: 
-##Name: Art: Schild, Schwert, Sprung, Schriftrolle, Pfeil
-
-
-Ein überteuerter Händler, 2 Schriftrolle, 1 Sprung, Person 
-Bodenloser Abgrund, 2 Sprung, Hindernis
-Ein „Geist“ ja klar!, 2 Schwert, 1 Pfeil, Person
-Ein Haufen schreiender Kinder, 1 Schwert, 1 Schild, 1 Pfeil, Person 
-Ein Timberwolf, 2 Schwert, Monste
-Lebendiges Grünzeug, 3 Schriftrolle, Hindernis
-Eine sicher Sprengfallenfreie Truhe, 1 Sprung, 3 Schild, Hindernis
-Reizender Schleim, 1 Sprung, 1 Pfeil, Monster
-Sir Fuzzy, 1 Sprung, 2 Pfeil, Monster 
-Ein langsam ladender Bildschirm, 1 Schwert, 1 Sprung, 1 Pfeil, Hindernis
-Eine Kriegerprinzessin, 1 Schild, 1 Pfeil, Person
-Ööööhhaa, 2 Schild, 1 Schriftrolle, Monster
-Ein Aufrechter Geist, 1 Schriftrolle, 1 Schild, Monster
-Genau 26 Ninjas, 1 Schriftrolle, 2 Sprung, Person 
-Der Karpaltunnel, 1 Schriftrolle, 2 Pfeil, Hindernis
-Eine lächerlich hohe Eiswand, 3 Sprung, Hindernis
-Ein paar Stufen, 1 Schriftrolle, 1 Sprung, Hindernis
-Zwei Mann ein Bogen, 2 Pfeil, 1 Schild, Person 
-Hai mit sexy Beinen, 1 Schwert, 2 Pfeil, Monster
-Knappe Nedward, 2 Schild, 1 Pfeil, Person 
-Barb-irrer, 2 Schwert, 1 Schild, Person 
-Typ mit massiven Schulterpanzer, 2 Schwert, 1 Schriftrolle, Person
-Ein Ad-hoc-Völkerballturnier, 2 Sprung, 1 Pfeil, Hindernis
-Zombietusse, 1 Schwert, 1 Pfeil, Monster 
-Ein Kaktus der dich umarmen will, 3 Schild, Monster
-Treibsand, 2 Sprung, 1 Schild, Hindernis 
-7 Null-bock-Zwerge, 1 Schwert, 1 Schriftrolle, 1 Schild, Person
-Knuffiger Goblin, 1 Schwert, 1 Sprung, Monster
-Ein etwas unbequemer Stuhl, 1 Schwert, 1 Sprung, 1 Schild, Hindernis
-Eingestürzte Decke, 1 Schwert, 2 Schriftrolle, Hindernis
-Steve, 1 Schriftrolle, 1 Sprung, 1 Pfeil, Person
-Ein Armhändler, 1 Schriftrolle, 1 Pfeil, Person 
-Ein Rosetta-Stein-Golem, 1 Sprung, 1 Schild, Monster
-Eine “Abkürzung”, 1 Schwert, 2 Schild, Hindernis 
-Gespickte Wand, 2 Schriftrolle, 1 Schild, Hindernis 
-Buchstäblich ein Strohmann, 1 Schwert, 1 Schriftrolle, 1 Sprung, Hindernis
-William Duck I., 1 Schriftrolle, 1 Sprung, 1 Schild, Monster
-Unsichtbare Wand, 2 Schriftrolle, Hindernis
-Grozznak der Grosse , 1 Sprung, 1 Schild, 1 Pfeil, Person  
-  
-  */
+ 
                   
 }

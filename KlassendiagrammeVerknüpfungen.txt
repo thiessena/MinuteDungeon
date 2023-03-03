@@ -2,11 +2,12 @@
 Spiel *-- Dungeon
 Spiel *-- Countdown
 Dungeon *-- Gegnerkarte
-Heldenfactory *-- Held
+Heldenfactory --> Held
 Gegnerfactory *-- Gegnerkarte
 Gegnerereigniskarte *-- Gegnerkarte
-Deckereigniskarte *-- Spieler
-Deckereigniskarte *-- Spiel
+HandkartenStapel --* Spieler
+Ablagestapel --* Spieler
+Spiel --> Deckereigniskarte
 Gegnererigniskarte *-- Ressource
 Ressourcenkarte *-- Ressource
 
@@ -14,6 +15,7 @@ Gegnerkarte -|> Karte
 Ressourcenkarte -|> Karte
 Handkarten -|> Karte
 Kartenstapel -|> Karte
+Ereigniskarte -|> Karte
 Gegnerereigniskarte -|> Ereigniskarte
 Deckereigniskarte -|> Ereigniskarte
 @enduml

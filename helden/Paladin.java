@@ -1,18 +1,18 @@
 package helden;
 /**
- * Beschreiben Sie hier die Klasse PaladinWalkuere.
+ * Beschreiben Sie hier die Klasse Paladin.
  * 
  * @author (Ihr Name) 
  * @version (eine Versionsnummer oder ein Datum)
  */
-public class PaladinWalkuere
+public class Paladin
 {
  
     /**
-     * Konstruktor fuer Objekte der Klasse PaladinWalkuere
+     * Konstruktor fuer Objekte der Klasse Paladin
      * Faehigkeiten: 3x Karten ablegen und dafuer koennen alle anderenzwei karten ziehen
      */
-    public PaladinWalkuere()
+    public Paladin()
     {
         /**
          * [3x public void karteRauslegen(Karte pKarte)] + 2x public void karteHinzufuegen

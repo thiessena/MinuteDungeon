@@ -62,6 +62,12 @@ public class Spieler implements NetObject{
     public void setUserId(int pUserId){
         userId = pUserId;
     }
+    
+    public void faehigkeitEinsetzen(){
+       if(hankarten.dreikartenablegen()){
+           held.nutzefaehigkeit();
+       }
+    }
 
     /**
      * 

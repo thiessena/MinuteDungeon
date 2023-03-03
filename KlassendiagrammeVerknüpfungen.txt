@@ -1,10 +1,19 @@
 @startuml
-
 Spiel *-- Dungeon
 Spiel *-- Countdown
+Dungeon *-- Gegnerkarte
+Heldenfactory *-- Held
+Gegnerfactory *-- Gegnerkarte
+Gegnerereigniskarte *-- Gegnerkarte
+Deckereigniskarte *-- Spieler
+Deckereigniskarte *-- Spiel
+Gegnererigniskarte *-- Ressource
+Ressourcenkarte *-- Ressource
 
 Gegnerkarte -|> Karte
 Ressourcenkarte -|> Karte
-
-
+Handkarten -|> Karte
+Kartenstapel -|> Karte
+Gegnerereigniskarte -|> Ereigniskarte
+Deckereigniskarte -|> Ereigniskarte
 @enduml

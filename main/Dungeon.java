@@ -1,84 +1,92 @@
 package main;
+
 import karten.*;
 import netzwerk.NetObject;
 
 /**
- * Verwaltet alle Gegnerkarten, und stellt die passende GrÃ¶ÃŸe fÃ¼r den Level und Schwierigkeitsgrad zur VerfÃ¼gung.
+ * Verwaltet alle Gegnerkarten, und stellt die passende GrÃ¶ÃŸe fÃ¼r den Level
+ * und Schwierigkeitsgrad zur VerfÃ¼gung.
  * 
  * @author Viola, @StinckyMe
  */
-public class Dungeon implements NetObject
-{
+public class Dungeon implements NetObject {
 
-    private Kartenstapel<Gegnerkarte> gegnerkartenstappel;
-    private int level; 
+    private Kartenstapel gegnerkartenstapel;
+    private int level;
     private int schwierigkeitsgrad;
 
     /**
-     * Konstruktor fÃƒÂ¼r Objekte der Klasse Dungeon
+     * Konstruktor fuer Objekte der Klasse Dungeon
      */
-    public Dungeon()
-    {
-        level = 1; 
+    public Dungeon() {
+        level = 1;
         schwierigkeitsgrad = 1;
         init_Gegnerkarten();
 
     }
 
     /**
-     * Konstruktor fÃƒÂ¼r Objekte der Klasse Dungeon
+     * Konstruktor fuer Objekte der Klasse Dungeon
      */
-    public Dungeon(int pLevel, int pSchwierigkeitsgrad)
-    {
-        level = pLevel; 
+    public Dungeon(int pLevel, int pSchwierigkeitsgrad) {
+        level = pLevel;
         schwierigkeitsgrad = pSchwierigkeitsgrad;
         init_Gegnerkarten();
 
     }
 
-    private void init_Gegnerkarten(){
-        gegnerkartenstappel = new Kartenstapel<Gegnerkarte>();
-    }
-    /**
-     * Deckt die nÃ¤chste Gegnerkarte auf.
-     */
-    public void naechsteGegnerKarte(){
-        gegnerkartenstappel.getObersteKarte();  
-    }
-    
-    public boolean nochKartenVorhanden(){
-        while(gegnerkartenstappel.hasAccess()){
-            return false;
-        }
+    private void init_Gegnerkarten() {
+        gegnerkartenstapel = new Kartenstapel();
+        GegnerFactory gF = new GegnerFactory();
+        gegnerkartenstapel.legeObenDrauf(gF.getAlleGegnerkarten(), 12);
     }
 
     /**
-     * Gibt die MÃ¶glichkeit eine Karte zum Dungeon zu legen.
-     * Die Karte wird auf den Gegner angewendet. Bzw. von seinen REssourcen abgezogen.
+     * Deckt die naechste Gegnerkarte auf.
+     */
+    public void naechsteGegnerKarte() {
+        // Oberste Karte des Gegnerstapels wird entfernt.
+    }
+
+    public boolean nochKartenVorhanden() {
+        while (gegnerkartenstapel.getAnzahl() > 0) {
+            return false;
+        }
+        return true;
+    }
+
+    /**
+     * Gibt die Moeglichkeit eine Karte zum Dungeon zu legen.
+     * Die Karte wird auf den Gegner angewendet. Bzw. von seinen REssourcen
+     * abgezogen.
+     * 
      * @param pKarte
      */
     public void karteSpielen(Karte pKarte) {
-        if( pKarte instanceof Ressourcenkarte ){
-           ressourcenKarteSpielen((Ressourcenkarte) pKarte); 
+        if (pKarte instanceof Ressourcenkarte) {
+            ressourcenKarteSpielen((Ressourcenkarte) pKarte);
         }
-        if( pKarte instanceof DeckEreigniskarte){
-            
-        }
-            
+        if (pKarte instanceof DeckEreigniskarte) {
 
+        }
     }
-    
 
-    public void ressourcenKarteSpielen(Ressourcenkarte pRessourcenkarte){
-        gegnerkartenstappel
-        .getObersteKarte()
-        .getAktuelleRessourcen()
-        .subtrahiere(pRessourcenkarte);
+    public void heldenFaehigkeitSpielen(String pTyp) {
+        Gegnerkarte gK = (Gegnerkarte) gegnerkartenstapel.getObersteKarte();
+        if (pTyp.equals(gK.getTyp())) {
+            naechsteGegnerKarte();
+        }
+    }
+
+    public void ressourcenKarteSpielen(Ressourcenkarte pRessourcenkarte) {
+        ((Gegnerkarte) gegnerkartenstapel.getObersteKarte())
+                .getAktuelleRessourcen()
+                .subtrahiere(pRessourcenkarte);
         naechsteGegnerKarte();
-        if(nochKartenVorhanden() == false){
-              System.out.println("Wow du hast gewonnen wow wowowowowow");
-              //Spiel beenden
-           }
+        if (nochKartenVorhanden() == false) {
+            System.out.println("Wow du hast gewonnen wow wowowowowow");
+            // Spiel beenden
+        }
     }
 
     public void setSchwierigkeitsgrad(int pSchwierigkeitsgrad) {
@@ -90,9 +98,9 @@ public class Dungeon implements NetObject
     }
 
     public void setLevel(int pLevel) {
-        if(pLevel > 0 && pLevel < 4){
+        if (pLevel > 0 && pLevel < 4) {
             level = pLevel;
-        }else{
+        } else {
             level = 1;
         }
     }
@@ -101,10 +109,14 @@ public class Dungeon implements NetObject
         return level;
     }
 
+    public Gegnerkarte getAktuelleGegner() {
+        return (Gegnerkarte) gegnerkartenstapel.getObersteKarte();
+    }
+
     @Override
     public void fromNetString(String pNetString) {
         // TODO Auto-generated method stub
-        
+
     }
 
     @Override

@@ -1,28 +1,54 @@
 package karten;
 import netzwerk.NetObject;
 import netzwerk.NetTrennzeichen;
+
+/**
+ * Eine allgemeine Karte, die verdeckt und ausgewaehlt werden kann. 
+ * Die Karte hat eine Farbe, die sich auf die Rückseite der Karte bezieht. 
+ */
 public class Karte implements NetObject{
 
     private boolean verdeckt;
+    private boolean ausgewaehlt;
     private String farbe;
+
  
     public Karte(){
         verdeckt = false;
         farbe = "";
+        ausgewaehlt = false;
     }
 
     public Karte(String pFarbe){
         farbe = pFarbe; 
         verdeckt = false;
+        ausgewaehlt = false;
     }
 
     public Karte(String pFarbe, boolean pVerdeckt){
         farbe= pFarbe; 
         verdeckt = pVerdeckt;
+        ausgewaehlt = false;
     }
 
+    public Karte(String pFarbe, boolean pVerdeckt, boolean pAusgewaehlt){
+        farbe= pFarbe; 
+        verdeckt = pVerdeckt;
+        ausgewaehlt = pAusgewaehlt;
+    }
+
+    /**
+     * Gibt einen String mit den Informationen der Karte zurueck. 
+     * Beispiele: 
+     * - Die verdeckte Karte: [gelb]
+     * - Offene Karte: []
+     * - ausgewaehlte und verdeckte Karte: {[rot]}
+     * - ausgewaehlte und offene Karte: {[]}
+     */
     public String toString(){
-        return verdeckt? "["+ farbe +"]" : "[]";
+        String output = verdeckt? "["+ farbe +"]" : "[]";
+        output = ausgewaehlt ? "{" + output + "}" : output;
+        return output;
     }
 
     public boolean getVerdeckt(){
@@ -37,8 +63,16 @@ public class Karte implements NetObject{
         return farbe;
     }
     
-    public void setVerdeckt(String pFarbe){
+    public void setFarbe(String pFarbe){
        farbe = pFarbe; 
+    }
+
+    public boolean getAusgewaehlt(){
+        return ausgewaehlt;
+    }
+
+    public void setAusgewaehlt(boolean pAusgewaehlt){
+        ausgewaehlt = pAusgewaehlt;
     }
     
     /**
@@ -46,7 +80,9 @@ public class Karte implements NetObject{
      * @return String verdeckt%farbe
      */
     public String toNetString(){
-        return verdeckt + NetTrennzeichen.KARTEN_TRENNZEICHEN + farbe; 
+        return  verdeckt + NetTrennzeichen.KARTEN_TRENNZEICHEN + 
+                ausgewaehlt + NetTrennzeichen.KARTEN_TRENNZEICHEN + 
+                farbe; 
     }
     
     /**
@@ -57,6 +93,7 @@ public class Karte implements NetObject{
     public void fromNetString(String pNetString){
         String[] daten = pNetString.split(NetTrennzeichen.KARTEN_TRENNZEICHEN);
         verdeckt = Boolean.parseBoolean(daten[0]);
-        farbe = daten[1];
+        ausgewaehlt = Boolean.parseBoolean(daten[1]);
+        farbe = daten[2];
     }
 }

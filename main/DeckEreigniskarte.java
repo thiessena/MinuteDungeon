@@ -51,7 +51,7 @@ public class DeckEreigniskarte extends Ereigniskarte
                while(sListe.hasAccess()){
                     Spieler akt = sListe.getContent();
                     Handkarten hk = akt.getHandkarten();
-                    List<Karte> alleKarten = hk.gibAlleHandkarten();
+                    List<Karte> alleKarten = hk.gibHandkarten();
                     akt.getAblagestapel().legeObenDrauf(alleKarten);
                     sListe.next();
                  }

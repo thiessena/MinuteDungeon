@@ -11,7 +11,7 @@ public class HeldenFactory {
     public static Held gibHeld(int heldenNummer){
         Held h = null;
         switch(heldenNummer){
-
+            case 1: h = new Paladin();break;
         }
         return h;
     }
@@ -26,7 +26,7 @@ public class HeldenFactory {
     }
 
     /**
-     * Gibt die Heldenfaehigkeiten der vorhandenen Helden zurück. Als ein STring mit KOmma getrennt.
+     * Gibt die Heldenfaehigkeiten der vorhandenen Helden zurück. Als ein String mit Komma getrennt.
      * @return
      */
     public String getFaehigkeiten(){

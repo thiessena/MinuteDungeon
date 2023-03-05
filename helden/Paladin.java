@@ -5,7 +5,7 @@ package helden;
  * @author (Ihr Name) 
  * @version (eine Versionsnummer oder ein Datum)
  */
-public class Paladin
+public class Paladin extends Held
 {
  
     /**
@@ -14,6 +14,7 @@ public class Paladin
      */
     public Paladin()
     {
+        super("Paladin");
         /**
          * [3x public void karteRauslegen(Karte pKarte)] + 2x public void karteHinzufuegen
          */

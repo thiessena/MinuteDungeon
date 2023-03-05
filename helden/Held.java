@@ -1,35 +1,45 @@
 package helden;
-
+import main.Spieler;
 import netzwerk.NetObject;
 
 public class Held implements NetObject
 {
     // Instanzvariablen - ersetzen Sie das folgende Beispiel mit Ihren Variablen
-    private String heldenname;
-    private String faehigkeitname;
+    protected String heldenname;
+    protected String faehigkeitname;
+    protected Spieler spieler;
     
+
+    public Held(){
+        
+    }
 
     /**
      * Konstruktor für Objekte der Klasse Held
      */
-    public Held()
+    public Held(String pHeldenname)
     {
-        // Instanzvariable initialisieren
+        heldenname = pHeldenname;
         
     }
 
 
      
-    public void faehigkeit()
-    {
-        //Eiese Methode soll den Spieler weiterleiten, damit wir uns einfach über die
-        //haufen verschiedener Helden zugriff
+    public void nutzefaehigkeit(){
         
+    }
+
+    public void setSpieler(Spieler pSpieler){
+        spieler = pSpieler;
     }
 
 
     public String getHeldenname() {
         return heldenname;
+    }
+
+    public String toString(){
+        return heldenname; 
     }
 
 

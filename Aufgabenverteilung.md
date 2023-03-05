@@ -1,10 +1,10 @@
 
 27.2 - 3.3
 
-Sadduzaer 1 (Simon B.) : Klassendiagramm
-Fablucius (Jean luca Rempel): Klassendiagramm
+Sadduzaer 1 (Simon B.) : Klassendiagramm, 
+Fablucius (Jean luca Rempel): Klassendiagramm, Beziehungen zwischen den Klassen
 HerrInfo (Noah Boschmann): NetString
 PhilipKuehl (Philipp Kühl): GegnerFactory
-Viola - nicht da
-Andre - nicht da
+Viola - Dungeon
+Andre - HeldenFactory
 Pascal - nicht da

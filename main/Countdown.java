@@ -44,7 +44,9 @@ public class Countdown implements NetObject
         startzeit = 0;
         pause = 0;
         pausenStart = 0;
+        inPause = false;
         laenge = 0;
+        restlicheZeit = 0;
     }
     
     public String umrechnen()
@@ -78,13 +80,18 @@ public class Countdown implements NetObject
 
     @Override
     public void fromNetString(String pNetString) {
-        // TODO Auto-generated method stub
-        
+        String[] daten = pNetString.split(NetTrennzeichen.TIMER_TRENNZEICHEN);
+        startzeit = Long.parseLong(daten[0]);
+        pause = Long.parseLong(daten[1]);
+        pausenStart = Long.parseLong(daten[2]);
+        inPause = Boolean.parseBoolean(daten[3]);
+        laenge = Long.parseLong(daten[4]);
+        restlicheZeit = Long.parseLong(daten[5]);
     }
 
     @Override
     public String toNetString() {
-        // TODO Auto-generated method stub
-        return null;
+        return startzeit + NetTrennzeichen.TIMER_TRENNZEICHEN + pause + NetTrennzeichen.TIMER_TRENNZEICHEN + pausenStart + NetTrennzeichen.TIMER_TRENNZEICHEN + inPause + NetTrennzeichen.TIMER_TRENNZEICHEN + laenge + NetTrennzeichen.TIMER_TRENNZEICHEN + restlicheZeit + NetTrennzeichen.TIMER_TRENNZEICHEN; 
+        
     }
 }

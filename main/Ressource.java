@@ -1,5 +1,8 @@
 package main;
 
+/**
+ * @author Sadduzaer1
+ */
 public class Ressource {
     private String farbe;
     private int anzahl;

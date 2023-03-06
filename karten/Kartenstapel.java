@@ -5,6 +5,7 @@ import netzwerk.NetTrennzeichen;
 /**
  * Ein Kartenstapel, der Karten verwaltet und auf und zugedeckt werden kann.
  * 
+ * @author @2Heinz4Guenther6
  */
 public class Kartenstapel {
     private List<Karte> karten;

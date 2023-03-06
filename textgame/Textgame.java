@@ -24,10 +24,9 @@ public class Textgame implements View {
         Spiel spiel = Spiel.getInstance();
         spiel.addSpieler(ich);
         Textgame tGame = new Textgame(ich, spiel);
-        // tGame.zeigeLevelAuswahl();
-        // tGame.zeigeHeldenAuswahl();
+        tGame.zeigeLevelAuswahl();
+        tGame.zeigeHeldenAuswahl();
         spiel.setHeld(ich, HeldenFactory.gibHeld(1));
-        spiel.setLevel(1);
         tGame.zeigeSpieler(ich);
         tGame.zeigeDungeon(spiel.getDungeon());
         // tGame.zeigeWarteBildschirm();

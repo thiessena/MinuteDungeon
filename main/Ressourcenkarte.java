@@ -36,13 +36,18 @@ public class Ressourcenkarte extends Karte {
         " 🏹:" + pfeil.getAnzahl() + ")";
   }
 
-  /**
+    /**
    * Addiert die Werte der Ressourcenkarte pRessourcenkarte zur Ressourcenkarte.
    * 
    * @param pRessourcenkarte
    */
   public void addiere(Ressourcenkarte pRessourcenkarte) {
-    // toDo Sadduzaer1
+    int[] anzahlen = pRessourcenkarte.getArray();
+    schild.setAnzahl(schild.getAnzahl()+ anzahlen[0]);
+    schwert.setAnzahl(schwert.getAnzahl()+ anzahlen[1]);
+    sprung.setAnzahl(sprung.getAnzahl()+ anzahlen[2]);
+    schriftrolle.setAnzahl(schriftrolle.getAnzahl()+ anzahlen[3]);
+    pfeil.setAnzahl(pfeil.getAnzahl()+ anzahlen[4]);
   }
 
   /**
@@ -52,7 +57,32 @@ public class Ressourcenkarte extends Karte {
    * @param pRessourcenkarte
    */
   public void subtrahiere(Ressourcenkarte pRessourcenkarte) {
-    // toDo Sadduzaer1
+    int[] anzahlen = pRessourcenkarte.getArray();
+    if (schild.getAnzahl() - anzahlen[0]  >= 0){
+        schild.setAnzahl( schild.getAnzahl() - anzahlen[0]);
+    }else{
+        schild.setAnzahl(0);
+    }
+    if (schwert.getAnzahl() - anzahlen[0]  >= 0){
+        schwert.setAnzahl( schwert.getAnzahl() - anzahlen[0]);
+    }else{
+        schwert.setAnzahl(0);
+    }
+    if (sprung.getAnzahl() - anzahlen[0]  >= 0){
+        sprung.setAnzahl( sprung.getAnzahl() - anzahlen[0]);
+    }else{
+        sprung.setAnzahl(0);
+    }
+    if (schriftrolle.getAnzahl() - anzahlen[0]  >= 0){
+        schriftrolle.setAnzahl( schriftrolle.getAnzahl() - anzahlen[0]);
+    }else{
+        schriftrolle.setAnzahl(0);
+    }
+    if (pfeil.getAnzahl() - anzahlen[0]  >= 0){
+        pfeil.setAnzahl( pfeil.getAnzahl() - anzahlen[0]);
+    }else{
+        pfeil.setAnzahl(0);
+    }
   }
 
   public int[] getArray() {

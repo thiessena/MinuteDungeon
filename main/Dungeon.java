@@ -46,7 +46,7 @@ public class Dungeon implements NetObject {
      */
     public void naechsteGegnerKarte() {
         //prufe ob die gegnerkarte nullist wenn ja dan entferne die Garte und leg die naechste
-        if ((gegnerkartenstapel.getObersteKarte()).getAlleRessourcenGleichNull()){
+        if ((gegnerkartenstapel.getObersteKarte()).getAlleRessourcenGleichNull() == true){
             System.out.println("Gegner beseitigt!");
             gegnerkartenstapel.entferneObersteKarte();
         }else{

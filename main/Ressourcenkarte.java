@@ -94,4 +94,12 @@ public class Ressourcenkarte extends Karte {
     ressource[4] = pfeil.getAnzahl();
     return ressource;
   }
+ 
+  public boolean getAlleRessourcenGleichNull(){
+      int summe  = 0; 
+      for(int i= 0; i < getArray().length; i++){
+          
+      }
+      return summe <= 0;
+  }
 }

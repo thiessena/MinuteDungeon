@@ -4,7 +4,7 @@ package helden;
  * 
  * 
  */
-public class ZauberinMagier
+public class Zauberin
 {
    
 
@@ -13,7 +13,7 @@ public class ZauberinMagier
      *  Faehigekeit: 3x Karten ablegen und Ã¼berwinde ein Hindernis
      */
     
-    public ZauberinMagier()
+    public Zauberin()
     {
        /**
         * 3x public void karteHinzufuegen + set  gegnerTyp hindernis = 0;

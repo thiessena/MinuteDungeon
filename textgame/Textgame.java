@@ -78,6 +78,11 @@ public class Textgame implements View {
     }
 
     @Override
+    public void zeigeKartenAuswahl(Spieler pSpieler){
+        
+    }
+
+    @Override
     public void zeigeSpiel(Spiel pSpiel) {
         System.out.println("===============================[Minute - Dungen]==============================");
         zeigeDungeon(pSpiel.getDungeon());

@@ -1,6 +1,6 @@
 package main;
 import java.util.concurrent.TimeUnit;
-
+import netzwerk.NetTrennzeichen;
 import netzwerk.NetObject;
 
 public class Countdown implements NetObject

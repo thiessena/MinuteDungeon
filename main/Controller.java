@@ -15,9 +15,13 @@ public interface Controller {
 
     public void karteSpielen(Karte pKarte);
 
+    public void karteSpielen(Spieler pSpieler, int position);
+
     public void karteAuswaehlen(Spieler pSpieler, Karte pKarte);
 
-    public void kartenAuswahlen(Spieler pSpieler, List<Karte> pKarten);
+    public void kartenAuswaehlen(Spieler pSpieler, List<Karte> pKarten);
+
+    public void kartenAuswaehlen(Spieler pSpieler, int[] positionen);
 
     public void spezialFaehigkeitNutzen(Spieler pSpieler);
 }

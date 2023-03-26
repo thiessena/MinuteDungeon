@@ -67,7 +67,7 @@ public class Textgame implements View {
 
     @Override
     public void zeigeTimer(Countdown pCountdown) {
-        // TODO Auto-generated method stub
+        System.out.println(pCountdown.toNetString());
 
     }
 
@@ -75,11 +75,6 @@ public class Textgame implements View {
     public void zeigeSpieler(Spieler pSpieler) {
         System.out.println(pSpieler.toString());
 
-    }
-
-    @Override
-    public void zeigeKartenAuswahl(Spieler pSpieler){
-        
     }
 
     @Override
@@ -101,9 +96,44 @@ public class Textgame implements View {
         eingabeZeile.nextLine();
     }
 
+    /**
+     * Zeigt einen Bildschirm zum Erfolg an, und gibt eine Zusammenfassung aus.
+     * Wieviele Karten wurden von jedem gelegt?
+     * Wer hat die meisten "final-blows" - also die letzte Karte damit ein Monster
+     * wegkommt.
+     */
     @Override
-    public void zeigeAusgewaehlteKarten(List<Karte> pKarten) {
-        // TODO Auto-generated method stub
+    public void siegesBildschirm() {
 
+    }
+    
+    
+
+    @Override
+    public void zeigeKartenAuswahl(Spieler pSpieler) {
+        System.out.println("Welche Karten möchtest du auswaehlen?");
+        System.out.println("Gib sie durch Komma getrennt an: 1,4,6");
+        String zeile = eingabeZeile.nextLine();
+        try{
+            int[] zahlen = integerValues(zeile,",");
+            controller.kartenAuswaehlen(pSpieler, zahlen);
+        }catch(NumberFormatException nFE){
+            System.out.println("Die Zahlen wurden falsch eingegeben.");
+        }
+    }
+
+    private int[] integerValues(String pText, String pSplitter)throws NumberFormatException{
+        String[] zahlenText = pText.split(pSplitter);
+        int[] zahlen = new int[zahlenText.length];
+        for(int i = 0; i < zahlen.length; i++){
+            zahlen[i]=Integer.parseInt(zahlenText[i]);
+        }
+        return zahlen;
+    }
+
+    @Override
+    public void zeigeKarteSpielenAuswahl(Spieler pSpieler) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'zeigeKarteSpielenAuswahl'");
     }
 }

@@ -84,16 +84,6 @@ public class Spiel implements Controller, NetObject {
 
     }
 
-    /**
-     * Zeigt einen Bildschirm zum Erfolg an, und gibt eine Zusammenfassung aus.
-     * Wieviele Karten wurden von jedem gelegt?
-     * Wer hat die meisten "final-blows" - also die letzte Karte damit ein Monster
-     * wegkommt.
-     */
-    public void siegesBildschirm() {
-
-    }
-
     public List<Spieler> getSpieler() {
         return spieler;
     }
@@ -131,8 +121,17 @@ public class Spiel implements Controller, NetObject {
 
     @Override
     public void karteSpielen(Karte pKarte) {
-        dungeon.karteSpielen(pKarte);
+        if (pKarte != null) {
+            dungeon.karteSpielen(pKarte);
+        }
+    }
 
+    @Override
+    public void karteSpielen(Spieler pSpieler, int position) {
+        Karte k = pSpieler.getHandkarten().gibHandkarte(position);
+        if (k != null) {
+            dungeon.karteSpielen(k);
+        }
     }
 
     @Override
@@ -162,21 +161,28 @@ public class Spiel implements Controller, NetObject {
     }
 
     @Override
+    public void spezialFaehigkeitNutzen(Spieler pSpieler) {
+        if (pSpieler.faehigkeitEinsetzen()) {
+
+        }
+    }
+
+    @Override
     public void karteAuswaehlen(Spieler pSpieler, Karte pKarte) {
         // TODO Auto-generated method stub
 
     }
 
     @Override
-    public void kartenAuswahlen(Spieler pSpieler, List<Karte> pKarten) {
+    public void kartenAuswaehlen(Spieler pSpieler, List<Karte> pKarten) {
         // TODO Auto-generated method stub
-
+        throw new UnsupportedOperationException("Unimplemented method 'kartenAuswaehlen'");
     }
 
     @Override
-    public void spezialFaehigkeitNutzen(Spieler pSpieler) {
+    public void kartenAuswaehlen(Spieler pSpieler, int[] positionen) {
         // TODO Auto-generated method stub
-
+        throw new UnsupportedOperationException("Unimplemented method 'kartenAuswaehlen'");
     }
 
 }

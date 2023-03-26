@@ -1,6 +1,9 @@
 package main;
 
 import karten.List;
+
+import java.util.HashMap;
+
 import karten.Karte;
 
 /**
@@ -10,10 +13,10 @@ import karten.Karte;
  * @author Philipp Kühl
  */
 public class GegnerFactory {
-  List<Karte> gegner;
+  HashMap<String, Gegnerkarte> gegner;
 
   public GegnerFactory() {
-    gegner = new List<Karte>();
+    gegner = new HashMap<String, Gegnerkarte>();
     erstelleKarten();
   }
 
@@ -23,7 +26,11 @@ public class GegnerFactory {
    * @return Gegnerkarten: List<Gegnerkarte>
    */
   public List<Karte> getAlleGegnerkarten() {
-    return gegner;
+    List<Karte> karten = new List<Karte>();
+    gegner.forEach((key, value) -> {
+      karten.append(value);
+    });
+    return karten;
   }
 
   /**
@@ -33,76 +40,76 @@ public class GegnerFactory {
    * @return Gegnerkarte
    */
   public Gegnerkarte getGegnerkarte(String pName) {
-    Gegnerkarte erg;
-
-    /**
-     * Anmerkung von ThI:
-     * Die Listenmethoden benutzen:
-     * - toFirst()
-     * - hasAccess()
-     * - next()
-     * - getContent()
-     */
-    /*
-     * List<Gegnerkarte>gegner{
-     * for(int i=0;i<list.length && list[i]!=null;i++){
-     * if (name = pName){
-     * return Gegnerkarte erg;
-     * }
-     * }
-     * }
-     */
-    // Durch die Liste laufen und immer vergleichen, ob der Name zu pName passt.
-    // Dann das Element zurückgeben.
-
-    return null;
+    return gegner.get(pName);
   }
 
   public void erstelleKarten() {
-    // Gegnerkarte(String pName,Ressourcenkarte pBR,Ressourcenkarte pGB,String pTyp)
-    // new Ressourcenkarte(int pSchild, int pSchwert, int pSprung, int
-    // pSchriftrolle, int pPfeil));
-    gegner.append(new Gegnerkarte("Zombies ohne Ende", new Ressourcenkarte(0, 3, 0, 0, 0), "Monster"));
-    gegner.append(new Gegnerkarte("Ein überteuerter Händler", new Ressourcenkarte(0, 0, 1, 2, 1), "Person"));
-    gegner.append(new Gegnerkarte("Bodenloser Abgrund", new Ressourcenkarte(0, 0, 2, 0, 0), "Hindernis"));
-    gegner.append(new Gegnerkarte("Ein „Geist“ ja klar!", new Ressourcenkarte(0, 2, 0, 0, 1), "Person"));
-    gegner.append(new Gegnerkarte("Ein Haufen schreiender Kinder", new Ressourcenkarte(1, 1, 0, 0, 1), "Person"));
-    gegner.append(new Gegnerkarte("Ein Timberwolf", new Ressourcenkarte(0, 2, 0, 0, 0), "Monster"));
-    gegner.append(new Gegnerkarte("Lebendiges Grünzeug", new Ressourcenkarte(0, 0, 0, 3, 0), "Hindernis"));
-    gegner.append(
+    gegner.put("Zombies ohne Ende",
+        new Gegnerkarte("Zombies ohne Ende", new Ressourcenkarte(0, 3, 0, 0, 0), "Monster"));
+    gegner.put("Ein überteuerter Händler",
+        new Gegnerkarte("Ein überteuerter Händler", new Ressourcenkarte(0, 0, 1, 2, 1), "Person"));
+    gegner.put("Bodenloser Abgrund",
+        new Gegnerkarte("Bodenloser Abgrund", new Ressourcenkarte(0, 0, 2, 0, 0), "Hindernis"));
+    gegner.put("Ein „Geist“ ja klar!",
+        new Gegnerkarte("Ein „Geist“ ja klar!", new Ressourcenkarte(0, 2, 0, 0, 1), "Person"));
+    gegner.put("Ein Haufen schreiender Kinder",
+        new Gegnerkarte("Ein Haufen schreiender Kinder", new Ressourcenkarte(1, 1, 0, 0, 1), "Person"));
+    gegner.put("Ein Timberwolf", new Gegnerkarte("Ein Timberwolf", new Ressourcenkarte(0, 2, 0, 0, 0), "Monster"));
+    gegner.put("Lebendiges Grünzeug",
+        new Gegnerkarte("Lebendiges Grünzeug", new Ressourcenkarte(0, 0, 0, 3, 0), "Hindernis"));
+    gegner.put("Eine sicher Sprengfallenfreie Truhe",
         new Gegnerkarte("Eine sicher Sprengfallenfreie Truhe", new Ressourcenkarte(3, 0, 1, 0, 0), "Hindernis"));
-    gegner.append(new Gegnerkarte("Reizender Schleim", new Ressourcenkarte(0, 0, 1, 0, 1), "Monster"));
-    gegner.append(new Gegnerkarte("Sir Fuzzy", new Ressourcenkarte(0, 0, 1, 0, 2), "Monster"));
-    gegner.append(new Gegnerkarte("Ein langsam ladender Bildschirm", new Ressourcenkarte(0, 1, 1, 0, 1), "Hindernis"));
-    gegner.append(new Gegnerkarte("Eine Kriegerprinzessin", new Ressourcenkarte(1, 0, 0, 0, 1), "Person"));
-    gegner.append(new Gegnerkarte("Ööööhhaa", new Ressourcenkarte(2, 0, 0, 1, 0), "Monster"));
-    gegner.append(new Gegnerkarte("Ein Aufrechter Geist", new Ressourcenkarte(1, 0, 0, 1, 0), "Monster"));
-    gegner.append(new Gegnerkarte("Genau 26 Ninjas", new Ressourcenkarte(0, 0, 2, 1, 0), "Person"));
-    gegner.append(new Gegnerkarte("Der Karpaltunnel", new Ressourcenkarte(0, 0, 0, 1, 2), "Hindernis"));
-    gegner.append(new Gegnerkarte("Eine lächerlich hohe Eiswand", new Ressourcenkarte(0, 0, 3, 0, 0), "Hindernis"));
-    gegner.append(new Gegnerkarte("Ein paar Stufen", new Ressourcenkarte(0, 0, 1, 1, 0), "Hindernis"));
-    gegner.append(new Gegnerkarte("Zwei Mann ein Bogen", new Ressourcenkarte(1, 0, 0, 0, 2), "Person"));
-    gegner.append(new Gegnerkarte("Hai mit sexy Beinen", new Ressourcenkarte(0, 1, 0, 0, 2), "Monster"));
-    gegner.append(new Gegnerkarte("Knappe Nedward", new Ressourcenkarte(2, 0, 0, 0, 1), "Person"));
-    gegner.append(new Gegnerkarte("Barb-irrer", new Ressourcenkarte(1, 2, 0, 0, 0), "Person"));
-    gegner.append(new Gegnerkarte("Typ mit massiven Schulterpanzer", new Ressourcenkarte(0, 2, 0, 1, 0), "Person"));
-    gegner.append(new Gegnerkarte("Ein Ad-hoc-Völkerballturnier", new Ressourcenkarte(0, 0, 2, 0, 1), "Hindernis"));
-    gegner.append(new Gegnerkarte("Zombietusse", new Ressourcenkarte(0, 1, 0, 0, 1), "Monster"));
-    gegner.append(new Gegnerkarte("Ein Kaktus der dich umarmen will", new Ressourcenkarte(3, 0, 0, 0, 0), "Monster"));
-    gegner.append(new Gegnerkarte("Treibsand", new Ressourcenkarte(1, 0, 2, 0, 0), "Hindernis"));
-    gegner.append(new Gegnerkarte("7 Null-bock-Zwerge", new Ressourcenkarte(1, 1, 0, 1, 0), "Person"));
-    gegner.append(new Gegnerkarte("Knuffiger Goblin", new Ressourcenkarte(0, 1, 1, 0, 0), "Monster"));
-    gegner.append(new Gegnerkarte("Ein etwas unbequemer Stuhl", new Ressourcenkarte(1, 1, 1, 0, 0), "Hindernis"));
-    gegner.append(new Gegnerkarte("Eingestürzte Decke", new Ressourcenkarte(0, 1, 0, 2, 0), "Hindernis"));
-    gegner.append(new Gegnerkarte("Steve", new Ressourcenkarte(0, 0, 1, 1, 1), "Person"));
-    gegner.append(new Gegnerkarte("Ein Armhändler", new Ressourcenkarte(0, 0, 0, 1, 1), "Person"));
-    gegner.append(new Gegnerkarte("Ein Rosetta-Stein-Golem", new Ressourcenkarte(1, 0, 1, 0, 0), "Monster"));
-    gegner.append(new Gegnerkarte("Eine “Abkürzung”", new Ressourcenkarte(2, 1, 0, 0, 0), "Hindernis"));
-    gegner.append(new Gegnerkarte("Gespickte Wand", new Ressourcenkarte(1, 0, 0, 2, 0), "Hindernis"));
-    gegner.append(new Gegnerkarte("Buchstäblich ein Strohmann", new Ressourcenkarte(0, 1, 1, 1, 0), "Hindernis"));
-    gegner.append(new Gegnerkarte("William Duck I.", new Ressourcenkarte(1, 0, 1, 1, 0), "Monster"));
-    gegner.append(new Gegnerkarte("Unsichtbare Wand", new Ressourcenkarte(0, 0, 0, 2, 0), "Hindernis"));
-    gegner.append(new Gegnerkarte("Grozznak der Grosse", new Ressourcenkarte(1, 0, 1, 0, 1), "Person"));
+    gegner.put("Reizender Schleim",
+        new Gegnerkarte("Reizender Schleim", new Ressourcenkarte(0, 0, 1, 0, 1), "Monster"));
+    gegner.put("Sir Fuzzy", new Gegnerkarte("Sir Fuzzy", new Ressourcenkarte(0, 0, 1, 0, 2), "Monster"));
+    gegner.put("Ein langsam ladender Bildschirm",
+        new Gegnerkarte("Ein langsam ladender Bildschirm", new Ressourcenkarte(0, 1, 1, 0, 1), "Hindernis"));
+    gegner.put("Eine Kriegerprinzessin",
+        new Gegnerkarte("Eine Kriegerprinzessin", new Ressourcenkarte(1, 0, 0, 0, 1), "Person"));
+    gegner.put("Ööööhhaa", new Gegnerkarte("Ööööhhaa", new Ressourcenkarte(2, 0, 0, 1, 0), "Monster"));
+    gegner.put("Ein Aufrechter Geist",
+        new Gegnerkarte("Ein Aufrechter Geist", new Ressourcenkarte(1, 0, 0, 1, 0), "Monster"));
+    gegner.put("Genau 26 Ninjas", new Gegnerkarte("Genau 26 Ninjas", new Ressourcenkarte(0, 0, 2, 1, 0), "Person"));
+    gegner.put("Der Karpaltunnel",
+        new Gegnerkarte("Der Karpaltunnel", new Ressourcenkarte(0, 0, 0, 1, 2), "Hindernis"));
+    gegner.put("Eine lächerlich hohe Eiswand",
+        new Gegnerkarte("Eine lächerlich hohe Eiswand", new Ressourcenkarte(0, 0, 3, 0, 0), "Hindernis"));
+    gegner.put("Ein paar Stufen", new Gegnerkarte("Ein paar Stufen", new Ressourcenkarte(0, 0, 1, 1, 0), "Hindernis"));
+    gegner.put("Zwei Mann ein Bogen",
+        new Gegnerkarte("Zwei Mann ein Bogen", new Ressourcenkarte(1, 0, 0, 0, 2), "Person"));
+    gegner.put("Hai mit sexy Beinen",
+        new Gegnerkarte("Hai mit sexy Beinen", new Ressourcenkarte(0, 1, 0, 0, 2), "Monster"));
+    gegner.put("Knappe Nedward", new Gegnerkarte("Knappe Nedward", new Ressourcenkarte(2, 0, 0, 0, 1), "Person"));
+    gegner.put("Barb-irrer", new Gegnerkarte("Barb-irrer", new Ressourcenkarte(1, 2, 0, 0, 0), "Person"));
+    gegner.put("Typ mit massiven Schulterpanzer",
+        new Gegnerkarte("Typ mit massiven Schulterpanzer", new Ressourcenkarte(0, 2, 0, 1, 0), "Person"));
+    gegner.put("Ein Ad-hoc-Völkerballturnier",
+        new Gegnerkarte("Ein Ad-hoc-Völkerballturnier", new Ressourcenkarte(0, 0, 2, 0, 1), "Hindernis"));
+    gegner.put("Zombietusse", new Gegnerkarte("Zombietusse", new Ressourcenkarte(0, 1, 0, 0, 1), "Monster"));
+    gegner.put("Ein Kaktus der dich umarmen will",
+        new Gegnerkarte("Ein Kaktus der dich umarmen will", new Ressourcenkarte(3, 0, 0, 0, 0), "Monster"));
+    gegner.put("Treibsand", new Gegnerkarte("Treibsand", new Ressourcenkarte(1, 0, 2, 0, 0), "Hindernis"));
+    gegner.put("7 Null-bock-Zwerge",
+        new Gegnerkarte("7 Null-bock-Zwerge", new Ressourcenkarte(1, 1, 0, 1, 0), "Person"));
+    gegner.put("Knuffiger Goblin", new Gegnerkarte("Knuffiger Goblin", new Ressourcenkarte(0, 1, 1, 0, 0), "Monster"));
+    gegner.put("Ein etwas unbequemer Stuhl",
+        new Gegnerkarte("Ein etwas unbequemer Stuhl", new Ressourcenkarte(1, 1, 1, 0, 0), "Hindernis"));
+    gegner.put("Eingestürzte Decke",
+        new Gegnerkarte("Eingestürzte Decke", new Ressourcenkarte(0, 1, 0, 2, 0), "Hindernis"));
+    gegner.put("Steve", new Gegnerkarte("Steve", new Ressourcenkarte(0, 0, 1, 1, 1), "Person"));
+    gegner.put("Ein Armhändler", new Gegnerkarte("Ein Armhändler", new Ressourcenkarte(0, 0, 0, 1, 1), "Person"));
+    gegner.put("Ein Rosetta-Stein-Golem",
+        new Gegnerkarte("Ein Rosetta-Stein-Golem", new Ressourcenkarte(1, 0, 1, 0, 0), "Monster"));
+    gegner.put("Eine “Abkürzung”",
+        new Gegnerkarte("Eine “Abkürzung”", new Ressourcenkarte(2, 1, 0, 0, 0), "Hindernis"));
+    gegner.put("Gespickte Wand", new Gegnerkarte("Gespickte Wand", new Ressourcenkarte(1, 0, 0, 2, 0), "Hindernis"));
+    gegner.put("Buchstäblich ein Strohmann",
+        new Gegnerkarte("Buchstäblich ein Strohmann", new Ressourcenkarte(0, 1, 1, 1, 0), "Hindernis"));
+    gegner.put("William Duck I.", new Gegnerkarte("William Duck I.", new Ressourcenkarte(1, 0, 1, 1, 0), "Monster"));
+    gegner.put("Unsichtbare Wand",
+        new Gegnerkarte("Unsichtbare Wand", new Ressourcenkarte(0, 0, 0, 2, 0), "Hindernis"));
+    gegner.put("Grozznak der Grosse",
+        new Gegnerkarte("Grozznak der Grosse", new Ressourcenkarte(1, 0, 1, 0, 1), "Person"));
 
   }
 

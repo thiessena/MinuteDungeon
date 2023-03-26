@@ -2,7 +2,7 @@ Karten
 In dieser Datei werden alle Daten der Karten gespeichert.
 
 Helden-Karten
-Lila
+#Lila
 Normale Ressourcen: Schild, Schwert, Sprung, Schriftrolle, Pfeil
 5,7,7,6,3
 Doppel Ressourcen: Doppelsprung 3
@@ -11,7 +11,7 @@ Stehlen 2 Klau die Handkarten eines Mitspielers und nimm sie zusätzlich auf dei
 Spende 1 gib deine Handkarten einem Mitspieler auf die Hand 
 Rücklings 3 besiege eine Person
 Sprint 3 überwinde ein Hindernis
-Blau
+#Blau
 Normale Ressourcen: Schild, Schwert, Sprung, Schriftrolle, Pfeil
 5,3,6,9,7
 Doppel Ressourcen: 2x Doppelschriftrolle, 
@@ -19,7 +19,7 @@ Besondere Karten:
 4x Feuerball (Besiege ein Monster)
 1x Verhinderung (Alle Ignorieren ein Hindernis)
 3x Magische Bombe (Zählt wie 1- Mal alle Ressourcen)
-Rot
+#Rot
 Normale Ressourcen: Schild, Schwert, Sprung, Schriftrolle, Pfeil
 7,5,6,3,5
 Doppel Ressourcen:
@@ -27,7 +27,7 @@ Doppel Ressourcen:
 Besondere Karten:
 2x Riesensprung (Überwinde ein Hindernis)
 2x Wut (Bestimme 2 Spieler(1 kannst du sein), die jeweils 3 Karten vom Nachziehstapel ziehen)
-Grün
+#Grün
 Normale Ressourcen: Schild, Schwert, Sprung, Schriftrolle, Pfeil
 3,4,7,4,9
 Doppel Ressourcen: 2 x Doppelpfeil 1 Treffer
@@ -35,7 +35,7 @@ Besondere Karten:
 8 x Joker
 2 x Heilkräuter (1 Spieler + 4 Karten)
 1 x Treffer (Person besiegen)
-Gelb
+#Gelb
 Normale Ressourcen: Schild, Schwert, Sprung, Schriftrolle, Pfeil
 9,6,3,8,6
 Doppel Ressourcen: 2 x Doppelschild 

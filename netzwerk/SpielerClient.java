@@ -1,4 +1,5 @@
 package netzwerk;
+
 import java.util.Scanner;
 
 import helden.Held;
@@ -11,40 +12,46 @@ import main.Spieler;
 import main.View;
 import textgame.Textgame;
 
-public class SpielerClient extends Client implements Controller{
+public class SpielerClient extends Client implements Controller {
     Scanner eingabe = new Scanner(System.in);
     View view;
 
-    public SpielerClient(){
-        super("localhost",1337);
+    public SpielerClient() {
+        super("localhost", 1337);
     }
 
-    public SpielerClient(String pIp, int pPort){
-        super(pIp,pPort);
+    public SpielerClient(String pIp, int pPort) {
+        super(pIp, pPort);
     }
 
-    public void processMessage(String pMessage){
+    public void processMessage(String pMessage) {
         String[] datenArray = pMessage.split(NetTrennzeichen.BEFEHL_TRENNZEICHEN);
         String befehl = datenArray[0];
-        switch(befehl){
-            case "VERBINDUNG_ERFOLGREICH": 
+        switch (befehl) {
+            case "VERBINDUNG_ERFOLGREICH":
                 System.out.print("Gib deine UserId ein (Enter, falls keine vorhanden ist): ");
                 String id = eingabe.nextLine();
                 send("LOGIN:" + id);
-            break;
+                break;
             case "LOGIN_ERFOLGREICH":
                 int userId = Integer.parseInt(datenArray[1]);
-                Spieler mySpieler = new Spieler(userId, null, null); 
+                Spieler mySpieler = new Spieler(userId, null, null);
                 view = new Textgame(mySpieler, this);
                 send("LEVEL:");
-            break;
-            case "LEVEL_FEHLT": view.zeigeLevelAuswahl(); break;
-            case "LEVEL_EINGELOGGT": view.zeigeHeldenAuswahl(); break;
-            case "HELD_EINGELOGGT": view.zeigeWarteBildschirm(); break; 
+                break;
+            case "LEVEL_FEHLT":
+                view.zeigeLevelAuswahl();
+                break;
+            case "LEVEL_EINGELOGGT":
+                view.zeigeHeldenAuswahl();
+                break;
+            case "HELD_EINGELOGGT":
+                view.zeigeWarteBildschirm();
+                break;
         }
     }
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
         SpielerClient sClient = new SpielerClient("localhost", 1337);
         System.out.println("Bitte gib deine SpielerId an");
     }
@@ -57,45 +64,53 @@ public class SpielerClient extends Client implements Controller{
     @Override
     public void setHeld(Spieler pSpieler, Held pHeld) {
         // TODO Auto-generated method stub
-        
+
     }
 
     @Override
     public void setSchwierigkeitsgrad(int pSchwierigkeitsgrad) {
         // TODO Auto-generated method stub
-        
+
     }
 
     @Override
     public void setLevel(int pLevel) {
-        send("LEVEL_AUSWAHL:"+pLevel);
+        send("LEVEL_AUSWAHL:" + pLevel);
     }
 
     @Override
     public void karteSpielen(Karte pKarte) {
         // TODO Auto-generated method stub
-        
+        throw new UnsupportedOperationException("Unimplemented method 'karteSpielen'");
+    }
+
+    @Override
+    public void karteSpielen(Spieler pSpieler, int position) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'karteSpielen'");
     }
 
     @Override
     public void karteAuswaehlen(Spieler pSpieler, Karte pKarte) {
         // TODO Auto-generated method stub
-        
+        throw new UnsupportedOperationException("Unimplemented method 'karteAuswaehlen'");
     }
 
     @Override
-    public void kartenAuswahlen(Spieler pSpieler, List<Karte> pKarten) {
+    public void kartenAuswaehlen(Spieler pSpieler, List<Karte> pKarten) {
         // TODO Auto-generated method stub
-        
+        throw new UnsupportedOperationException("Unimplemented method 'kartenAuswaehlen'");
+    }
+
+    @Override
+    public void kartenAuswaehlen(Spieler pSpieler, int[] positionen) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'kartenAuswaehlen'");
     }
 
     @Override
     public void spezialFaehigkeitNutzen(Spieler pSpieler) {
         // TODO Auto-generated method stub
-        
+        throw new UnsupportedOperationException("Unimplemented method 'spezialFaehigkeitNutzen'");
     }
-
-
-
-    
 }

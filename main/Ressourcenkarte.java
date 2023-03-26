@@ -16,11 +16,20 @@ public class Ressourcenkarte extends Karte {
   private Ressource pfeil;
 
   public Ressourcenkarte(int pSchild, int pSchwert, int pSprung, int pSchriftrolle, int pPfeil) {
-    schild = new Ressource("🛡️", pSchild);
-    schwert = new Ressource("🗡️", pSchwert);
-    sprung = new Ressource("🤾‍", pSprung);
-    schriftrolle = new Ressource("📝", pSchriftrolle);
-    pfeil = new Ressource("🏹", pPfeil);
+    schild = new Ressource("gelb", pSchild);
+    schwert = new Ressource("rot", pSchwert);
+    sprung = new Ressource("lila", pSprung);
+    schriftrolle = new Ressource("blau", pSchriftrolle);
+    pfeil = new Ressource("gruen", pPfeil);
+  }
+
+  public Ressourcenkarte(String pFarbe, int pSchild, int pSchwert, int pSprung, int pSchriftrolle, int pPfeil) {
+    super.setFarbe(pFarbe);
+    schild = new Ressource("gelb", pSchild);
+    schwert = new Ressource("rot", pSchwert);
+    sprung = new Ressource("lila", pSprung);
+    schriftrolle = new Ressource("blau", pSchriftrolle);
+    pfeil = new Ressource("gruen", pPfeil);
   }
 
   public Ressourcenkarte copy() {
@@ -29,25 +38,25 @@ public class Ressourcenkarte extends Karte {
   }
 
   public String toString() {
-    return "(R> 🛡️:" + schild.getAnzahl() +
-        " 🗡️:" + schwert.getAnzahl() +
-        " 🤾‍♀️:" + sprung.getAnzahl() +
-        " 📝:" + schriftrolle.getAnzahl() +
-        " 🏹:" + pfeil.getAnzahl() + ")";
+    return "(R> gelb:" + schild.getAnzahl() +
+        " rot:" + schwert.getAnzahl() +
+        " lila:" + sprung.getAnzahl() +
+        " blau:" + schriftrolle.getAnzahl() +
+        " gruen:" + pfeil.getAnzahl() + ")";
   }
 
-    /**
+  /**
    * Addiert die Werte der Ressourcenkarte pRessourcenkarte zur Ressourcenkarte.
    * 
    * @param pRessourcenkarte
    */
   public void addiere(Ressourcenkarte pRessourcenkarte) {
     int[] anzahlen = pRessourcenkarte.getArray();
-    schild.setAnzahl(schild.getAnzahl()+ anzahlen[0]);
-    schwert.setAnzahl(schwert.getAnzahl()+ anzahlen[1]);
-    sprung.setAnzahl(sprung.getAnzahl()+ anzahlen[2]);
-    schriftrolle.setAnzahl(schriftrolle.getAnzahl()+ anzahlen[3]);
-    pfeil.setAnzahl(pfeil.getAnzahl()+ anzahlen[4]);
+    schild.setAnzahl(schild.getAnzahl() + anzahlen[0]);
+    schwert.setAnzahl(schwert.getAnzahl() + anzahlen[1]);
+    sprung.setAnzahl(sprung.getAnzahl() + anzahlen[2]);
+    schriftrolle.setAnzahl(schriftrolle.getAnzahl() + anzahlen[3]);
+    pfeil.setAnzahl(pfeil.getAnzahl() + anzahlen[4]);
   }
 
   /**
@@ -58,30 +67,37 @@ public class Ressourcenkarte extends Karte {
    */
   public void subtrahiere(Ressourcenkarte pRessourcenkarte) {
     int[] anzahlen = pRessourcenkarte.getArray();
-    if (schild.getAnzahl() - anzahlen[0]  >= 0){
-        schild.setAnzahl( schild.getAnzahl() - anzahlen[0]);
-    }else{
-        schild.setAnzahl(0);
+    if (schild.getAnzahl() - anzahlen[0] >= 0) {
+      schild.setAnzahl(schild.getAnzahl() - anzahlen[0]);
+    } else {
+      schild.setAnzahl(0);
     }
-    if (schwert.getAnzahl() - anzahlen[0]  >= 0){
-        schwert.setAnzahl( schwert.getAnzahl() - anzahlen[0]);
-    }else{
-        schwert.setAnzahl(0);
+    if (schwert.getAnzahl() - anzahlen[0] >= 0) {
+      schwert.setAnzahl(schwert.getAnzahl() - anzahlen[0]);
+    } else {
+      schwert.setAnzahl(0);
     }
-    if (sprung.getAnzahl() - anzahlen[0]  >= 0){
-        sprung.setAnzahl( sprung.getAnzahl() - anzahlen[0]);
-    }else{
-        sprung.setAnzahl(0);
+    if (sprung.getAnzahl() - anzahlen[0] >= 0) {
+      sprung.setAnzahl(sprung.getAnzahl() - anzahlen[0]);
+    } else {
+      sprung.setAnzahl(0);
     }
-    if (schriftrolle.getAnzahl() - anzahlen[0]  >= 0){
-        schriftrolle.setAnzahl( schriftrolle.getAnzahl() - anzahlen[0]);
-    }else{
-        schriftrolle.setAnzahl(0);
-    }
-    if (pfeil.getAnzahl() - anzahlen[0]  >= 0){
-        pfeil.setAnzahl( pfeil.getAnzahl() - anzahlen[0]);
-    }else{
-        pfeil.setAnzahl(0);
+    substrahiereBisNull(schriftrolle, anzahlen[3]);
+    substrahiereBisNull(pfeil, anzahlen[4]);
+  }
+
+  /**
+   * Subtrahiert die anzahl von der Ressource pRessource. Falls die Ressource
+   * unter 0 wäre,
+   * wird sie auf 0 gesetzt.
+   * 
+   * @param pRessource
+   */
+  private void substrahiereBisNull(Ressource pRessource, int anzahl) {
+    if (pRessource.getAnzahl() - anzahl >= 0) {
+      pRessource.setAnzahl(pRessource.getAnzahl() - anzahl);
+    } else {
+      pRessource.setAnzahl(0);
     }
   }
 
@@ -94,12 +110,17 @@ public class Ressourcenkarte extends Karte {
     ressource[4] = pfeil.getAnzahl();
     return ressource;
   }
- 
-  public boolean getAlleRessourcenGleichNull(){
-      int summe  = 0; 
-      for(int i= 0; i < getArray().length; i++){
-          
-      }
-      return summe <= 0;
+
+  public boolean getAlleRessourcenGleichNull() {
+    return getRohstoffSumme() == 0;
+  }
+
+  public int getRohstoffSumme() {
+    int summe = 0;
+    int[] ressourcenAnzahl = getArray();
+    for (int i = 0; i < ressourcenAnzahl.length; i++) {
+      summe += ressourcenAnzahl[i];
+    }
+    return summe;
   }
 }

@@ -41,16 +41,18 @@ public class Dungeon implements NetObject {
         gegnerkartenstapel.legeObenDrauf(gF.getAlleGegnerkarten(), 12);
     }
 
-   /**
+    /**
      * Deckt die naechste Gegnerkarte auf.
      */
     public void naechsteGegnerKarte() {
-        //prufe ob die gegnerkarte nullist wenn ja dan entferne die Garte und leg die naechste
-        if ((gegnerkartenstapel.getObersteKarte()).getAlleRessourcenGleichNull() == true){
+        // prufe ob die gegnerkarte nullist wenn ja dan entferne die Garte und leg die
+        // naechste
+        Gegnerkarte aktGegner = (Gegnerkarte) (gegnerkartenstapel.getObersteKarte());
+        if (aktGegner.getAktuelleRessourcen().getAlleRessourcenGleichNull()) {
             System.out.println("Gegner beseitigt!");
             gegnerkartenstapel.entferneObersteKarte();
-        }else{
-            
+        } else {
+
         }
     }
 

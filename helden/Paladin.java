@@ -14,7 +14,7 @@ public class Paladin extends Held
      */
     public Paladin()
     {
-        super("Paladin");
+        super("Paladin", "gelb");
         /**
          * [3x public void karteRauslegen(Karte pKarte)] + 2x public void karteHinzufuegen
          */

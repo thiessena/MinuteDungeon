@@ -13,6 +13,7 @@ public class Ninja extends Held {
      * Faehigkeit: 3x karten ablegenen und dafÃ¼r besiege ein Hindernis
      */
     public Ninja() {
+        super("Ninja", "lila");
         /**
          * 3x public void karteHinzufuegen + set gegnerTyp hindernis = 0;
          */

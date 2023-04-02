@@ -8,6 +8,7 @@ public class Held implements NetObject {
     protected String heldenname;
     protected String faehigkeitname;
     protected Spieler spieler;
+    protected String farbe;
 
     public Held() {
 
@@ -16,9 +17,9 @@ public class Held implements NetObject {
     /**
      * Konstruktor für Objekte der Klasse Held
      */
-    public Held(String pHeldenname) {
+    public Held(String pHeldenname, String pFarbe) {
         heldenname = pHeldenname;
-
+        farbe = pFarbe;
     }
 
     /**
@@ -34,6 +35,10 @@ public class Held implements NetObject {
 
     public String getHeldenname() {
         return heldenname;
+    }
+
+    public String getFarbe(){
+        return farbe; 
     }
 
     public String toString() {

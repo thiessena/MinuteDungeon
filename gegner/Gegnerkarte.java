@@ -1,7 +1,8 @@
-package main;
+package gegner;
 
 import karten.Karte;
 import karten.List;
+import karten.Ressourcenkarte;
 
 /**
  * V1
@@ -13,9 +14,9 @@ public class Gegnerkarte extends Karte {
     private Ressourcenkarte benoetigteRessourcen; // Die benötigte Anzahl an Ressourcen
     private Ressourcenkarte aktuelleRessourcen; // Aktuelle im Spiel übrige Ressourcen
     private List<Ressourcenkarte> gegebeneRessourcenkarten; // alle gespielten REssourcenkarten
-    private String typ;
+    private Gegnertyp typ;
 
-    public Gegnerkarte(String pName, Ressourcenkarte pBenoetigteRessourcen, String pTyp) {
+    public Gegnerkarte(String pName, Ressourcenkarte pBenoetigteRessourcen, Gegnertyp pTyp) {
         name = pName;
         benoetigteRessourcen = pBenoetigteRessourcen;
         aktuelleRessourcen = benoetigteRessourcen.copy();
@@ -23,11 +24,11 @@ public class Gegnerkarte extends Karte {
         typ = pTyp;
     }
 
-    public void setTyp(String pTyp) {
+    public void setTyp(Gegnertyp pTyp) {
         typ = pTyp;
     }
 
-    public String getTyp() {
+    public Gegnertyp getTyp() {
         return typ;
     }
 

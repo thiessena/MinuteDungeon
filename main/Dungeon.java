@@ -1,5 +1,7 @@
 package main;
 
+import gegner.GegnerFactory;
+import gegner.Gegnerkarte;
 import karten.*;
 import netzwerk.NetObject;
 

@@ -1,6 +1,4 @@
-package main;
-
-import karten.Karte;
+package karten;
 
 /**
  * Die Ressourcenkarte verwaltet die verschiedenen Ressourcen, die im Spiel
@@ -67,21 +65,9 @@ public class Ressourcenkarte extends Karte {
    */
   public void subtrahiere(Ressourcenkarte pRessourcenkarte) {
     int[] anzahlen = pRessourcenkarte.getArray();
-    if (schild.getAnzahl() - anzahlen[0] >= 0) {
-      schild.setAnzahl(schild.getAnzahl() - anzahlen[0]);
-    } else {
-      schild.setAnzahl(0);
-    }
-    if (schwert.getAnzahl() - anzahlen[0] >= 0) {
-      schwert.setAnzahl(schwert.getAnzahl() - anzahlen[0]);
-    } else {
-      schwert.setAnzahl(0);
-    }
-    if (sprung.getAnzahl() - anzahlen[0] >= 0) {
-      sprung.setAnzahl(sprung.getAnzahl() - anzahlen[0]);
-    } else {
-      sprung.setAnzahl(0);
-    }
+    substrahiereBisNull(schild, anzahlen[0]);
+    substrahiereBisNull(schwert, anzahlen[1]);
+    substrahiereBisNull(sprung, anzahlen[2]);
     substrahiereBisNull(schriftrolle, anzahlen[3]);
     substrahiereBisNull(pfeil, anzahlen[4]);
   }

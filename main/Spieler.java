@@ -24,10 +24,19 @@ public class Spieler implements NetObject {
 
     }
 
+    public Spieler(Held pHeld, Kartenstapel pNachziehstapel) {
+        nachziehstapel = pNachziehstapel;
+        ablagestapel = new Kartenstapel();
+        handkarten = new Handkarten();
+        held = pHeld;
+        userId = -1;
+    }
+
     public Spieler(int pUserId, Kartenstapel pNachziehstapel, Kartenstapel pAblagestapel) {
         userId = pUserId;
         nachziehstapel = pNachziehstapel;
         ablagestapel = pAblagestapel;
+        held = null;
     }
 
     public void setHeld(Held pHeld) {

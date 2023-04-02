@@ -1,21 +1,26 @@
 package helden;
 
-import main.Ressourcenkarte;
-
+import java.util.Collections;
 import java.util.HashMap;
 
 import karten.Karte;
 import karten.List;
+import karten.Ressourcenkarte;
 
-public class HeldenKartenFactory {
-    HashMap<String, List<Karte>> deckKarten = new HashMap<String, List<Karte>>();
+public class HeldenDeckFactory {
+    private static HashMap<String, List<Karte>> deckKarten = new HashMap<String, List<Karte>>();
+    static {
+        HashMap<String, List<Karte>> aMap = new HashMap<String, List<Karte>>();
+        aMap.put("gelb", erstelleHeldenKartenGelb());
+        aMap.put("rot", erstelleHeldenKartenRot());
+        aMap.put("lila", erstelleHeldenKartenLila());
+        aMap.put("gruen", erstelleHeldenKartenGruen());
+        aMap.put("blau", erstelleHeldenKartenBlau());
+        deckKarten = (HashMap<String, List<Karte>>) Collections.unmodifiableMap(aMap);
+    }
 
-    public HeldenKartenFactory() {
-        deckKarten.put("gelb", erstelleHeldenKartenGelb());
-        deckKarten.put("rot", erstelleHeldenKartenRot());
-        deckKarten.put("lila", erstelleHeldenKartenLila());
-        deckKarten.put("gruen", erstelleHeldenKartenGruen());
-        deckKarten.put("blau", erstelleHeldenKartenBlau());
+    public static List<Karte> create(String pFarbe) {
+        return deckKarten.get(pFarbe);
     }
 
     /**
@@ -32,7 +37,7 @@ public class HeldenKartenFactory {
      * 
      * @return
      */
-    public List<Karte> erstelleHeldenKartenLila() {
+    private static List<Karte> erstelleHeldenKartenLila() {
         List<Karte> lilaKarten = new List<Karte>();
         lilaKarten.concat(erstelleNormaleRessourcenkarten("lila", 5, 7, 7, 6, 3));
         // Doppel-Ressourcenkarten:
@@ -54,18 +59,21 @@ public class HeldenKartenFactory {
      * 
      * @return
      */
-    public List<Karte> erstelleHeldenKartenBlau() {
-        List<Karte> grueneKarten = new List<Karte>();
-        grueneKarten.concat(erstelleNormaleRessourcenkarten("blau", 5, 3, 6, 9, 7));
+    private static List<Karte> erstelleHeldenKartenBlau() {
+        List<Karte> blaueKarten = new List<Karte>();
+        blaueKarten.concat(erstelleNormaleRessourcenkarten("blau", 5, 3, 6, 9, 7));
         // Doppel-Ressourcenkarten:
-        grueneKarten.append(new Ressourcenkarte("blau", 0, 0, 0, 2, 0));
-        grueneKarten.append(new Ressourcenkarte("blau", 0, 0, 0, 2, 0));
+        blaueKarten.append(new Ressourcenkarte("blau", 0, 0, 0, 2, 0));
+        blaueKarten.append(new Ressourcenkarte("blau", 0, 0, 0, 2, 0));
         // Magische Bomben
-        grueneKarten.append(new Ressourcenkarte("blau", 1, 1, 1, 1, 1));
-        grueneKarten.append(new Ressourcenkarte("blau", 1, 1, 1, 1, 1));
-        grueneKarten.append(new Ressourcenkarte("blau", 1, 1, 1, 1, 1));
-
-        return grueneKarten;
+        for (int i = 0; i < 4; i++) {
+            blaueKarten.append(new Ressourcenkarte("blau", 1, 1, 1, 1, 1));
+        }
+        // Feuerbaelle
+        for (int i = 0; i < 4; i++) {
+            blaueKarten.append(GegnerEreigniskarte.create("Feuerball"));
+        }
+        return blaueKarten;
     }
 
     /**
@@ -81,13 +89,14 @@ public class HeldenKartenFactory {
      * 
      * @return
      */
-    public List<Karte> erstelleHeldenKartenGruen() {
+    private static List<Karte> erstelleHeldenKartenGruen() {
         List<Karte> grueneKarten = new List<Karte>();
         grueneKarten.concat(erstelleNormaleRessourcenkarten("gruen", 3, 4, 7, 4, 9));
         // Doppel-Ressourcenkarten:
         grueneKarten.append(new Ressourcenkarte("gruen", 0, 0, 0, 0, 2));
         grueneKarten.append(new Ressourcenkarte("gruen", 0, 0, 0, 0, 2));
-
+        // Treffer
+        grueneKarten.append(GegnerEreigniskarte.create("Treffer"));
         return grueneKarten;
     }
 
@@ -106,20 +115,21 @@ public class HeldenKartenFactory {
      * 
      * @return
      */
-    public List<Karte> erstelleHeldenKartenRot() {
+    private static List<Karte> erstelleHeldenKartenRot() {
         List<Karte> roteKarten = new List<Karte>();
         roteKarten.concat(erstelleNormaleRessourcenkarten("rot", 7, 5, 6, 3, 5));
         // Doppel-Ressourcenkarten:
-        roteKarten.append(new Ressourcenkarte("rot", 0, 2, 0, 0, 0));
-        roteKarten.append(new Ressourcenkarte("rot", 0, 2, 0, 0, 0));
-        roteKarten.append(new Ressourcenkarte("rot", 1, 1, 0, 0, 0));
-        roteKarten.append(new Ressourcenkarte("rot", 1, 1, 0, 0, 0));
-        roteKarten.append(new Ressourcenkarte("rot", 0, 1, 0, 0, 1));
-        roteKarten.append(new Ressourcenkarte("rot", 0, 1, 0, 0, 1));
-        roteKarten.append(new Ressourcenkarte("rot", 0, 1, 1, 0, 0));
-        roteKarten.append(new Ressourcenkarte("rot", 0, 1, 1, 0, 0));
-        roteKarten.append(new Ressourcenkarte("rot", 0, 1, 0, 1, 0));
-        roteKarten.append(new Ressourcenkarte("rot", 0, 1, 0, 1, 0));
+        for (int i = 0; i < 2; i++) {
+            roteKarten.append(new Ressourcenkarte("rot", 0, 2, 0, 0, 0));
+            roteKarten.append(new Ressourcenkarte("rot", 1, 1, 0, 0, 0));
+            roteKarten.append(new Ressourcenkarte("rot", 0, 1, 0, 0, 1));
+            roteKarten.append(new Ressourcenkarte("rot", 0, 1, 1, 0, 0));
+            roteKarten.append(new Ressourcenkarte("rot", 0, 1, 0, 1, 0));
+
+            // Riesensprung
+            roteKarten.append(GegnerEreigniskarte.create("Riesensprung"));
+        }
+
         return roteKarten;
     }
 
@@ -132,20 +142,22 @@ public class HeldenKartenFactory {
      * Besondere Karten:
      * 1 x Heile(1 Spieler darf den Nachziehstapel verdeckt den Ablegestapel legen)
      * 2 x Göttliche Schild (stoppt die Zeit bis jemand eine Karte spiet)
-     * 1 x Haudrauf (besiegt en Monster)
+     * 1 x Haudrauf (besiegt ein Monster)
      * 1 x Heilige Handgranate (besiege eine beliebige Karte)
      * 1 x Heiltrank (Jeder zeigt 3 Karten)
      */
-    public List<Karte> erstelleHeldenKartenGelb() {
+    private static List<Karte> erstelleHeldenKartenGelb() {
 
         List<Karte> gelbeKarten = new List<Karte>();
         gelbeKarten.concat(erstelleNormaleRessourcenkarten("gelb", 9, 6, 3, 8, 6));
         gelbeKarten.append(new Ressourcenkarte("gelb", 2, 0, 0, 0, 0));
         gelbeKarten.append(new Ressourcenkarte("gelb", 2, 0, 0, 0, 0));
+        gelbeKarten.append(GegnerEreigniskarte.create("Haudrauf"));
+        gelbeKarten.append(GegnerEreigniskarte.create("Heilige Handgranate"));
         return gelbeKarten;
     }
 
-    private List<Karte> erstelleNormaleRessourcenkarten(String pFarbe, int pSchild, int pSchwert, int pSprung,
+    private static List<Karte> erstelleNormaleRessourcenkarten(String pFarbe, int pSchild, int pSchwert, int pSprung,
             int pSchriftrolle, int pPfeil) {
         List<Karte> ressourcenListe = new List<Karte>();
         ressourcenListe.concat(erstelleRessourcenkarten(pFarbe, pSchild, 1, 0, 0, 0, 0));
@@ -156,7 +168,7 @@ public class HeldenKartenFactory {
         return ressourcenListe;
     }
 
-    private List<Karte> erstelleRessourcenkarten(String pFarbe, int pAnzahl,
+    private static List<Karte> erstelleRessourcenkarten(String pFarbe, int pAnzahl,
             int pSchild, int pSchwert, int pSprung, int pSchriftrolle, int pPfeil) {
         List<Karte> ressourcenListe = new List<Karte>();
         for (int i = 0; i < pAnzahl; i++) {

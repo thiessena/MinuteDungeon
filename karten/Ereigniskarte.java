@@ -1,9 +1,7 @@
-package main;
-import karten.Karte;
+package karten;
 
-public class Ereigniskarte extends Karte
-{
-   
+public class Ereigniskarte extends Karte {
+
     protected String beschreibung;
     protected String name;
     protected int anzahl;
@@ -11,13 +9,11 @@ public class Ereigniskarte extends Karte
     /**
      * Konstruktor für Objekte der Klasse Ereigniskarte
      */
-    public Ereigniskarte(String pName, String pBeschreibung)
-    {
+    public Ereigniskarte(String pName, String pBeschreibung) {
         super();
-        name = pName; 
+        name = pName;
         beschreibung = pBeschreibung;
         anzahl = 0;
     }
-   
 
 }

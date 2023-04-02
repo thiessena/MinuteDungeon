@@ -14,6 +14,8 @@ import helden.*;
  */
 public class Spiel implements Controller, NetObject {
     private static final Spiel instance = new Spiel();
+    HeldenFactory heldenFactory = new HeldenFactory();
+
     List<Spieler> spieler;
     int maxSpielerAnzahl = 6;
     int spielerAnzahl = 0;
@@ -44,6 +46,18 @@ public class Spiel implements Controller, NetObject {
             return true;
         }
         return false;
+    }
+
+    public boolean createSpieler(String pName, String pHeldname) {
+        if (spielerAnzahl == maxSpielerAnzahl)
+            return false;
+
+        Held h = HeldenFactory.create(pHeldname);
+        Kartenstapel k = new Kartenstapel(HeldenDeckFactory.create(h.getFarbe()));
+        Spieler pSpieler = new Spieler(h, k);
+        spieler.append(pSpieler);
+        spielerAnzahl++;
+        return true;
     }
 
     /**

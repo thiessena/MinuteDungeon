@@ -16,7 +16,7 @@ public class Kartenstapel {
         aufgedeckt = true;
     }
 
-    public Kartenstapel(List<Karte> pKarten, String pTyp, int pID) {
+    public Kartenstapel(List<Karte> pKarten) {
         karten = pKarten;
         aufgedeckt = true;
     }

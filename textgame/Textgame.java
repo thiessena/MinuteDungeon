@@ -5,6 +5,8 @@ import main.*;
 import helden.*;
 
 import java.util.Scanner;
+
+import gegner.Gegnerkarte;
 import helden.HeldenFactory;
 
 public class Textgame implements View {
@@ -106,27 +108,25 @@ public class Textgame implements View {
     public void siegesBildschirm() {
 
     }
-    
-    
 
     @Override
     public void zeigeKartenAuswahl(Spieler pSpieler) {
         System.out.println("Welche Karten möchtest du auswaehlen?");
         System.out.println("Gib sie durch Komma getrennt an: 1,4,6");
         String zeile = eingabeZeile.nextLine();
-        try{
-            int[] zahlen = integerValues(zeile,",");
+        try {
+            int[] zahlen = integerValues(zeile, ",");
             controller.kartenAuswaehlen(pSpieler, zahlen);
-        }catch(NumberFormatException nFE){
+        } catch (NumberFormatException nFE) {
             System.out.println("Die Zahlen wurden falsch eingegeben.");
         }
     }
 
-    private int[] integerValues(String pText, String pSplitter)throws NumberFormatException{
+    private int[] integerValues(String pText, String pSplitter) throws NumberFormatException {
         String[] zahlenText = pText.split(pSplitter);
         int[] zahlen = new int[zahlenText.length];
-        for(int i = 0; i < zahlen.length; i++){
-            zahlen[i]=Integer.parseInt(zahlenText[i]);
+        for (int i = 0; i < zahlen.length; i++) {
+            zahlen[i] = Integer.parseInt(zahlenText[i]);
         }
         return zahlen;
     }

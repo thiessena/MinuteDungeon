@@ -1,6 +1,9 @@
-package main;
+package karten;
 
+import java.util.HashMap;
 import karten.*;
+import main.Spiel;
+import main.Spieler;
 
 /**
  * @author fablucius

@@ -14,22 +14,27 @@ public class Textgame implements View {
     Scanner eingabeZeile;
     Controller controller;
 
-    public Textgame(Spieler pSpieler, Controller pController) {
+    public Textgame(Controller pController) {
         controller = pController;
         pController.setView(this);
         eingabeZeile = new Scanner(System.in);
-        spieler = pSpieler;
+        spieler = new Spieler();
+    }
+
+    public Spieler getSpieler() {
+        return spieler;
     }
 
     public static void main(String[] args) {
-        Spieler ich = new Spieler();
+        // System.out.println("\f");
+        System.out.print("\033[H\033[2J");
+        System.out.flush();
         Spiel spiel = Spiel.getInstance();
-        spiel.addSpieler(ich);
-        Textgame tGame = new Textgame(ich, spiel);
-        tGame.zeigeLevelAuswahl();
+        Textgame tGame = new Textgame(spiel);
+        System.out.println(spiel.addSpieler(tGame.getSpieler()));
         tGame.zeigeHeldenAuswahl();
-        spiel.setHeld(ich, HeldenFactory.gibHeld(1));
-        tGame.zeigeSpieler(ich);
+
+        tGame.zeigeSpieler(tGame.getSpieler());
         tGame.zeigeDungeon(spiel.getDungeon());
         // tGame.zeigeWarteBildschirm();
     }
@@ -39,12 +44,17 @@ public class Textgame implements View {
      */
     @Override
     public void zeigeHeldenAuswahl() {
-        System.out.println(
-                "Wähle einen Helden aus: 1)Paladin 2)Walkuere 3)Ninja 4)Dieb 5)Waldlaeufer 6)Jaegerin 7)Magier 8)Zauberin");
+        System.out.print(
+                "Wähle einen Helden aus: ");
+        String tempString = HeldenFactory.getHeldennamen();
+        String[] heldennamen = tempString.substring(1, tempString.length() - 1).split(",");
+        for (int i = 0; i < heldennamen.length; i++) {
+            System.out.print((i + 1) + ")" + heldennamen[i] + " ");
+        }
+        System.out.println();
         System.out.println("Gib eine Zahl zwischen 1 - 8 an.");
         int heldenNummer = eingabeZeile.nextInt();
-        Held h = HeldenFactory.gibHeld(heldenNummer);
-        controller.setHeld(spieler, h);
+        System.out.println(controller.setHeld(spieler, HeldenFactory.gibHeld(heldenNummer - 1)));
     }
 
     @Override

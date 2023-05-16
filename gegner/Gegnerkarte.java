@@ -13,7 +13,7 @@ public class Gegnerkarte extends Karte {
     private String name;
     private Ressourcenkarte benoetigteRessourcen; // Die benötigte Anzahl an Ressourcen
     private Ressourcenkarte aktuelleRessourcen; // Aktuelle im Spiel übrige Ressourcen
-    private List<Ressourcenkarte> gegebeneRessourcenkarten; // alle gespielten REssourcenkarten
+    private List<Ressourcenkarte> gegebeneRessourcenkarten; // alle gespielten Ressourcenkarten
     private Gegnertyp typ;
 
     public Gegnerkarte(String pName, Ressourcenkarte pBenoetigteRessourcen, Gegnertyp pTyp) {
@@ -22,6 +22,12 @@ public class Gegnerkarte extends Karte {
         aktuelleRessourcen = benoetigteRessourcen.copy();
         gegebeneRessourcenkarten = new List<Ressourcenkarte>();
         typ = pTyp;
+    }
+
+    public Gegnerkarte clone() {
+        Gegnerkarte copy = new Gegnerkarte(name, benoetigteRessourcen, typ);
+        copy.setAktuelleRessourcen(aktuelleRessourcen);
+        return copy;
     }
 
     public void setTyp(Gegnertyp pTyp) {
@@ -42,6 +48,10 @@ public class Gegnerkarte extends Karte {
 
     public Ressourcenkarte getAktuelleRessourcen() {
         return aktuelleRessourcen;
+    }
+
+    private void setAktuelleRessourcen(Ressourcenkarte pAktuellRessourcenkarte) {
+        aktuelleRessourcen = pAktuellRessourcenkarte;
     }
 
     public String toString() {

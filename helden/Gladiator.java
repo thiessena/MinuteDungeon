@@ -13,6 +13,7 @@ public class Gladiator extends Held {
      * Faehigkeit: 3x Karten ablegen und besiege eine Person
      */
     public Gladiator() {
+        super("Gladiator", "rot");
         /**
          * [3x public void karteRauslegen(Karte pKarte)] + set gegnerTyp, person = 0;
          */

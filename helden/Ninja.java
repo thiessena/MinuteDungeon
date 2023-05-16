@@ -17,7 +17,6 @@ public class Ninja extends Held {
         /**
          * 3x public void karteHinzufuegen + set gegnerTyp hindernis = 0;
          */
-
     }
 
 }

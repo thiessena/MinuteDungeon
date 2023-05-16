@@ -68,6 +68,12 @@ public class Spieler implements NetObject {
         return userId;
     }
 
+    public void fuelleHandkartenAuf() {
+        while (handkarten.getAnzahl() < 4 && nachziehstapel.getAnzahl() > 0) {
+            handkarten.karteHinzufuegen(nachziehstapel.getObersteKarte(), 0);
+        }
+    }
+
     public void setUserId(int pUserId) {
         userId = pUserId;
     }
@@ -86,10 +92,10 @@ public class Spieler implements NetObject {
     }
 
     public String toString() {
-        return "==[" + held.getHeldenname() + "]==[" +
-                nachziehstapel.toString() + "|" +
-                handkarten.toString() + "|" +
-                ablagestapel.toString() + "]==";
+        return "==[" + held.getHeldenname() + "]==\n" +
+                nachziehstapel.toString() + "|\n" +
+                handkarten.toString() + "|\n" +
+                ablagestapel.toString() + "\n==]";
     }
 
     /**

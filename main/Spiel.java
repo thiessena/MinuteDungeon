@@ -14,7 +14,6 @@ import helden.*;
  */
 public class Spiel implements Controller, NetObject {
     private static final Spiel instance = new Spiel();
-    HeldenFactory heldenFactory = new HeldenFactory();
 
     List<Spieler> spieler;
     int maxSpielerAnzahl = 6;
@@ -48,30 +47,23 @@ public class Spiel implements Controller, NetObject {
         return false;
     }
 
-    public boolean createSpieler(String pName, String pHeldname) {
-        if (spielerAnzahl == maxSpielerAnzahl)
-            return false;
-
-        Held h = HeldenFactory.create(pHeldname);
-        Kartenstapel k = new Kartenstapel(HeldenDeckFactory.create(h.getFarbe()));
-        Spieler pSpieler = new Spieler(h, k);
-        spieler.append(pSpieler);
-        spielerAnzahl++;
-        return true;
-    }
-
     /**
-     * Setzt für einen bestimmten Spieler den entsprechenden Helden.
+     * Setzt für einen bestimmten Spieler den entsprechenden Helden und erstellt das
+     * passende Deck.
      */
-    public void setHeld(Spieler pSpieler, Held pHeld) {
+    public boolean setHeld(Spieler pSpieler, Held pHeld) {
         boolean fertig = false;
         spieler.toFirst();
         while (spieler.hasAccess() && !fertig) {
             if (pSpieler.equals(spieler.getContent())) {
-                spieler.getContent().setHeld(pHeld);
+                pSpieler.setHeld(pHeld);
+                pSpieler.getNachziestapel().legeObenDrauf(HeldenDeckFactory.create(pHeld.getFarbe()));
+                pSpieler.getNachziestapel().mischen();
+                pSpieler.fuelleHandkartenAuf();
                 fertig = true;
             }
         }
+        return fertig;
     }
 
     /**

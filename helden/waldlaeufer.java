@@ -13,6 +13,7 @@ public class Waldlaeufer extends Held {
      * 3x Karten ablegen und besiege eine person.
      */
     public Waldlaeufer() {
+        super("Waldlaeufer", "gruen");
         /**
          * [3x public void karteRauslegen(Karte pKarte)] + set gegnerTyp, person = 0;
          */

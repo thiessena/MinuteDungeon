@@ -1,13 +1,12 @@
 package main;
 
-import gegner.GegnerFactory;
-import gegner.Gegnerkarte;
+import gegner.*;
 import karten.*;
 import netzwerk.NetObject;
 
 /**
- * Verwaltet alle Gegnerkarten, und stellt die passende GrÃ¶ÃŸe fÃ¼r den Level
- * und Schwierigkeitsgrad zur VerfÃ¼gung.
+ * Verwaltet alle Gegnerkarten, und stellt die passende Groesse fuer den Level
+ * und Schwierigkeitsgrad zur Verfuegung.
  * 
  * @author Viola, @StinckyMe
  */
@@ -39,8 +38,7 @@ public class Dungeon implements NetObject {
 
     private void init_Gegnerkarten() {
         gegnerkartenstapel = new Kartenstapel();
-        GegnerFactory gF = new GegnerFactory();
-        gegnerkartenstapel.legeObenDrauf(gF.getAlleGegnerkarten(), 12);
+        gegnerkartenstapel.legeObenDrauf(GegnerFactory.getAlleGegnerkarten(), 12);
     }
 
     /**
@@ -81,9 +79,9 @@ public class Dungeon implements NetObject {
         }
     }
 
-    public void heldenFaehigkeitSpielen(String pTyp) {
+    public void heldenFaehigkeitSpielen(Gegnertyp pTyp) {
         Gegnerkarte gK = (Gegnerkarte) gegnerkartenstapel.getObersteKarte();
-        if (pTyp.equals(gK.getTyp())) {
+        if (pTyp == gK.getTyp()) {
             naechsteGegnerKarte();
         }
     }

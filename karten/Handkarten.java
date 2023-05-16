@@ -16,6 +16,10 @@ public class Handkarten implements NetObject {
         handkarten = new List<Karte>();
     }
 
+    public Handkarten(List<Karte> pKartenListe) {
+        handkarten = pKartenListe;
+    }
+
     public String toString() {
         String ausgabe = "[[🫱: ";
         handkarten.toFirst();

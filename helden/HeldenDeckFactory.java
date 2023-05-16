@@ -1,6 +1,5 @@
 package helden;
 
-import java.util.Collections;
 import java.util.HashMap;
 
 import karten.Karte;
@@ -16,7 +15,7 @@ public class HeldenDeckFactory {
         aMap.put("lila", erstelleHeldenKartenLila());
         aMap.put("gruen", erstelleHeldenKartenGruen());
         aMap.put("blau", erstelleHeldenKartenBlau());
-        deckKarten = (HashMap<String, List<Karte>>) Collections.unmodifiableMap(aMap);
+        deckKarten = aMap;
     }
 
     public static List<Karte> create(String pFarbe) {

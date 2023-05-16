@@ -12,7 +12,7 @@ import java.util.Map;
 public class HeldenFactory {
     private static HashMap<String, Held> helden = new HashMap<String, Held>();
     static {
-        Map<String, Held> aMap = new HashMap<String, Held>();
+        HashMap<String, Held> aMap = new HashMap<String, Held>();
         aMap.put("Paladin", new Paladin());
         aMap.put("Walkuere", new Walkuere());
         aMap.put("Barbar", new Barbar());
@@ -23,7 +23,7 @@ public class HeldenFactory {
         aMap.put("Waldlaeufer", new Waldlaeufer());
         aMap.put("Magier", new Magier());
         aMap.put("Zauberin", new Zauberin());
-        helden = (HashMap<String, Held>) Collections.unmodifiableMap(aMap);
+        helden = aMap;
     }
 
     public static Held create(String pName) {

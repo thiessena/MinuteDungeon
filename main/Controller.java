@@ -7,7 +7,7 @@ import karten.List;
 public interface Controller {
     public void setView(View pView);
 
-    public void setHeld(Spieler pSpieler, Held pHeld);
+    public boolean setHeld(Spieler pSpieler, Held pHeld);
 
     public void setSchwierigkeitsgrad(int pSchwierigkeitsgrad);
 

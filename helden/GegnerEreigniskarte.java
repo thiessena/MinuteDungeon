@@ -1,6 +1,5 @@
 package helden;
 
-import java.util.Collections;
 import java.util.HashMap;
 
 import gegner.Gegnerkarte;
@@ -21,8 +20,9 @@ public class GegnerEreigniskarte extends Ereigniskarte {
         aMap.put("Haudrauf", new GegnerEreigniskarte("Haudrauf", "Monster", "Besiege 1 Monster"));
         aMap.put("Heilige Handgranate",
                 new GegnerEreigniskarte("Heilige Handgranate!", "Beliebig", "Besiege eine beliebige Karte"));
+        aMap.put("Riesensprung", new GegnerEreigniskarte("Riesensprung", "Hindernis", "Überwinde ein Hindernis"));
 
-        karten = (HashMap<String, GegnerEreigniskarte>) Collections.unmodifiableMap(aMap);
+        karten = aMap;
     }
 
     public static GegnerEreigniskarte create(String pName) {

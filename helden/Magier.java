@@ -13,9 +13,11 @@ public class Magier extends Held {
      */
 
     public Magier() {
+        super("Magier", "blau");
         /**
          * 3x public void karteHinzufuegen + set gegnerTyp hindernis = 0;
          */
+
     }
 
 }

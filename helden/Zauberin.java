@@ -8,6 +8,7 @@ public class Zauberin extends Held {
      */
 
     public Zauberin() {
+        super("Zauberin", "blau");
         /**
          * 3x public void karteHinzufuegen + set gegnerTyp hindernis = 0;
          * 

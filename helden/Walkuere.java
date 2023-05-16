@@ -14,6 +14,7 @@ public class Walkuere extends Held {
      * ziehen
      */
     public Walkuere() {
+        super("Walkuere", "gelb");
         /**
          * [3x public void karteRauslegen(Karte pKarte)] + 2x public void
          * karteHinzufuegen

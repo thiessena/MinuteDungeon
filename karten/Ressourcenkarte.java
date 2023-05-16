@@ -36,11 +36,13 @@ public class Ressourcenkarte extends Karte {
   }
 
   public String toString() {
-    return "(R> gelb:" + schild.getAnzahl() +
-        " rot:" + schwert.getAnzahl() +
-        " lila:" + sprung.getAnzahl() +
-        " blau:" + schriftrolle.getAnzahl() +
-        " gruen:" + pfeil.getAnzahl() + ")";
+    return "(R> " +
+        (schild.getAnzahl() > 0 ? "gelb:" + schild.getAnzahl() : "") +
+        (schwert.getAnzahl() > 0 ? " rot:" + schwert.getAnzahl() : "") +
+        (sprung.getAnzahl() > 0 ? " lila:" + sprung.getAnzahl() : "") +
+        (schriftrolle.getAnzahl() > 0 ? " blau:" + schriftrolle.getAnzahl() : "") +
+        (pfeil.getAnzahl() > 0 ? " gruen:" + pfeil.getAnzahl() : "")
+        + ")";
   }
 
   /**

@@ -31,12 +31,19 @@ public class Textgame implements View {
         System.out.flush();
         Spiel spiel = Spiel.getInstance();
         Textgame tGame = new Textgame(spiel);
-        System.out.println(spiel.addSpieler(tGame.getSpieler()));
+        spiel.addSpieler(tGame.getSpieler());
         tGame.zeigeHeldenAuswahl();
 
-        tGame.zeigeSpieler(tGame.getSpieler());
-        tGame.zeigeDungeon(spiel.getDungeon());
+        // tGame.zeigeSpieler(tGame.getSpieler());
+        // tGame.zeigeDungeon(spiel.getDungeon());
         // tGame.zeigeWarteBildschirm();
+        boolean ende = false;
+        while (!ende) {
+            System.out.print("\033[H\033[2J");
+            tGame.zeigeSpiel(spiel);
+            tGame.zeigeSteuerung(tGame.getSpieler());
+        }
+
     }
 
     /**
@@ -70,10 +77,10 @@ public class Textgame implements View {
     public void zeigeDungeon(Dungeon pDungen) {
         Gegnerkarte gK = pDungen.getAktuelleGegner();
         String gKString = gK != null ? gK.toString() : "[--]";
-        String dungenText = "##############################\n" +
+        String dungenText = "###################################################\n" +
                 "# Dungeon                    #\n" +
                 "# Akt-Gegner:" + gKString + "#\n" +
-                "##############################";
+                "###################################################";
         System.out.println(dungenText);
     }
 
@@ -91,7 +98,7 @@ public class Textgame implements View {
 
     @Override
     public void zeigeSpiel(Spiel pSpiel) {
-        System.out.println("===============================[Minute - Dungen]==============================");
+        System.out.println("================================[Minute - Dungen]===============================");
         zeigeDungeon(pSpiel.getDungeon());
         List<Spieler> spieler = pSpiel.getSpieler();
         spieler.toFirst();
@@ -119,6 +126,15 @@ public class Textgame implements View {
 
     }
 
+    public void zeigeSteuerung(Spieler pSpieler) {
+        System.out.println("h: Heldenfähigkeit nutzen \t oder Nummer der Karte wählen k: Karte spielen");
+        String auswahl = eingabeZeile.nextLine();
+        if ("h".equals(auswahl) || "H".equals(auswahl)) {
+            zeigeKartenAuswahl(spieler);
+        }
+
+    }
+
     @Override
     public void zeigeKartenAuswahl(Spieler pSpieler) {
         System.out.println("Welche Karten möchtest du auswaehlen?");
@@ -126,7 +142,12 @@ public class Textgame implements View {
         String zeile = eingabeZeile.nextLine();
         try {
             int[] zahlen = integerValues(zeile, ",");
-            controller.kartenAuswaehlen(pSpieler, zahlen);
+            if (zahlen.length > 2) {
+                controller.kartenAuswaehlen(pSpieler, zahlen);
+                controller.spezialFaehigkeitNutzen(pSpieler);
+            } else {
+                System.out.println("Es müssen drei Karten gewählt werden.");
+            }
         } catch (NumberFormatException nFE) {
             System.out.println("Die Zahlen wurden falsch eingegeben.");
         }

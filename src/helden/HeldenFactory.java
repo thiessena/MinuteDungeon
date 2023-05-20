@@ -1,8 +1,6 @@
 package helden;
 
-import java.util.Collections;
 import java.util.HashMap;
-import java.util.Map;
 
 /**
  * Verwaltet alle Helden und gibt die entsprechenden Herden zurück.

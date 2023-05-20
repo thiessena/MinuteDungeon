@@ -19,11 +19,11 @@ Tätigkeiten:
 -	Timer Startzeit festlegen
 -	Timer reset
 -	
--	Held auswählen
--	Kartenstapel mischen
+-	Held auswählen (x)
+-	Kartenstapel mischen (x)
 -	Karte vom Nachziehstapel ziehen
 -	Karte von der Hand ausspielen
--	3 Karten ablegen -> Fähigkeit ausführen
+-	3 Karten ablegen -> Fähigkeit ausführen (x)
 -	Gegnerkarte aufdecken
 -	Prüfen, ob der Gegner besiegt ist. 
 -	Gegnerkarte + Karten wegschieben

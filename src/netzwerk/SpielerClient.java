@@ -36,7 +36,7 @@ public class SpielerClient extends Client implements Controller {
             case "LOGIN_ERFOLGREICH":
                 int userId = Integer.parseInt(datenArray[1]);
                 Spieler mySpieler = new Spieler(userId, null, null);
-                view = new Textgame(mySpieler, this);
+                view = new Textgame(this);
                 send("LEVEL:");
                 break;
             case "LEVEL_FEHLT":
@@ -62,9 +62,9 @@ public class SpielerClient extends Client implements Controller {
     }
 
     @Override
-    public void setHeld(Spieler pSpieler, Held pHeld) {
+    public boolean setHeld(Spieler pSpieler, Held pHeld) {
         // TODO Auto-generated method stub
-
+        return false;
     }
 
     @Override
@@ -113,4 +113,5 @@ public class SpielerClient extends Client implements Controller {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'spezialFaehigkeitNutzen'");
     }
+
 }

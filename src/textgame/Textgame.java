@@ -2,7 +2,6 @@ package textgame;
 
 import karten.*;
 import main.*;
-import helden.*;
 
 import java.util.Scanner;
 
@@ -43,7 +42,6 @@ public class Textgame implements View {
             tGame.zeigeSpiel(spiel);
             tGame.zeigeSteuerung(tGame.getSpieler());
         }
-
     }
 
     /**

@@ -187,8 +187,7 @@ public class Spiel implements Controller, NetObject {
 
     @Override
     public void kartenAuswaehlen(Spieler pSpieler, int[] positionen) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'kartenAuswaehlen'");
+        pSpieler.getHandkarten().handkartenAuswaehlen(positionen);
     }
 
 }

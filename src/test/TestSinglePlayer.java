@@ -5,7 +5,6 @@ import helden.HeldenDeckFactory;
 import helden.HeldenFactory;
 import karten.Handkarten;
 import main.*;
-import textgame.*;
 
 public class TestSinglePlayer {
 

@@ -86,16 +86,18 @@ public class Spieler implements NetObject {
         if (handkarten.anzahlAusgewaehlterKarten() == 3) {
             ablagestapel.legeObenDrauf(handkarten.gibDreiAusgewaehlteKarten());
             held.nutzefaehigkeit();
+            fuelleHandkartenAuf();
             return true;
         }
         return false;
     }
 
     public String toString() {
-        return "==[" + held.getHeldenname() + "]==\n" +
+        return "-----{" + held.getHeldenname() + "}----\n" +
                 nachziehstapel.toString() + "|\n" +
                 handkarten.toString() + "|\n" +
-                ablagestapel.toString() + "\n==]";
+                ablagestapel.toString() +
+                "\n-------------------------------------]";
     }
 
     /**

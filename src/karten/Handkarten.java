@@ -1,5 +1,7 @@
 package karten;
 
+import java.util.Arrays;
+
 import netzwerk.NetObject;
 
 /**
@@ -143,6 +145,26 @@ public class Handkarten implements NetObject {
         if (handkarten.hasAccess()) {
             handkarten.getContent().setAusgewaehlt(true);
         }
+    }
+
+    public List<Karte> handkartenAuswaehlen(int[] positionenVonLinks) {
+        if (positionenVonLinks.length != 3) {
+            return null;
+        }
+        Arrays.sort(positionenVonLinks);
+        int k = 0;
+        handkarten.toFirst();
+        List<Karte> ausgewaehlteKarten = new List<Karte>();
+        for (int i = 0; handkarten.hasAccess() && i <= positionenVonLinks[positionenVonLinks.length - 1]; i++) {
+            if (i == positionenVonLinks[k]) {
+                Karte ausgewaehlt = handkarten.getContent();
+                ausgewaehlt.setAusgewaehlt(true);
+                ausgewaehlteKarten.append(ausgewaehlt);
+                handkarten.remove();
+            }
+            handkarten.next();
+        }
+        return ausgewaehlteKarten;
     }
 
     /**

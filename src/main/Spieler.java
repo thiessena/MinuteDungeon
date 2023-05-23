@@ -1,5 +1,6 @@
 package main;
 
+import karten.Karte;
 import karten.Handkarten;
 import karten.Kartenstapel;
 import netzwerk.NetObject;
@@ -48,7 +49,7 @@ public class Spieler implements NetObject {
         return held;
     }
 
-    public Kartenstapel getNachziestapel() {
+    public Kartenstapel getNachziehstapel() {
         return nachziehstapel;
     }
 
@@ -68,19 +69,33 @@ public class Spieler implements NetObject {
         return userId;
     }
 
+    public void setUserId(int pUserId) {
+        userId = pUserId;
+    }
+
     public void fuelleHandkartenAuf() {
         while (handkarten.getAnzahl() < 4 && nachziehstapel.getAnzahl() > 0) {
-            handkarten.karteHinzufuegen(nachziehstapel.getObersteKarte(), 0);
+            handkarten.karteHinzufuegen(nachziehstapel.gibObersteKarte(), 0);
         }
     }
 
-    public void setUserId(int pUserId) {
-        userId = pUserId;
+    /**
+     * Gibt die Karte der Handkarte an der Position position zurück.
+     * Füllt danach die Handkarten wieder auf.
+     * 
+     * @param position
+     * @return
+     */
+    public Karte karteSpielen(int position) {
+        Karte k = getHandkarten().gibHandkarte(position);
+        fuelleHandkartenAuf();
+        return k;
     }
 
     /**
      * Setzt die Faehigkeit des Helden ein.
      * Dafuer muessen drei Karten ausgewaehlt sein.
+     * Füllt die Handkarten direkt wieder auf.
      */
     public boolean faehigkeitEinsetzen() {
         if (handkarten.anzahlAusgewaehlterKarten() == 3) {

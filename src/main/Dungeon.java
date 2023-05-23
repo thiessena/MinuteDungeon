@@ -45,8 +45,6 @@ public class Dungeon implements NetObject {
      * Deckt die naechste Gegnerkarte auf.
      */
     public void naechsteGegnerKarte() {
-        // prufe ob die gegnerkarte nullist wenn ja dan entferne die Garte und leg die
-        // naechste
         Gegnerkarte aktGegner = (Gegnerkarte) (gegnerkartenstapel.getObersteKarte());
         if (aktGegner.getAktuelleRessourcen().getAlleRessourcenGleichNull()) {
             System.out.println("Gegner beseitigt!");
@@ -65,17 +63,27 @@ public class Dungeon implements NetObject {
 
     /**
      * Gibt die Moeglichkeit eine Karte zum Dungeon zu legen.
-     * Die Karte wird auf den Gegner angewendet. Bzw. von seinen REssourcen
+     * Die Karte wird auf den Gegner angewendet. Bzw. von seinen Ressourcen
      * abgezogen.
+     * Falls die Karte null ist, passiert nichts.
      * 
      * @param pKarte
      */
     public void karteSpielen(Karte pKarte) {
+        if (pKarte == null) {
+            return;
+        }
         if (pKarte instanceof Ressourcenkarte) {
-            ressourcenKarteSpielen((Ressourcenkarte) pKarte);
+            ((Gegnerkarte) gegnerkartenstapel.getObersteKarte()).karteSpielen((Ressourcenkarte) pKarte);
         }
         if (pKarte instanceof DeckEreigniskarte) {
 
+        }
+
+        naechsteGegnerKarte();
+        if (nochKartenVorhanden() == false) {
+            System.out.println("Wow du hast gewonnen wow wowowowowow");
+            // Spiel beenden
         }
     }
 
@@ -83,17 +91,6 @@ public class Dungeon implements NetObject {
         Gegnerkarte gK = (Gegnerkarte) gegnerkartenstapel.getObersteKarte();
         if (pTyp == gK.getTyp()) {
             naechsteGegnerKarte();
-        }
-    }
-
-    public void ressourcenKarteSpielen(Ressourcenkarte pRessourcenkarte) {
-        ((Gegnerkarte) gegnerkartenstapel.getObersteKarte())
-                .getAktuelleRessourcen()
-                .subtrahiere(pRessourcenkarte);
-        naechsteGegnerKarte();
-        if (nochKartenVorhanden() == false) {
-            System.out.println("Wow du hast gewonnen wow wowowowowow");
-            // Spiel beenden
         }
     }
 

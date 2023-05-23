@@ -129,6 +129,13 @@ public class Textgame implements View {
         String auswahl = eingabeZeile.nextLine();
         if ("h".equals(auswahl) || "H".equals(auswahl)) {
             zeigeKartenAuswahl(spieler);
+        } else {
+            try {
+                int k = Integer.parseInt(auswahl);
+                controller.karteSpielen(pSpieler, k);
+            } catch (NumberFormatException nE) {
+                System.out.println("Das ist keine Zahl");
+            }
         }
 
     }

@@ -54,7 +54,11 @@ public class Gegnerkarte extends Karte {
         aktuelleRessourcen = pAktuellRessourcenkarte;
     }
 
+    public void karteSpielen(Ressourcenkarte pRessourcenkarte) {
+        aktuelleRessourcen.subtrahiere(pRessourcenkarte);
+    }
+
     public String toString() {
-        return "{G:" + name + "(" + typ + ")" + benoetigteRessourcen.toString() + "}";
+        return "{G:" + name + "(" + typ + ")" + aktuelleRessourcen.toString() + "}";
     }
 }

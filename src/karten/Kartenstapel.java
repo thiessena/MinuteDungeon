@@ -33,17 +33,16 @@ public class Kartenstapel {
      * Mischt den Kartenstapel
      */
     public void mischen() {
-        int p = 0;
         int anzahl = getAnzahl();
-        while (p < 1000) {
+        for (int p = 0; p < anzahl / 3; p++) {
             karten.toFirst();
             Karte temp = karten.getContent();
-            int random = (int) (Math.random() * (anzahl + 1));
-            for (int i = 0; i < random; i++) {
+            karten.remove();
+            int r = (int) (Math.random() * anzahl);
+            for (int i = 0; i < r; i++) {
                 karten.next();
             }
             karten.insert(temp);
-            p++;
         }
     }
 
@@ -66,12 +65,25 @@ public class Kartenstapel {
     }
 
     /**
-     * Gibt die oberste Karte des Kartenstapels zurÃ¼ck.
-     * Falls es keine Karte im Stapel gibt, wird null zurÃ¼ckgegeben.
+     * Gibt die oberste Karte des Kartenstapels zurück.
+     * Falls es keine Karte im Stapel gibt, wird null zurückgegeben.
+     * Die oberste Karte wird nicht entfernt.
      * 
      * @return
      */
     public Karte getObersteKarte() {
+        karten.toFirst();
+        return karten.getContent();
+    }
+
+    /**
+     * Gibt die oberste Karte des Kartenstapels zurÃ¼ck.
+     * Falls es keine Karte im Stapel gibt, wird null zurÃ¼ckgegeben.
+     * Die oberste Karte wird aus dem Stapel entfernt.
+     * 
+     * @return
+     */
+    public Karte gibObersteKarte() {
         karten.toFirst();
         Karte k = karten.hasAccess() ? karten.getContent() : null;
         karten.remove();
@@ -129,16 +141,9 @@ public class Kartenstapel {
      * @param pKarte
      */
     public void legeObenDrauf(List<Karte> pKartenListe) {
-        karten.toFirst();
-        pKartenListe.toFirst();
-        while (pKartenListe.hasAccess()) {
-            if (karten.hasAccess()) {
-                karten.insert(pKartenListe.getContent());
-            } else {
-                karten.append(pKartenListe.getContent());
-            }
-            pKartenListe.next();
-        }
+        List<Karte> copy = pKartenListe.copyList();
+        copy.concat(karten);
+        karten = copy;
     }
 
     /**

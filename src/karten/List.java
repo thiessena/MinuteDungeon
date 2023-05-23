@@ -12,7 +12,8 @@ package karten;
  * angeordnete Objekte vom Typ ContentType. Auf hoechstens ein Listenobjekt,
  * aktuellesObjekt genannt, kann jeweils zugegriffen werden.<br />
  * Wenn eine Liste leer ist, vollstaendig durchlaufen wurde oder das aktuelle
- * Objekt am Ende der Liste geloescht wurde, gibt es kein aktuelles Objekt.<br />
+ * Objekt am Ende der Liste geloescht wurde, gibt es kein aktuelles
+ * Objekt.<br />
  * Das erste oder das letzte Objekt einer Liste koennen durch einen Auftrag zum
  * aktuellen Objekt gemacht werden. Ausserdem kann das dem aktuellen Objekt
  * folgende Listenobjekt zum neuen aktuellen Objekt werden. <br />
@@ -180,7 +181,7 @@ public class List<ContentType> {
 	 * geschieht nichts.
 	 * 
 	 * @param pContent
-	 *            Das zu schreibende Objekt vom Typ ContentType
+	 *                 Das zu schreibende Objekt vom Typ ContentType
 	 */
 	public void setContent(ContentType pContent) {
 		if (pContent != null && this.hasAccess()) // Nichts tun, wenn es keinen
@@ -199,7 +200,7 @@ public class List<ContentType> {
 	 * nicht leer ist oder pContent gleich null ist, geschieht nichts.
 	 * 
 	 * @param pContent
-	 *            Das einzufuegende Objekt vom Typ ContentType
+	 *                 Das einzufuegende Objekt vom Typ ContentType
 	 */
 	public void insert(ContentType pContent) {
 		if (pContent != null) { // Nichts tun, wenn es keine Inhalt gibt.
@@ -237,7 +238,7 @@ public class List<ContentType> {
 	 * und es gibt weiterhin kein aktuelles Objekt (hasAccess() == false).
 	 * 
 	 * @param pContent
-	 *            Das anzuhaengende Objekt vom Typ ContentType
+	 *                 Das anzuhaengende Objekt vom Typ ContentType
 	 */
 	public void append(ContentType pContent) {
 		if (pContent != null) { // Nichts tun, wenn es keine Inhalt gibt.
@@ -259,7 +260,7 @@ public class List<ContentType> {
 	 * unveraendert. Insbesondere bleibt hasAccess identisch.
 	 * 
 	 * @param pList
-	 *            die am Ende anzuhaengende Liste vom Typ List<ContentType>
+	 *              die am Ende anzuhaengende Liste vom Typ List<ContentType>
 	 */
 	public void concat(List<ContentType> pList) {
 		if (pList != null && !pList.isEmpty()) { // Nichts tun, wenn pList leer
@@ -312,12 +313,44 @@ public class List<ContentType> {
 	}
 
 	/**
+	 * Gibt eine Kopie der Liste zuürck.
+	 * 
+	 * @return
+	 */
+	public List<ContentType> copyList() {
+		List<ContentType> copy = new List<ContentType>();
+		ListNode temp = first;
+		while (temp != null) {
+			copy.append(temp.getContentObject());
+			temp = temp.getNextNode();
+		}
+		return copy;
+	}
+
+	/**
+	 * Kehrt die Reihenfolge der Liste um.
+	 */
+	public void reverse() {
+		List<ContentType> reverse = new List<ContentType>();
+		this.toFirst();
+		if (this.hasAccess()) {
+			reverse.append(getContent());
+			this.remove();
+		}
+		while (this.hasAccess()) {
+			reverse.insert(getContent());
+			this.remove();
+		}
+		this.concat(reverse);
+	}
+
+	/**
 	 * Liefert den Vorgaengerknoten des Knotens pNode. Ist die Liste leer, pNode
 	 * == null, pNode nicht in der Liste oder pNode der erste Knoten der Liste,
 	 * wird null zurueckgegeben.
 	 *
 	 * @param pNode
-	 *            der Knoten, dessen Vorgänger zurueckgegeben werden soll
+	 *              der Knoten, dessen Vorgänger zurueckgegeben werden soll
 	 * @return Der Vorgaenger des Knotens pNode oder null, falls Liste leer,
 	 *         pNode==null, pNode nicht in der Liste oder pNode des erste Knoten
 	 *         der Liste
@@ -332,8 +365,8 @@ public class List<ContentType> {
 			return null;
 		}
 	}
-	
-	public String toString () {
+
+	public String toString() {
 		this.toFirst();
 		String result = "";
 		while (this.hasAccess()) {

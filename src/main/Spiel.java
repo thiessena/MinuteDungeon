@@ -52,18 +52,22 @@ public class Spiel implements Controller, NetObject {
      * passende Deck.
      */
     public boolean setHeld(Spieler pSpieler, Held pHeld) {
-        boolean fertig = false;
+        boolean spielerVorhanden = false;
         spieler.toFirst();
-        while (spieler.hasAccess() && !fertig) {
+        while (spieler.hasAccess() && !spielerVorhanden) {
             if (pSpieler.equals(spieler.getContent())) {
-                pSpieler.setHeld(pHeld);
-                pSpieler.getNachziestapel().legeObenDrauf(HeldenDeckFactory.create(pHeld.getFarbe()));
-                pSpieler.getNachziestapel().mischen();
-                pSpieler.fuelleHandkartenAuf();
-                fertig = true;
+                spielerVorhanden = true;
             }
+            spieler.next();
         }
-        return fertig;
+        if (spielerVorhanden) {
+            pSpieler.setHeld(pHeld);
+            pSpieler.getNachziehstapel().legeObenDrauf(HeldenDeckFactory.create(pHeld.getFarbe()));
+            pSpieler.getNachziehstapel().mischen();
+            pSpieler.fuelleHandkartenAuf();
+        }
+
+        return spielerVorhanden;
     }
 
     /**
@@ -134,10 +138,8 @@ public class Spiel implements Controller, NetObject {
 
     @Override
     public void karteSpielen(Spieler pSpieler, int position) {
-        Karte k = pSpieler.getHandkarten().gibHandkarte(position);
-        if (k != null) {
-            dungeon.karteSpielen(k);
-        }
+        Karte pKarte = pSpieler.karteSpielen(position);
+        karteSpielen(pKarte);
     }
 
     @Override
